@@ -13,8 +13,8 @@ if not MP_API_KEY:
     )
 
 # 출력 경로 설정 (원하는 대로 바꾸세요)
-CIF_DIR = "./data/slab_data"
-PROC_DIR = "./data/processed"
+CIF_DIR = "../data/slab_data"
+PROC_DIR = "../data/processed"
 os.makedirs(CIF_DIR, exist_ok=True)
 os.makedirs(PROC_DIR, exist_ok=True)
 
