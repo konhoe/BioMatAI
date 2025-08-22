@@ -1,0 +1,6 @@
+pymatgen==2024.5.1        
+ase==3.25.0             
+matplotlib==3.10.1       
+numpy==2.2.6             
+scipy==1.15.3             
+python-dotenv==1.0.1      
