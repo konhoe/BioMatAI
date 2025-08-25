@@ -1,11 +1,11 @@
 import os, math
 from dotenv import load_dotenv
-from pymatgen.ext.matproj import MPRester
+from mp_api.client import MPRester
 from pymatgen.core.surface import SlabGenerator
 
 # 0) .env에서 키 로드
 load_dotenv()
-MP_API_KEY = os.environ.get("VBDCmJ1CxAtpjsQZN6W3IXDtPM2FLuqg")
+MP_API_KEY = os.environ.get("MATERIALS_PROJECT_API_KEY")
 if not MP_API_KEY:
     raise RuntimeError(
         "환경변수 MATERIALS_PROJECT_API_KEY가 비어 있습니다. "
