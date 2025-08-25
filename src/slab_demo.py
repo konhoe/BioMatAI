@@ -1,6 +1,8 @@
-import os, math
+import os
+import math
 from dotenv import load_dotenv
 from mp_api.client import MPRester
+from pymatgen.core.structure import Structure  # 빠져있던 import 구문 추가
 from pymatgen.core.surface import SlabGenerator
 
 # 0) .env에서 키 로드
@@ -12,17 +14,7 @@ if not MP_API_KEY:
         ".env에 MATERIALS_PROJECT_API_KEY=... 를 넣어주세요."
     )
 
-# --- 자동화할 재료 ID 목록 (이 부분을 원하는 대로 수정해!) ---
-MATERIAL_IDS = ["mp-246",
-"mp-28974",
-"mp-562468",
-"mp-1383199",
-"mp-1179375",
-"mp-2901880",
-"mp-282",
-"mp-1209717",
-"mp-1178963",
-"mp-634867"]  # 예시: Ti, Al, Cu
+# Miller Index 설정
 MILLER_INDEX = (0, 0, 1)
 
 # 출력 경로 설정 (원하는 대로 바꾸세요)
@@ -31,15 +23,16 @@ PROC_DIR = "../data/processed"
 os.makedirs(CIF_DIR, exist_ok=True)
 os.makedirs(PROC_DIR, exist_ok=True)
 
-def create_slab_files(mpr: MPRester, material_id: str):
+
+def create_slab_files(material_id: str, bulk_structure: Structure):
     """
-    주어진 material_id에 대해 slab을 생성하고 관련 파일들을 저장하는 함수
+    주어진 material_id와 구조(structure)에 대해 slab을 생성하고 관련 파일들을 저장하는 함수
     """
     try:
         print(f"--- {material_id} 처리 시작 ---")
 
-        # 1) Materials Project에서 구조 가져오기
-        bulk = mpr.get_structure_by_material_id(material_id)
+        # 1) 전달받은 구조를 바로 사용 (API 중복 호출 방지)
+        bulk = bulk_structure
         formula = bulk.composition.reduced_formula
 
         # 2) Slab 생성
@@ -49,7 +42,7 @@ def create_slab_files(mpr: MPRester, material_id: str):
             min_slab_size=25.0,
             min_vacuum_size=20.0,
             center_slab=True,
-            in_unit_planes=True
+            in_unit_planes=True,
         )
         slabs = sg.get_slabs()
         if not slabs:
@@ -59,7 +52,9 @@ def create_slab_files(mpr: MPRester, material_id: str):
         slab = slabs[0]
 
         # 3) (선택) MD 대비: lateral(가로/세로) 크기 확장
-        def to_nm(ang): return ang / 10.0
+        def to_nm(ang):
+            return ang / 10.0
+
         a_nm, b_nm = to_nm(slab.lattice.a), to_nm(slab.lattice.b)
         target_nm = 6.0
         na = max(1, math.ceil(target_nm / a_nm))
@@ -73,7 +68,7 @@ def create_slab_files(mpr: MPRester, material_id: str):
         freeze_idx = [i for i, z in enumerate(zs) if z <= z_thr]
 
         # 파일 이름에 재료 ID와 밀러 인덱스를 포함하도록 수정
-        miller_str = ''.join(map(str, MILLER_INDEX))
+        miller_str = "".join(map(str, MILLER_INDEX))
         base_filename = f"{material_id}_{miller_str}"
 
         freeze_path = os.path.join(PROC_DIR, f"{base_filename}_freeze_idx.txt")
@@ -94,11 +89,34 @@ def create_slab_files(mpr: MPRester, material_id: str):
     except Exception as e:
         print(f"❌ 오류: {material_id} 처리 중 문제가 발생했습니다: {e}")
 
+
 # --- 메인 실행 부분 ---
 if __name__ == "__main__":
+    # --- 검색하고 싶은 화학 시스템 목록 (이 부분을 수정해서 사용해!) ---
+    CHEMICAL_SYSTEMS = ["Ti-O", "Ti-N", "Ti-F", "Ti-Cl", "Ti-Br", "Ti-I", "Ti-B"]
+
     with MPRester(MP_API_KEY) as mpr:
-        for mid in MATERIAL_IDS:
-            create_slab_files(mpr, mid)
-            print("-" * 25)
+        # 지정된 각 화학 시스템에 대해 반복
+        for system in CHEMICAL_SYSTEMS:
+            print(f"========== 화학 시스템 '{system}' 검색 시작 ==========")
+            try:
+                # 화학 시스템으로 재료들을 검색 (ID와 구조 정보만 가져오기)
+                docs = mpr.materials.search(
+                    chemsys=system, fields=["material_id", "structure"]
+                )
+
+                if not docs:
+                    print(f"'{system}' 시스템에 해당하는 재료를 찾을 수 없습니다.")
+                    continue
+
+                print(f"총 {len(docs)}개의 재료를 찾았습니다. 슬랩 생성을 시작합니다.")
+
+                # 검색된 각 재료에 대해 슬랩 생성 함수를 호출
+                for doc in docs:
+                    create_slab_files(doc.material_id, bulk_structure=doc.structure)
+                    print("-" * 25)
+
+            except Exception as e:
+                print(f"❌ 오류: '{system}' 시스템 처리 중 문제가 발생했습니다: {e}")
 
     print("\n모든 작업이 완료되었습니다.")
