@@ -56,7 +56,7 @@ def create_slab_files(material_id: str, bulk_structure: Structure):
             return ang / 10.0
 
         a_nm, b_nm = to_nm(slab.lattice.a), to_nm(slab.lattice.b)
-        target_nm = 6.0
+        target_nm = 3.0
         na = max(1, math.ceil(target_nm / a_nm))
         nb = max(1, math.ceil(target_nm / b_nm))
         if na > 1 or nb > 1:
