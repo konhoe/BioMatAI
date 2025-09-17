@@ -1,0 +1,47 @@
+<ROSETTASCRIPTS>
+  <SCOREFXNS>
+    <!-- 기본 도킹용 scoring -->
+    <ScoreFunction name="r15_soft" weights="ref2015_soft.wts"/>
+    <ScoreFunction name="r15"      weights="ref2015.wts"/>
+  </SCOREFXNS>
+
+  <RESIDUE_SELECTORS>
+    <!-- 단백질과 SURF chain 정의 -->
+    <Chain name="protein" chains="A"/>
+    <Chain name="surf"    chains="S"/>
+    <Neighborhood name="iface_protein" selector="surf" distance="8.0" include_focus_in_subset="false"/>
+  </RESIDUE_SELECTORS>
+
+  <TASKOPERATIONS>
+    <InitializeFromCommandline name="init"/>
+    <RestrictToRepacking name="repack_only"/>
+    <!-- SURF 포인트는 packing 금지 -->
+    <OperateOnResidueSubset name="freeze_surf" selector="surf">
+      <PreventRepackingRLT/>
+    </OperateOnResidueSubset>
+    <!-- 단백질-표면 인터페이스는 리패킹 허용 -->
+    <OperateOnResidueSubset name="focus_iface" selector="iface_protein">
+      <RestrictToRepackingRLT/>
+    </OperateOnResidueSubset>
+  </TASKOPERATIONS>
+
+  <MOVERS>
+    <SetupForDocking name="setup" partners="A_S"/>
+    <DockingInitialPerturbation name="jit" trans="5.0" rot="15.0" slide="1"/>
+    <DockingProtocol name="dock"
+                     score_low="r15_soft" score_high="r15"
+                     task_operations="init,repack_only,freeze_surf,focus_iface"/>
+    <InterfaceAnalyzerMover name="ia" scorefxn="r15"
+                            interface="A_S"
+                            pack_input="false" pack_separated="true" packstat="false"/>
+  </MOVERS>
+
+  <PROTOCOLS>
+    <Add mover="setup"/>
+    <Add mover="jit"/>
+    <Add mover="dock"/>
+    <Add mover="ia"/>
+  </PROTOCOLS>
+
+  <OUTPUT scorefxn="r15"/>
+</ROSETTASCRIPTS>

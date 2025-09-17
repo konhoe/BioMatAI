@@ -1,0 +1,2197 @@
+##############################################################################################################
+#
+# Rosetta crash log. Please submit the contents of this file to http://crash.rosettacommons.org/
+# or use the script Rosetta/main/source/scripts/python/public/report_crashes.py
+#
+
+[START_CRASH_REPORT]
+[ROSETTA_VERSION]: 2024.09+release.06b3cf8ad0
+[COMMIT_DATE]: 2024-02-28T21:25:09.004217
+[APPLICATION]: /Users/junyoung/Desktop/BioMatAI/rosetta/rosetta.binary.m1.release-371/main/source/bin/docking_protocol.static.macosclangrelease
+[MODE]: Release
+[EXTRAS]: default
+[OS]: Apple Mac OS X
+[COMPILER]: Clang version "14.0.0 (clang-1400.0.29.202)"
+[STDLIB]: libc++ version 13000
+[START_OPTIONS]
+ -docking:partners=A_B -docking:randomize1 -docking:randomize2 -docking:spin -docking:dock_pert=5 15 -packing:resfile=/Users/junyoung/Desktop/BioMatAI/BioMAI/dock.resfile -packing:use_input_sc -packing:ex1 -packing:ex2aro -in:path:database=/Users/junyoung/Desktop/BioMatAI/rosetta/rosetta.binary.m1.release-371/main/database/ -in:file:s=/Users/junyoung/Desktop/BioMatAI/BioMAI/input/merged_A_B.pdb -out:nstruct=50 -out:file:scorefile=/Users/junyoung/Desktop/BioMatAI/BioMAI/output/dock_250917_203237/score.sc -out:path:all=/Users/junyoung/Desktop/BioMatAI/BioMAI/output/dock_250917_203237/
+
+[END_OPTIONS]
+
+[START_BACKTRACE]: RAW_LIBC
+0   docking_protocol.static.macosclangr 0x000000010421c77c backtrace_string(int) + 76
+1   docking_protocol.static.macosclangr 0x000000010422cbcc utility::excn::Exception::Exception(char const*, int, std::__1::basic_string<char, std::__1::char_traits<char>, std::__1::allocator<char>> const&) + 180
+2   docking_protocol.static.macosclangr 0x000000010421fbf4 utility::UtilityExitException::UtilityExitException(char const*, int, std::__1::basic_string<char, std::__1::char_traits<char>, std::__1::allocator<char>> const&) + 112
+3   docking_protocol.static.macosclangr 0x000000010421fb30 utility::exit(char const*, int, std::__1::basic_string<char, std::__1::char_traits<char>, std::__1::allocator<char>> const&, int) + 60
+4   docking_protocol.static.macosclangr 0x000000010319d428 core::io::pose_from_sfr::PoseFromSFRBuilder::is_residue_type_recognized(unsigned long, std::__1::basic_string<char, std::__1::char_traits<char>, std::__1::allocator<char>> const&, utility::vector1<std::__1::shared_ptr<core::chemical::ResidueType const>, std::__1::allocator<std::__1::shared_ptr<core::chemical::ResidueType const>>> const&) + 416
+5   docking_protocol.static.macosclangr 0x0000000103198348 core::io::pose_from_sfr::PoseFromSFRBuilder::is_residue_type_recognized(unsigned long, std::__1::basic_string<char, std::__1::char_traits<char>, std::__1::allocator<char>> const&, bool&) + 520
+6   docking_protocol.static.macosclangr 0x000000010318c938 core::io::pose_from_sfr::PoseFromSFRBuilder::pass_2_resolve_residue_types() + 1040
+7   docking_protocol.static.macosclangr 0x0000000103186d80 core::io::pose_from_sfr::PoseFromSFRBuilder::build_pose(core::io::StructFileRep const&, core::pose::Pose&) + 248
+8   docking_protocol.static.macosclangr 0x0000000102a81e98 core::import_pose::build_pose_as_is(std::__1::shared_ptr<core::io::StructFileRep>, core::pose::Pose&, core::chemical::ResidueTypeSet const&, core::import_pose::ImportPoseOptions const&) + 168
+9   docking_protocol.static.macosclangr 0x0000000102a7fdd8 core::import_pose::build_pose(std::__1::shared_ptr<core::io::StructFileRep>, core::pose::Pose&, core::chemical::ResidueTypeSet const&, core::import_pose::ImportPoseOptions const&) + 228
+10  docking_protocol.static.macosclangr 0x0000000102a7f5a8 core::import_pose::pose_from_file(core::pose::Pose&, core::chemical::ResidueTypeSet const&, std::__1::basic_string<char, std::__1::char_traits<char>, std::__1::allocator<char>> const&, core::import_pose::ImportPoseOptions const&, bool, core::import_pose::FileType) + 2356
+11  docking_protocol.static.macosclangr 0x0000000102a7e090 core::import_pose::pose_from_file(core::pose::Pose&, std::__1::basic_string<char, std::__1::char_traits<char>, std::__1::allocator<char>> const&, core::import_pose::ImportPoseOptions const&, bool, core::import_pose::FileType) + 124
+12  docking_protocol.static.macosclangr 0x0000000102a7ce90 core::import_pose::pose_from_file(core::pose::Pose&, std::__1::basic_string<char, std::__1::char_traits<char>, std::__1::allocator<char>> const&, bool, core::import_pose::FileType) + 72
+13  docking_protocol.static.macosclangr 0x0000000102922158 protocols::jd2::PDBJobInputter::pose_from_job(core::pose::Pose&, std::__1::shared_ptr<protocols::jd2::Job>) + 1900
+14  docking_protocol.static.macosclangr 0x00000001029062b4 protocols::jd2::JobDistributor::run_one_job(std::__1::shared_ptr<protocols::moves::Mover>&, long, std::__1::basic_string<char, std::__1::char_traits<char>, std::__1::allocator<char>>&, std::__1::basic_string<char, std::__1::char_traits<char>, std::__1::allocator<char>>&, unsigned long&, unsigned long&, bool) + 1396
+15  docking_protocol.static.macosclangr 0x0000000102904eb4 protocols::jd2::JobDistributor::go_main(std::__1::shared_ptr<protocols::moves::Mover>) + 136
+16  docking_protocol.static.macosclangr 0x0000000102900360 protocols::jd2::FileSystemJobDistributor::go(std::__1::shared_ptr<protocols::moves::Mover>) + 72
+17  docking_protocol.static.macosclangr 0x000000010076b910 my_main(void*) + 980
+18  docking_protocol.static.macosclangr 0x000000010076bbec main + 60
+19  dyld                                0x000000018abe2b98 start + 6076
+
+[END_BACKTRACE]
+
+[FILE]: src/core/io/pose_from_sfr/PoseFromSFRBuilder.cc
+[LINE]: 1821
+[START_MESSAGE]
+[ ERROR ] UtilityExitException
+ERROR: Unrecognized residue:    
+
+
+
+[END_MESSAGE]
+[END_CRASH_REPORT]
+
+##############################################################################################################
+#
+# Rosetta crash log. Please submit the contents of this file to http://crash.rosettacommons.org/
+# or use the script Rosetta/main/source/scripts/python/public/report_crashes.py
+#
+
+[START_CRASH_REPORT]
+[ROSETTA_VERSION]: 2024.09+release.06b3cf8ad0
+[COMMIT_DATE]: 2024-02-28T21:25:09.004217
+[APPLICATION]: /Users/junyoung/Desktop/BioMatAI/rosetta/rosetta.binary.m1.release-371/main/source/bin/docking_protocol.static.macosclangrelease
+[MODE]: Release
+[EXTRAS]: default
+[OS]: Apple Mac OS X
+[COMPILER]: Clang version "14.0.0 (clang-1400.0.29.202)"
+[STDLIB]: libc++ version 13000
+[START_OPTIONS]
+ -docking:partners=A_B -docking:randomize1 -docking:randomize2 -docking:spin -docking:dock_pert=5 15 -packing:resfile=/Users/junyoung/Desktop/BioMatAI/BioMAI/dock.resfile -packing:use_input_sc -packing:ex1 -packing:ex2aro -in:path:database=/Users/junyoung/Desktop/BioMatAI/rosetta/rosetta.binary.m1.release-371/main/database/ -in:file:s=/Users/junyoung/Desktop/BioMatAI/BioMAI/input/merged_A_B.pdb -out:nstruct=50 -out:file:scorefile=/Users/junyoung/Desktop/BioMatAI/BioMAI/output/dock_250917_203657/score.sc -out:path:all=/Users/junyoung/Desktop/BioMatAI/BioMAI/output/dock_250917_203657/
+
+[END_OPTIONS]
+
+[START_BACKTRACE]: RAW_LIBC
+1   docking_protocol.static.macosclangr 0x0000000103b253b0 utility::signal_handler(int) + 328
+2   libsystem_platform.dylib            0x000000018afbd6a4 _sigtramp + 56
+3   docking_protocol.static.macosclangr 0x0000000100fcf2c4 protocols::docking::DockingProtocol::finalize_setup(core::pose::Pose&) + 2948
+4   docking_protocol.static.macosclangr 0x0000000100fd41b8 protocols::docking::DockingProtocol::apply(core::pose::Pose&) + 840
+5   docking_protocol.static.macosclangr 0x000000010220f8cc protocols::jd2::JobDistributor::run_one_job(std::__1::shared_ptr<protocols::moves::Mover>&, long, std::__1::basic_string<char, std::__1::char_traits<char>, std::__1::allocator<char>>&, std::__1::basic_string<char, std::__1::char_traits<char>, std::__1::allocator<char>>&, unsigned long&, unsigned long&, bool) + 7052
+6   docking_protocol.static.macosclangr 0x000000010220ceb4 protocols::jd2::JobDistributor::go_main(std::__1::shared_ptr<protocols::moves::Mover>) + 136
+7   docking_protocol.static.macosclangr 0x0000000102208360 protocols::jd2::FileSystemJobDistributor::go(std::__1::shared_ptr<protocols::moves::Mover>) + 72
+8   docking_protocol.static.macosclangr 0x0000000100073910 my_main(void*) + 980
+9   docking_protocol.static.macosclangr 0x0000000100073bec main + 60
+10  dyld                                0x000000018abe2b98 start + 6076
+
+[END_BACKTRACE]
+
+[FILE]: SIGSEGV
+[LINE]: 11
+[START_MESSAGE]
+Segmentation Fault
+
+[END_MESSAGE]
+[END_CRASH_REPORT]
+
+##############################################################################################################
+#
+# Rosetta crash log. Please submit the contents of this file to http://crash.rosettacommons.org/
+# or use the script Rosetta/main/source/scripts/python/public/report_crashes.py
+#
+
+[START_CRASH_REPORT]
+[ROSETTA_VERSION]: 2024.09+release.06b3cf8ad0
+[COMMIT_DATE]: 2024-02-28T21:25:09.004217
+[APPLICATION]: /Users/junyoung/Desktop/BioMatAI/rosetta/rosetta.binary.m1.release-371/main/source/bin/surface_docking.static.macosclangrelease
+[MODE]: Release
+[EXTRAS]: default
+[OS]: Apple Mac OS X
+[COMPILER]: Clang version "14.0.0 (clang-1400.0.29.202)"
+[STDLIB]: libc++ version 13000
+[START_OPTIONS]
+ -in:include_surfaces -in:path:database=/Users/junyoung/Desktop/BioMatAI/rosetta/rosetta.binary.m1.release-371/main/database/ -in:file:s=/Users/junyoung/Desktop/BioMatAI/BioMAI/input/merged_A_B.pdb -in:file:surface_vectors=/Users/junyoung/Desktop/BioMatAI/BioMAI/input/surface_vectors.txt -out:nstruct=50 -out:mute=all -out:unmute=protocols.SurfaceDocking -out:file:scorefile=/Users/junyoung/Desktop/BioMatAI/BioMAI/output/surface_dock_250917_204028/score.sc -out:path:all=/Users/junyoung/Desktop/BioMatAI/BioMAI/output/surface_dock_250917_204028/ -packing:resfile=/Users/junyoung/Desktop/BioMatAI/BioMAI/dock.resfile -packing:use_input_sc -packing:ex1 -packing:ex2aro -docking:partners=A_B -docking:randomize1 -docking:randomize2 -docking:use_ellipsoidal_randomization -docking:spin -docking:dock_pert=3 8
+
+[END_OPTIONS]
+
+[START_BACKTRACE]: RAW_LIBC
+0   surface_docking.static.macosclangre 0x0000000103cae904 backtrace_string(int) + 76
+1   surface_docking.static.macosclangre 0x0000000103cbec44 utility::excn::Exception::Exception(char const*, int, std::__1::basic_string<char, std::__1::char_traits<char>, std::__1::allocator<char>> const&) + 180
+2   surface_docking.static.macosclangre 0x0000000100cc855c protocols::surface_docking::SurfaceVectorLoader::create_surface_params(std::__1::basic_string<char, std::__1::char_traits<char>, std::__1::allocator<char>> const&, std::__1::basic_istream<char, std::__1::char_traits<char>>&) + 1768
+3   surface_docking.static.macosclangre 0x0000000100cc1dec protocols::surface_docking::SurfaceDockingProtocol::set_surface_parameters(core::pose::Pose&) + 300
+4   surface_docking.static.macosclangre 0x0000000100cc13f4 protocols::surface_docking::SurfaceDockingProtocol::apply(core::pose::Pose&) + 192
+5   surface_docking.static.macosclangre 0x000000010239d894 protocols::jd2::JobDistributor::run_one_job(std::__1::shared_ptr<protocols::moves::Mover>&, long, std::__1::basic_string<char, std::__1::char_traits<char>, std::__1::allocator<char>>&, std::__1::basic_string<char, std::__1::char_traits<char>, std::__1::allocator<char>>&, unsigned long&, unsigned long&, bool) + 7052
+6   surface_docking.static.macosclangre 0x000000010239ae7c protocols::jd2::JobDistributor::go_main(std::__1::shared_ptr<protocols::moves::Mover>) + 136
+7   surface_docking.static.macosclangre 0x00000001023961e0 protocols::jd2::FileSystemJobDistributor::go(std::__1::shared_ptr<protocols::moves::Mover>) + 72
+8   surface_docking.static.macosclangre 0x00000001001f0c7c main + 244
+9   dyld                                0x000000018abe2b98 start + 6076
+
+[END_BACKTRACE]
+
+[FILE]: src/protocols/surface_docking/SurfaceVectorLoader.cc
+[LINE]: 105
+[START_MESSAGE]
+SurfaceVectorLoader expected to be given exactly three points to define the periodicity of the surface, but less than three points were provided in /Users/junyoung/Desktop/BioMatAI/BioMAI/input/surface_vectors.txt.
+
+[END_MESSAGE]
+[END_CRASH_REPORT]
+
+##############################################################################################################
+#
+# Rosetta crash log. Please submit the contents of this file to http://crash.rosettacommons.org/
+# or use the script Rosetta/main/source/scripts/python/public/report_crashes.py
+#
+
+[START_CRASH_REPORT]
+[ROSETTA_VERSION]: 2024.09+release.06b3cf8ad0
+[COMMIT_DATE]: 2024-02-28T21:25:09.004217
+[APPLICATION]: /Users/junyoung/Desktop/BioMatAI/rosetta/rosetta.binary.m1.release-371/main/source/bin/surface_docking.static.macosclangrelease
+[MODE]: Release
+[EXTRAS]: default
+[OS]: Apple Mac OS X
+[COMPILER]: Clang version "14.0.0 (clang-1400.0.29.202)"
+[STDLIB]: libc++ version 13000
+[START_OPTIONS]
+ -in:include_surfaces -in:path:database=/Users/junyoung/Desktop/BioMatAI/rosetta/rosetta.binary.m1.release-371/main/database/ -in:file:s=/Users/junyoung/Desktop/BioMatAI/BioMAI/input/merged_A_B.pdb -in:file:surface_vectors=/Users/junyoung/Desktop/BioMatAI/BioMAI/input/surface_vectors.txt -out:nstruct=50 -out:mute=all -out:unmute=protocols.SurfaceDocking -out:file:scorefile=/Users/junyoung/Desktop/BioMatAI/BioMAI/output/surface_dock_250917_204028/score.sc -out:path:all=/Users/junyoung/Desktop/BioMatAI/BioMAI/output/surface_dock_250917_204028/ -packing:resfile=/Users/junyoung/Desktop/BioMatAI/BioMAI/dock.resfile -packing:use_input_sc -packing:ex1 -packing:ex2aro -docking:partners=A_B -docking:randomize1 -docking:randomize2 -docking:use_ellipsoidal_randomization -docking:spin -docking:dock_pert=3 8
+
+[END_OPTIONS]
+
+[START_BACKTRACE]: RAW_LIBC
+0   surface_docking.static.macosclangre 0x0000000103cae904 backtrace_string(int) + 76
+1   surface_docking.static.macosclangre 0x0000000103cbec44 utility::excn::Exception::Exception(char const*, int, std::__1::basic_string<char, std::__1::char_traits<char>, std::__1::allocator<char>> const&) + 180
+2   surface_docking.static.macosclangre 0x0000000100cc855c protocols::surface_docking::SurfaceVectorLoader::create_surface_params(std::__1::basic_string<char, std::__1::char_traits<char>, std::__1::allocator<char>> const&, std::__1::basic_istream<char, std::__1::char_traits<char>>&) + 1768
+3   surface_docking.static.macosclangre 0x0000000100cc1dec protocols::surface_docking::SurfaceDockingProtocol::set_surface_parameters(core::pose::Pose&) + 300
+4   surface_docking.static.macosclangre 0x0000000100cc13f4 protocols::surface_docking::SurfaceDockingProtocol::apply(core::pose::Pose&) + 192
+5   surface_docking.static.macosclangre 0x000000010239d894 protocols::jd2::JobDistributor::run_one_job(std::__1::shared_ptr<protocols::moves::Mover>&, long, std::__1::basic_string<char, std::__1::char_traits<char>, std::__1::allocator<char>>&, std::__1::basic_string<char, std::__1::char_traits<char>, std::__1::allocator<char>>&, unsigned long&, unsigned long&, bool) + 7052
+6   surface_docking.static.macosclangre 0x000000010239ae7c protocols::jd2::JobDistributor::go_main(std::__1::shared_ptr<protocols::moves::Mover>) + 136
+7   surface_docking.static.macosclangre 0x00000001023961e0 protocols::jd2::FileSystemJobDistributor::go(std::__1::shared_ptr<protocols::moves::Mover>) + 72
+8   surface_docking.static.macosclangre 0x00000001001f0c7c main + 244
+9   dyld                                0x000000018abe2b98 start + 6076
+
+[END_BACKTRACE]
+
+[FILE]: src/protocols/surface_docking/SurfaceVectorLoader.cc
+[LINE]: 105
+[START_MESSAGE]
+SurfaceVectorLoader expected to be given exactly three points to define the periodicity of the surface, but less than three points were provided in /Users/junyoung/Desktop/BioMatAI/BioMAI/input/surface_vectors.txt.
+
+[END_MESSAGE]
+[END_CRASH_REPORT]
+
+##############################################################################################################
+#
+# Rosetta crash log. Please submit the contents of this file to http://crash.rosettacommons.org/
+# or use the script Rosetta/main/source/scripts/python/public/report_crashes.py
+#
+
+[START_CRASH_REPORT]
+[ROSETTA_VERSION]: 2024.09+release.06b3cf8ad0
+[COMMIT_DATE]: 2024-02-28T21:25:09.004217
+[APPLICATION]: /Users/junyoung/Desktop/BioMatAI/rosetta/rosetta.binary.m1.release-371/main/source/bin/surface_docking.static.macosclangrelease
+[MODE]: Release
+[EXTRAS]: default
+[OS]: Apple Mac OS X
+[COMPILER]: Clang version "14.0.0 (clang-1400.0.29.202)"
+[STDLIB]: libc++ version 13000
+[START_OPTIONS]
+ -in:include_surfaces -in:path:database=/Users/junyoung/Desktop/BioMatAI/rosetta/rosetta.binary.m1.release-371/main/database/ -in:file:s=/Users/junyoung/Desktop/BioMatAI/BioMAI/input/merged_A_B.pdb -in:file:surface_vectors=/Users/junyoung/Desktop/BioMatAI/BioMAI/input/surface_vectors.txt -out:nstruct=50 -out:mute=all -out:unmute=protocols.SurfaceDocking -out:file:scorefile=/Users/junyoung/Desktop/BioMatAI/BioMAI/output/surface_dock_250917_204028/score.sc -out:path:all=/Users/junyoung/Desktop/BioMatAI/BioMAI/output/surface_dock_250917_204028/ -packing:resfile=/Users/junyoung/Desktop/BioMatAI/BioMAI/dock.resfile -packing:use_input_sc -packing:ex1 -packing:ex2aro -docking:partners=A_B -docking:randomize1 -docking:randomize2 -docking:use_ellipsoidal_randomization -docking:spin -docking:dock_pert=3 8
+
+[END_OPTIONS]
+
+[START_BACKTRACE]: RAW_LIBC
+0   surface_docking.static.macosclangre 0x0000000103cae904 backtrace_string(int) + 76
+1   surface_docking.static.macosclangre 0x0000000103cbec44 utility::excn::Exception::Exception(char const*, int, std::__1::basic_string<char, std::__1::char_traits<char>, std::__1::allocator<char>> const&) + 180
+2   surface_docking.static.macosclangre 0x0000000100cc855c protocols::surface_docking::SurfaceVectorLoader::create_surface_params(std::__1::basic_string<char, std::__1::char_traits<char>, std::__1::allocator<char>> const&, std::__1::basic_istream<char, std::__1::char_traits<char>>&) + 1768
+3   surface_docking.static.macosclangre 0x0000000100cc1dec protocols::surface_docking::SurfaceDockingProtocol::set_surface_parameters(core::pose::Pose&) + 300
+4   surface_docking.static.macosclangre 0x0000000100cc13f4 protocols::surface_docking::SurfaceDockingProtocol::apply(core::pose::Pose&) + 192
+5   surface_docking.static.macosclangre 0x000000010239d894 protocols::jd2::JobDistributor::run_one_job(std::__1::shared_ptr<protocols::moves::Mover>&, long, std::__1::basic_string<char, std::__1::char_traits<char>, std::__1::allocator<char>>&, std::__1::basic_string<char, std::__1::char_traits<char>, std::__1::allocator<char>>&, unsigned long&, unsigned long&, bool) + 7052
+6   surface_docking.static.macosclangre 0x000000010239ae7c protocols::jd2::JobDistributor::go_main(std::__1::shared_ptr<protocols::moves::Mover>) + 136
+7   surface_docking.static.macosclangre 0x00000001023961e0 protocols::jd2::FileSystemJobDistributor::go(std::__1::shared_ptr<protocols::moves::Mover>) + 72
+8   surface_docking.static.macosclangre 0x00000001001f0c7c main + 244
+9   dyld                                0x000000018abe2b98 start + 6076
+
+[END_BACKTRACE]
+
+[FILE]: src/protocols/surface_docking/SurfaceVectorLoader.cc
+[LINE]: 105
+[START_MESSAGE]
+SurfaceVectorLoader expected to be given exactly three points to define the periodicity of the surface, but less than three points were provided in /Users/junyoung/Desktop/BioMatAI/BioMAI/input/surface_vectors.txt.
+
+[END_MESSAGE]
+[END_CRASH_REPORT]
+
+##############################################################################################################
+#
+# Rosetta crash log. Please submit the contents of this file to http://crash.rosettacommons.org/
+# or use the script Rosetta/main/source/scripts/python/public/report_crashes.py
+#
+
+[START_CRASH_REPORT]
+[ROSETTA_VERSION]: 2024.09+release.06b3cf8ad0
+[COMMIT_DATE]: 2024-02-28T21:25:09.004217
+[APPLICATION]: /Users/junyoung/Desktop/BioMatAI/rosetta/rosetta.binary.m1.release-371/main/source/bin/surface_docking.static.macosclangrelease
+[MODE]: Release
+[EXTRAS]: default
+[OS]: Apple Mac OS X
+[COMPILER]: Clang version "14.0.0 (clang-1400.0.29.202)"
+[STDLIB]: libc++ version 13000
+[START_OPTIONS]
+ -in:include_surfaces -in:path:database=/Users/junyoung/Desktop/BioMatAI/rosetta/rosetta.binary.m1.release-371/main/database/ -in:file:s=/Users/junyoung/Desktop/BioMatAI/BioMAI/input/merged_A_B.pdb -in:file:surface_vectors=/Users/junyoung/Desktop/BioMatAI/BioMAI/input/surface_vectors.txt -out:nstruct=50 -out:mute=all -out:unmute=protocols.SurfaceDocking -out:file:scorefile=/Users/junyoung/Desktop/BioMatAI/BioMAI/output/surface_dock_250917_204028/score.sc -out:path:all=/Users/junyoung/Desktop/BioMatAI/BioMAI/output/surface_dock_250917_204028/ -packing:resfile=/Users/junyoung/Desktop/BioMatAI/BioMAI/dock.resfile -packing:use_input_sc -packing:ex1 -packing:ex2aro -docking:partners=A_B -docking:randomize1 -docking:randomize2 -docking:use_ellipsoidal_randomization -docking:spin -docking:dock_pert=3 8
+
+[END_OPTIONS]
+
+[START_BACKTRACE]: RAW_LIBC
+0   surface_docking.static.macosclangre 0x0000000103cae904 backtrace_string(int) + 76
+1   surface_docking.static.macosclangre 0x0000000103cbec44 utility::excn::Exception::Exception(char const*, int, std::__1::basic_string<char, std::__1::char_traits<char>, std::__1::allocator<char>> const&) + 180
+2   surface_docking.static.macosclangre 0x0000000100cc855c protocols::surface_docking::SurfaceVectorLoader::create_surface_params(std::__1::basic_string<char, std::__1::char_traits<char>, std::__1::allocator<char>> const&, std::__1::basic_istream<char, std::__1::char_traits<char>>&) + 1768
+3   surface_docking.static.macosclangre 0x0000000100cc1dec protocols::surface_docking::SurfaceDockingProtocol::set_surface_parameters(core::pose::Pose&) + 300
+4   surface_docking.static.macosclangre 0x0000000100cc13f4 protocols::surface_docking::SurfaceDockingProtocol::apply(core::pose::Pose&) + 192
+5   surface_docking.static.macosclangre 0x000000010239d894 protocols::jd2::JobDistributor::run_one_job(std::__1::shared_ptr<protocols::moves::Mover>&, long, std::__1::basic_string<char, std::__1::char_traits<char>, std::__1::allocator<char>>&, std::__1::basic_string<char, std::__1::char_traits<char>, std::__1::allocator<char>>&, unsigned long&, unsigned long&, bool) + 7052
+6   surface_docking.static.macosclangre 0x000000010239ae7c protocols::jd2::JobDistributor::go_main(std::__1::shared_ptr<protocols::moves::Mover>) + 136
+7   surface_docking.static.macosclangre 0x00000001023961e0 protocols::jd2::FileSystemJobDistributor::go(std::__1::shared_ptr<protocols::moves::Mover>) + 72
+8   surface_docking.static.macosclangre 0x00000001001f0c7c main + 244
+9   dyld                                0x000000018abe2b98 start + 6076
+
+[END_BACKTRACE]
+
+[FILE]: src/protocols/surface_docking/SurfaceVectorLoader.cc
+[LINE]: 105
+[START_MESSAGE]
+SurfaceVectorLoader expected to be given exactly three points to define the periodicity of the surface, but less than three points were provided in /Users/junyoung/Desktop/BioMatAI/BioMAI/input/surface_vectors.txt.
+
+[END_MESSAGE]
+[END_CRASH_REPORT]
+
+##############################################################################################################
+#
+# Rosetta crash log. Please submit the contents of this file to http://crash.rosettacommons.org/
+# or use the script Rosetta/main/source/scripts/python/public/report_crashes.py
+#
+
+[START_CRASH_REPORT]
+[ROSETTA_VERSION]: 2024.09+release.06b3cf8ad0
+[COMMIT_DATE]: 2024-02-28T21:25:09.004217
+[APPLICATION]: /Users/junyoung/Desktop/BioMatAI/rosetta/rosetta.binary.m1.release-371/main/source/bin/surface_docking.static.macosclangrelease
+[MODE]: Release
+[EXTRAS]: default
+[OS]: Apple Mac OS X
+[COMPILER]: Clang version "14.0.0 (clang-1400.0.29.202)"
+[STDLIB]: libc++ version 13000
+[START_OPTIONS]
+ -in:include_surfaces -in:path:database=/Users/junyoung/Desktop/BioMatAI/rosetta/rosetta.binary.m1.release-371/main/database/ -in:file:s=/Users/junyoung/Desktop/BioMatAI/BioMAI/input/merged_A_B.pdb -in:file:surface_vectors=/Users/junyoung/Desktop/BioMatAI/BioMAI/input/surface_vectors.txt -out:nstruct=50 -out:mute=all -out:unmute=protocols.SurfaceDocking -out:file:scorefile=/Users/junyoung/Desktop/BioMatAI/BioMAI/output/surface_dock_250917_204028/score.sc -out:path:all=/Users/junyoung/Desktop/BioMatAI/BioMAI/output/surface_dock_250917_204028/ -packing:resfile=/Users/junyoung/Desktop/BioMatAI/BioMAI/dock.resfile -packing:use_input_sc -packing:ex1 -packing:ex2aro -docking:partners=A_B -docking:randomize1 -docking:randomize2 -docking:use_ellipsoidal_randomization -docking:spin -docking:dock_pert=3 8
+
+[END_OPTIONS]
+
+[START_BACKTRACE]: RAW_LIBC
+0   surface_docking.static.macosclangre 0x0000000103cae904 backtrace_string(int) + 76
+1   surface_docking.static.macosclangre 0x0000000103cbec44 utility::excn::Exception::Exception(char const*, int, std::__1::basic_string<char, std::__1::char_traits<char>, std::__1::allocator<char>> const&) + 180
+2   surface_docking.static.macosclangre 0x0000000100cc855c protocols::surface_docking::SurfaceVectorLoader::create_surface_params(std::__1::basic_string<char, std::__1::char_traits<char>, std::__1::allocator<char>> const&, std::__1::basic_istream<char, std::__1::char_traits<char>>&) + 1768
+3   surface_docking.static.macosclangre 0x0000000100cc1dec protocols::surface_docking::SurfaceDockingProtocol::set_surface_parameters(core::pose::Pose&) + 300
+4   surface_docking.static.macosclangre 0x0000000100cc13f4 protocols::surface_docking::SurfaceDockingProtocol::apply(core::pose::Pose&) + 192
+5   surface_docking.static.macosclangre 0x000000010239d894 protocols::jd2::JobDistributor::run_one_job(std::__1::shared_ptr<protocols::moves::Mover>&, long, std::__1::basic_string<char, std::__1::char_traits<char>, std::__1::allocator<char>>&, std::__1::basic_string<char, std::__1::char_traits<char>, std::__1::allocator<char>>&, unsigned long&, unsigned long&, bool) + 7052
+6   surface_docking.static.macosclangre 0x000000010239ae7c protocols::jd2::JobDistributor::go_main(std::__1::shared_ptr<protocols::moves::Mover>) + 136
+7   surface_docking.static.macosclangre 0x00000001023961e0 protocols::jd2::FileSystemJobDistributor::go(std::__1::shared_ptr<protocols::moves::Mover>) + 72
+8   surface_docking.static.macosclangre 0x00000001001f0c7c main + 244
+9   dyld                                0x000000018abe2b98 start + 6076
+
+[END_BACKTRACE]
+
+[FILE]: src/protocols/surface_docking/SurfaceVectorLoader.cc
+[LINE]: 105
+[START_MESSAGE]
+SurfaceVectorLoader expected to be given exactly three points to define the periodicity of the surface, but less than three points were provided in /Users/junyoung/Desktop/BioMatAI/BioMAI/input/surface_vectors.txt.
+
+[END_MESSAGE]
+[END_CRASH_REPORT]
+
+##############################################################################################################
+#
+# Rosetta crash log. Please submit the contents of this file to http://crash.rosettacommons.org/
+# or use the script Rosetta/main/source/scripts/python/public/report_crashes.py
+#
+
+[START_CRASH_REPORT]
+[ROSETTA_VERSION]: 2024.09+release.06b3cf8ad0
+[COMMIT_DATE]: 2024-02-28T21:25:09.004217
+[APPLICATION]: /Users/junyoung/Desktop/BioMatAI/rosetta/rosetta.binary.m1.release-371/main/source/bin/surface_docking.static.macosclangrelease
+[MODE]: Release
+[EXTRAS]: default
+[OS]: Apple Mac OS X
+[COMPILER]: Clang version "14.0.0 (clang-1400.0.29.202)"
+[STDLIB]: libc++ version 13000
+[START_OPTIONS]
+ -in:include_surfaces -in:path:database=/Users/junyoung/Desktop/BioMatAI/rosetta/rosetta.binary.m1.release-371/main/database/ -in:file:s=/Users/junyoung/Desktop/BioMatAI/BioMAI/input/merged_A_B.pdb -in:file:surface_vectors=/Users/junyoung/Desktop/BioMatAI/BioMAI/input/surface_vectors.txt -out:nstruct=50 -out:mute=all -out:unmute=protocols.SurfaceDocking -out:file:scorefile=/Users/junyoung/Desktop/BioMatAI/BioMAI/output/surface_dock_250917_204028/score.sc -out:path:all=/Users/junyoung/Desktop/BioMatAI/BioMAI/output/surface_dock_250917_204028/ -packing:resfile=/Users/junyoung/Desktop/BioMatAI/BioMAI/dock.resfile -packing:use_input_sc -packing:ex1 -packing:ex2aro -docking:partners=A_B -docking:randomize1 -docking:randomize2 -docking:use_ellipsoidal_randomization -docking:spin -docking:dock_pert=3 8
+
+[END_OPTIONS]
+
+[START_BACKTRACE]: RAW_LIBC
+0   surface_docking.static.macosclangre 0x0000000103cae904 backtrace_string(int) + 76
+1   surface_docking.static.macosclangre 0x0000000103cbec44 utility::excn::Exception::Exception(char const*, int, std::__1::basic_string<char, std::__1::char_traits<char>, std::__1::allocator<char>> const&) + 180
+2   surface_docking.static.macosclangre 0x0000000100cc855c protocols::surface_docking::SurfaceVectorLoader::create_surface_params(std::__1::basic_string<char, std::__1::char_traits<char>, std::__1::allocator<char>> const&, std::__1::basic_istream<char, std::__1::char_traits<char>>&) + 1768
+3   surface_docking.static.macosclangre 0x0000000100cc1dec protocols::surface_docking::SurfaceDockingProtocol::set_surface_parameters(core::pose::Pose&) + 300
+4   surface_docking.static.macosclangre 0x0000000100cc13f4 protocols::surface_docking::SurfaceDockingProtocol::apply(core::pose::Pose&) + 192
+5   surface_docking.static.macosclangre 0x000000010239d894 protocols::jd2::JobDistributor::run_one_job(std::__1::shared_ptr<protocols::moves::Mover>&, long, std::__1::basic_string<char, std::__1::char_traits<char>, std::__1::allocator<char>>&, std::__1::basic_string<char, std::__1::char_traits<char>, std::__1::allocator<char>>&, unsigned long&, unsigned long&, bool) + 7052
+6   surface_docking.static.macosclangre 0x000000010239ae7c protocols::jd2::JobDistributor::go_main(std::__1::shared_ptr<protocols::moves::Mover>) + 136
+7   surface_docking.static.macosclangre 0x00000001023961e0 protocols::jd2::FileSystemJobDistributor::go(std::__1::shared_ptr<protocols::moves::Mover>) + 72
+8   surface_docking.static.macosclangre 0x00000001001f0c7c main + 244
+9   dyld                                0x000000018abe2b98 start + 6076
+
+[END_BACKTRACE]
+
+[FILE]: src/protocols/surface_docking/SurfaceVectorLoader.cc
+[LINE]: 105
+[START_MESSAGE]
+SurfaceVectorLoader expected to be given exactly three points to define the periodicity of the surface, but less than three points were provided in /Users/junyoung/Desktop/BioMatAI/BioMAI/input/surface_vectors.txt.
+
+[END_MESSAGE]
+[END_CRASH_REPORT]
+
+##############################################################################################################
+#
+# Rosetta crash log. Please submit the contents of this file to http://crash.rosettacommons.org/
+# or use the script Rosetta/main/source/scripts/python/public/report_crashes.py
+#
+
+[START_CRASH_REPORT]
+[ROSETTA_VERSION]: 2024.09+release.06b3cf8ad0
+[COMMIT_DATE]: 2024-02-28T21:25:09.004217
+[APPLICATION]: /Users/junyoung/Desktop/BioMatAI/rosetta/rosetta.binary.m1.release-371/main/source/bin/surface_docking.static.macosclangrelease
+[MODE]: Release
+[EXTRAS]: default
+[OS]: Apple Mac OS X
+[COMPILER]: Clang version "14.0.0 (clang-1400.0.29.202)"
+[STDLIB]: libc++ version 13000
+[START_OPTIONS]
+ -in:include_surfaces -in:path:database=/Users/junyoung/Desktop/BioMatAI/rosetta/rosetta.binary.m1.release-371/main/database/ -in:file:s=/Users/junyoung/Desktop/BioMatAI/BioMAI/input/merged_A_B.pdb -in:file:surface_vectors=/Users/junyoung/Desktop/BioMatAI/BioMAI/input/surface_vectors.txt -out:nstruct=50 -out:mute=all -out:unmute=protocols.SurfaceDocking -out:file:scorefile=/Users/junyoung/Desktop/BioMatAI/BioMAI/output/surface_dock_250917_204028/score.sc -out:path:all=/Users/junyoung/Desktop/BioMatAI/BioMAI/output/surface_dock_250917_204028/ -packing:resfile=/Users/junyoung/Desktop/BioMatAI/BioMAI/dock.resfile -packing:use_input_sc -packing:ex1 -packing:ex2aro -docking:partners=A_B -docking:randomize1 -docking:randomize2 -docking:use_ellipsoidal_randomization -docking:spin -docking:dock_pert=3 8
+
+[END_OPTIONS]
+
+[START_BACKTRACE]: RAW_LIBC
+0   surface_docking.static.macosclangre 0x0000000103cae904 backtrace_string(int) + 76
+1   surface_docking.static.macosclangre 0x0000000103cbec44 utility::excn::Exception::Exception(char const*, int, std::__1::basic_string<char, std::__1::char_traits<char>, std::__1::allocator<char>> const&) + 180
+2   surface_docking.static.macosclangre 0x0000000100cc855c protocols::surface_docking::SurfaceVectorLoader::create_surface_params(std::__1::basic_string<char, std::__1::char_traits<char>, std::__1::allocator<char>> const&, std::__1::basic_istream<char, std::__1::char_traits<char>>&) + 1768
+3   surface_docking.static.macosclangre 0x0000000100cc1dec protocols::surface_docking::SurfaceDockingProtocol::set_surface_parameters(core::pose::Pose&) + 300
+4   surface_docking.static.macosclangre 0x0000000100cc13f4 protocols::surface_docking::SurfaceDockingProtocol::apply(core::pose::Pose&) + 192
+5   surface_docking.static.macosclangre 0x000000010239d894 protocols::jd2::JobDistributor::run_one_job(std::__1::shared_ptr<protocols::moves::Mover>&, long, std::__1::basic_string<char, std::__1::char_traits<char>, std::__1::allocator<char>>&, std::__1::basic_string<char, std::__1::char_traits<char>, std::__1::allocator<char>>&, unsigned long&, unsigned long&, bool) + 7052
+6   surface_docking.static.macosclangre 0x000000010239ae7c protocols::jd2::JobDistributor::go_main(std::__1::shared_ptr<protocols::moves::Mover>) + 136
+7   surface_docking.static.macosclangre 0x00000001023961e0 protocols::jd2::FileSystemJobDistributor::go(std::__1::shared_ptr<protocols::moves::Mover>) + 72
+8   surface_docking.static.macosclangre 0x00000001001f0c7c main + 244
+9   dyld                                0x000000018abe2b98 start + 6076
+
+[END_BACKTRACE]
+
+[FILE]: src/protocols/surface_docking/SurfaceVectorLoader.cc
+[LINE]: 105
+[START_MESSAGE]
+SurfaceVectorLoader expected to be given exactly three points to define the periodicity of the surface, but less than three points were provided in /Users/junyoung/Desktop/BioMatAI/BioMAI/input/surface_vectors.txt.
+
+[END_MESSAGE]
+[END_CRASH_REPORT]
+
+##############################################################################################################
+#
+# Rosetta crash log. Please submit the contents of this file to http://crash.rosettacommons.org/
+# or use the script Rosetta/main/source/scripts/python/public/report_crashes.py
+#
+
+[START_CRASH_REPORT]
+[ROSETTA_VERSION]: 2024.09+release.06b3cf8ad0
+[COMMIT_DATE]: 2024-02-28T21:25:09.004217
+[APPLICATION]: /Users/junyoung/Desktop/BioMatAI/rosetta/rosetta.binary.m1.release-371/main/source/bin/surface_docking.static.macosclangrelease
+[MODE]: Release
+[EXTRAS]: default
+[OS]: Apple Mac OS X
+[COMPILER]: Clang version "14.0.0 (clang-1400.0.29.202)"
+[STDLIB]: libc++ version 13000
+[START_OPTIONS]
+ -in:include_surfaces -in:path:database=/Users/junyoung/Desktop/BioMatAI/rosetta/rosetta.binary.m1.release-371/main/database/ -in:file:s=/Users/junyoung/Desktop/BioMatAI/BioMAI/input/merged_A_B.pdb -in:file:surface_vectors=/Users/junyoung/Desktop/BioMatAI/BioMAI/input/surface_vectors.txt -out:nstruct=50 -out:mute=all -out:unmute=protocols.SurfaceDocking -out:file:scorefile=/Users/junyoung/Desktop/BioMatAI/BioMAI/output/surface_dock_250917_204028/score.sc -out:path:all=/Users/junyoung/Desktop/BioMatAI/BioMAI/output/surface_dock_250917_204028/ -packing:resfile=/Users/junyoung/Desktop/BioMatAI/BioMAI/dock.resfile -packing:use_input_sc -packing:ex1 -packing:ex2aro -docking:partners=A_B -docking:randomize1 -docking:randomize2 -docking:use_ellipsoidal_randomization -docking:spin -docking:dock_pert=3 8
+
+[END_OPTIONS]
+
+[START_BACKTRACE]: RAW_LIBC
+0   surface_docking.static.macosclangre 0x0000000103cae904 backtrace_string(int) + 76
+1   surface_docking.static.macosclangre 0x0000000103cbec44 utility::excn::Exception::Exception(char const*, int, std::__1::basic_string<char, std::__1::char_traits<char>, std::__1::allocator<char>> const&) + 180
+2   surface_docking.static.macosclangre 0x0000000100cc855c protocols::surface_docking::SurfaceVectorLoader::create_surface_params(std::__1::basic_string<char, std::__1::char_traits<char>, std::__1::allocator<char>> const&, std::__1::basic_istream<char, std::__1::char_traits<char>>&) + 1768
+3   surface_docking.static.macosclangre 0x0000000100cc1dec protocols::surface_docking::SurfaceDockingProtocol::set_surface_parameters(core::pose::Pose&) + 300
+4   surface_docking.static.macosclangre 0x0000000100cc13f4 protocols::surface_docking::SurfaceDockingProtocol::apply(core::pose::Pose&) + 192
+5   surface_docking.static.macosclangre 0x000000010239d894 protocols::jd2::JobDistributor::run_one_job(std::__1::shared_ptr<protocols::moves::Mover>&, long, std::__1::basic_string<char, std::__1::char_traits<char>, std::__1::allocator<char>>&, std::__1::basic_string<char, std::__1::char_traits<char>, std::__1::allocator<char>>&, unsigned long&, unsigned long&, bool) + 7052
+6   surface_docking.static.macosclangre 0x000000010239ae7c protocols::jd2::JobDistributor::go_main(std::__1::shared_ptr<protocols::moves::Mover>) + 136
+7   surface_docking.static.macosclangre 0x00000001023961e0 protocols::jd2::FileSystemJobDistributor::go(std::__1::shared_ptr<protocols::moves::Mover>) + 72
+8   surface_docking.static.macosclangre 0x00000001001f0c7c main + 244
+9   dyld                                0x000000018abe2b98 start + 6076
+
+[END_BACKTRACE]
+
+[FILE]: src/protocols/surface_docking/SurfaceVectorLoader.cc
+[LINE]: 105
+[START_MESSAGE]
+SurfaceVectorLoader expected to be given exactly three points to define the periodicity of the surface, but less than three points were provided in /Users/junyoung/Desktop/BioMatAI/BioMAI/input/surface_vectors.txt.
+
+[END_MESSAGE]
+[END_CRASH_REPORT]
+
+##############################################################################################################
+#
+# Rosetta crash log. Please submit the contents of this file to http://crash.rosettacommons.org/
+# or use the script Rosetta/main/source/scripts/python/public/report_crashes.py
+#
+
+[START_CRASH_REPORT]
+[ROSETTA_VERSION]: 2024.09+release.06b3cf8ad0
+[COMMIT_DATE]: 2024-02-28T21:25:09.004217
+[APPLICATION]: /Users/junyoung/Desktop/BioMatAI/rosetta/rosetta.binary.m1.release-371/main/source/bin/surface_docking.static.macosclangrelease
+[MODE]: Release
+[EXTRAS]: default
+[OS]: Apple Mac OS X
+[COMPILER]: Clang version "14.0.0 (clang-1400.0.29.202)"
+[STDLIB]: libc++ version 13000
+[START_OPTIONS]
+ -in:include_surfaces -in:path:database=/Users/junyoung/Desktop/BioMatAI/rosetta/rosetta.binary.m1.release-371/main/database/ -in:file:s=/Users/junyoung/Desktop/BioMatAI/BioMAI/input/merged_A_B.pdb -in:file:surface_vectors=/Users/junyoung/Desktop/BioMatAI/BioMAI/input/surface_vectors.txt -out:nstruct=50 -out:mute=all -out:unmute=protocols.SurfaceDocking -out:file:scorefile=/Users/junyoung/Desktop/BioMatAI/BioMAI/output/surface_dock_250917_204028/score.sc -out:path:all=/Users/junyoung/Desktop/BioMatAI/BioMAI/output/surface_dock_250917_204028/ -packing:resfile=/Users/junyoung/Desktop/BioMatAI/BioMAI/dock.resfile -packing:use_input_sc -packing:ex1 -packing:ex2aro -docking:partners=A_B -docking:randomize1 -docking:randomize2 -docking:use_ellipsoidal_randomization -docking:spin -docking:dock_pert=3 8
+
+[END_OPTIONS]
+
+[START_BACKTRACE]: RAW_LIBC
+0   surface_docking.static.macosclangre 0x0000000103cae904 backtrace_string(int) + 76
+1   surface_docking.static.macosclangre 0x0000000103cbec44 utility::excn::Exception::Exception(char const*, int, std::__1::basic_string<char, std::__1::char_traits<char>, std::__1::allocator<char>> const&) + 180
+2   surface_docking.static.macosclangre 0x0000000100cc855c protocols::surface_docking::SurfaceVectorLoader::create_surface_params(std::__1::basic_string<char, std::__1::char_traits<char>, std::__1::allocator<char>> const&, std::__1::basic_istream<char, std::__1::char_traits<char>>&) + 1768
+3   surface_docking.static.macosclangre 0x0000000100cc1dec protocols::surface_docking::SurfaceDockingProtocol::set_surface_parameters(core::pose::Pose&) + 300
+4   surface_docking.static.macosclangre 0x0000000100cc13f4 protocols::surface_docking::SurfaceDockingProtocol::apply(core::pose::Pose&) + 192
+5   surface_docking.static.macosclangre 0x000000010239d894 protocols::jd2::JobDistributor::run_one_job(std::__1::shared_ptr<protocols::moves::Mover>&, long, std::__1::basic_string<char, std::__1::char_traits<char>, std::__1::allocator<char>>&, std::__1::basic_string<char, std::__1::char_traits<char>, std::__1::allocator<char>>&, unsigned long&, unsigned long&, bool) + 7052
+6   surface_docking.static.macosclangre 0x000000010239ae7c protocols::jd2::JobDistributor::go_main(std::__1::shared_ptr<protocols::moves::Mover>) + 136
+7   surface_docking.static.macosclangre 0x00000001023961e0 protocols::jd2::FileSystemJobDistributor::go(std::__1::shared_ptr<protocols::moves::Mover>) + 72
+8   surface_docking.static.macosclangre 0x00000001001f0c7c main + 244
+9   dyld                                0x000000018abe2b98 start + 6076
+
+[END_BACKTRACE]
+
+[FILE]: src/protocols/surface_docking/SurfaceVectorLoader.cc
+[LINE]: 105
+[START_MESSAGE]
+SurfaceVectorLoader expected to be given exactly three points to define the periodicity of the surface, but less than three points were provided in /Users/junyoung/Desktop/BioMatAI/BioMAI/input/surface_vectors.txt.
+
+[END_MESSAGE]
+[END_CRASH_REPORT]
+
+##############################################################################################################
+#
+# Rosetta crash log. Please submit the contents of this file to http://crash.rosettacommons.org/
+# or use the script Rosetta/main/source/scripts/python/public/report_crashes.py
+#
+
+[START_CRASH_REPORT]
+[ROSETTA_VERSION]: 2024.09+release.06b3cf8ad0
+[COMMIT_DATE]: 2024-02-28T21:25:09.004217
+[APPLICATION]: /Users/junyoung/Desktop/BioMatAI/rosetta/rosetta.binary.m1.release-371/main/source/bin/surface_docking.static.macosclangrelease
+[MODE]: Release
+[EXTRAS]: default
+[OS]: Apple Mac OS X
+[COMPILER]: Clang version "14.0.0 (clang-1400.0.29.202)"
+[STDLIB]: libc++ version 13000
+[START_OPTIONS]
+ -in:include_surfaces -in:path:database=/Users/junyoung/Desktop/BioMatAI/rosetta/rosetta.binary.m1.release-371/main/database/ -in:file:s=/Users/junyoung/Desktop/BioMatAI/BioMAI/input/merged_A_B.pdb -in:file:surface_vectors=/Users/junyoung/Desktop/BioMatAI/BioMAI/input/surface_vectors.txt -out:nstruct=50 -out:mute=all -out:unmute=protocols.SurfaceDocking -out:file:scorefile=/Users/junyoung/Desktop/BioMatAI/BioMAI/output/surface_dock_250917_204028/score.sc -out:path:all=/Users/junyoung/Desktop/BioMatAI/BioMAI/output/surface_dock_250917_204028/ -packing:resfile=/Users/junyoung/Desktop/BioMatAI/BioMAI/dock.resfile -packing:use_input_sc -packing:ex1 -packing:ex2aro -docking:partners=A_B -docking:randomize1 -docking:randomize2 -docking:use_ellipsoidal_randomization -docking:spin -docking:dock_pert=3 8
+
+[END_OPTIONS]
+
+[START_BACKTRACE]: RAW_LIBC
+0   surface_docking.static.macosclangre 0x0000000103cae904 backtrace_string(int) + 76
+1   surface_docking.static.macosclangre 0x0000000103cbec44 utility::excn::Exception::Exception(char const*, int, std::__1::basic_string<char, std::__1::char_traits<char>, std::__1::allocator<char>> const&) + 180
+2   surface_docking.static.macosclangre 0x0000000100cc855c protocols::surface_docking::SurfaceVectorLoader::create_surface_params(std::__1::basic_string<char, std::__1::char_traits<char>, std::__1::allocator<char>> const&, std::__1::basic_istream<char, std::__1::char_traits<char>>&) + 1768
+3   surface_docking.static.macosclangre 0x0000000100cc1dec protocols::surface_docking::SurfaceDockingProtocol::set_surface_parameters(core::pose::Pose&) + 300
+4   surface_docking.static.macosclangre 0x0000000100cc13f4 protocols::surface_docking::SurfaceDockingProtocol::apply(core::pose::Pose&) + 192
+5   surface_docking.static.macosclangre 0x000000010239d894 protocols::jd2::JobDistributor::run_one_job(std::__1::shared_ptr<protocols::moves::Mover>&, long, std::__1::basic_string<char, std::__1::char_traits<char>, std::__1::allocator<char>>&, std::__1::basic_string<char, std::__1::char_traits<char>, std::__1::allocator<char>>&, unsigned long&, unsigned long&, bool) + 7052
+6   surface_docking.static.macosclangre 0x000000010239ae7c protocols::jd2::JobDistributor::go_main(std::__1::shared_ptr<protocols::moves::Mover>) + 136
+7   surface_docking.static.macosclangre 0x00000001023961e0 protocols::jd2::FileSystemJobDistributor::go(std::__1::shared_ptr<protocols::moves::Mover>) + 72
+8   surface_docking.static.macosclangre 0x00000001001f0c7c main + 244
+9   dyld                                0x000000018abe2b98 start + 6076
+
+[END_BACKTRACE]
+
+[FILE]: src/protocols/surface_docking/SurfaceVectorLoader.cc
+[LINE]: 105
+[START_MESSAGE]
+SurfaceVectorLoader expected to be given exactly three points to define the periodicity of the surface, but less than three points were provided in /Users/junyoung/Desktop/BioMatAI/BioMAI/input/surface_vectors.txt.
+
+[END_MESSAGE]
+[END_CRASH_REPORT]
+
+##############################################################################################################
+#
+# Rosetta crash log. Please submit the contents of this file to http://crash.rosettacommons.org/
+# or use the script Rosetta/main/source/scripts/python/public/report_crashes.py
+#
+
+[START_CRASH_REPORT]
+[ROSETTA_VERSION]: 2024.09+release.06b3cf8ad0
+[COMMIT_DATE]: 2024-02-28T21:25:09.004217
+[APPLICATION]: /Users/junyoung/Desktop/BioMatAI/rosetta/rosetta.binary.m1.release-371/main/source/bin/surface_docking.static.macosclangrelease
+[MODE]: Release
+[EXTRAS]: default
+[OS]: Apple Mac OS X
+[COMPILER]: Clang version "14.0.0 (clang-1400.0.29.202)"
+[STDLIB]: libc++ version 13000
+[START_OPTIONS]
+ -in:include_surfaces -in:path:database=/Users/junyoung/Desktop/BioMatAI/rosetta/rosetta.binary.m1.release-371/main/database/ -in:file:s=/Users/junyoung/Desktop/BioMatAI/BioMAI/input/merged_A_B.pdb -in:file:surface_vectors=/Users/junyoung/Desktop/BioMatAI/BioMAI/input/surface_vectors.txt -out:nstruct=50 -out:mute=all -out:unmute=protocols.SurfaceDocking -out:file:scorefile=/Users/junyoung/Desktop/BioMatAI/BioMAI/output/surface_dock_250917_204028/score.sc -out:path:all=/Users/junyoung/Desktop/BioMatAI/BioMAI/output/surface_dock_250917_204028/ -packing:resfile=/Users/junyoung/Desktop/BioMatAI/BioMAI/dock.resfile -packing:use_input_sc -packing:ex1 -packing:ex2aro -docking:partners=A_B -docking:randomize1 -docking:randomize2 -docking:use_ellipsoidal_randomization -docking:spin -docking:dock_pert=3 8
+
+[END_OPTIONS]
+
+[START_BACKTRACE]: RAW_LIBC
+0   surface_docking.static.macosclangre 0x0000000103cae904 backtrace_string(int) + 76
+1   surface_docking.static.macosclangre 0x0000000103cbec44 utility::excn::Exception::Exception(char const*, int, std::__1::basic_string<char, std::__1::char_traits<char>, std::__1::allocator<char>> const&) + 180
+2   surface_docking.static.macosclangre 0x0000000100cc855c protocols::surface_docking::SurfaceVectorLoader::create_surface_params(std::__1::basic_string<char, std::__1::char_traits<char>, std::__1::allocator<char>> const&, std::__1::basic_istream<char, std::__1::char_traits<char>>&) + 1768
+3   surface_docking.static.macosclangre 0x0000000100cc1dec protocols::surface_docking::SurfaceDockingProtocol::set_surface_parameters(core::pose::Pose&) + 300
+4   surface_docking.static.macosclangre 0x0000000100cc13f4 protocols::surface_docking::SurfaceDockingProtocol::apply(core::pose::Pose&) + 192
+5   surface_docking.static.macosclangre 0x000000010239d894 protocols::jd2::JobDistributor::run_one_job(std::__1::shared_ptr<protocols::moves::Mover>&, long, std::__1::basic_string<char, std::__1::char_traits<char>, std::__1::allocator<char>>&, std::__1::basic_string<char, std::__1::char_traits<char>, std::__1::allocator<char>>&, unsigned long&, unsigned long&, bool) + 7052
+6   surface_docking.static.macosclangre 0x000000010239ae7c protocols::jd2::JobDistributor::go_main(std::__1::shared_ptr<protocols::moves::Mover>) + 136
+7   surface_docking.static.macosclangre 0x00000001023961e0 protocols::jd2::FileSystemJobDistributor::go(std::__1::shared_ptr<protocols::moves::Mover>) + 72
+8   surface_docking.static.macosclangre 0x00000001001f0c7c main + 244
+9   dyld                                0x000000018abe2b98 start + 6076
+
+[END_BACKTRACE]
+
+[FILE]: src/protocols/surface_docking/SurfaceVectorLoader.cc
+[LINE]: 105
+[START_MESSAGE]
+SurfaceVectorLoader expected to be given exactly three points to define the periodicity of the surface, but less than three points were provided in /Users/junyoung/Desktop/BioMatAI/BioMAI/input/surface_vectors.txt.
+
+[END_MESSAGE]
+[END_CRASH_REPORT]
+
+##############################################################################################################
+#
+# Rosetta crash log. Please submit the contents of this file to http://crash.rosettacommons.org/
+# or use the script Rosetta/main/source/scripts/python/public/report_crashes.py
+#
+
+[START_CRASH_REPORT]
+[ROSETTA_VERSION]: 2024.09+release.06b3cf8ad0
+[COMMIT_DATE]: 2024-02-28T21:25:09.004217
+[APPLICATION]: /Users/junyoung/Desktop/BioMatAI/rosetta/rosetta.binary.m1.release-371/main/source/bin/surface_docking.static.macosclangrelease
+[MODE]: Release
+[EXTRAS]: default
+[OS]: Apple Mac OS X
+[COMPILER]: Clang version "14.0.0 (clang-1400.0.29.202)"
+[STDLIB]: libc++ version 13000
+[START_OPTIONS]
+ -in:include_surfaces -in:path:database=/Users/junyoung/Desktop/BioMatAI/rosetta/rosetta.binary.m1.release-371/main/database/ -in:file:s=/Users/junyoung/Desktop/BioMatAI/BioMAI/input/merged_A_B.pdb -in:file:surface_vectors=/Users/junyoung/Desktop/BioMatAI/BioMAI/input/surface_vectors.txt -out:nstruct=50 -out:mute=all -out:unmute=protocols.SurfaceDocking -out:file:scorefile=/Users/junyoung/Desktop/BioMatAI/BioMAI/output/surface_dock_250917_204028/score.sc -out:path:all=/Users/junyoung/Desktop/BioMatAI/BioMAI/output/surface_dock_250917_204028/ -packing:resfile=/Users/junyoung/Desktop/BioMatAI/BioMAI/dock.resfile -packing:use_input_sc -packing:ex1 -packing:ex2aro -docking:partners=A_B -docking:randomize1 -docking:randomize2 -docking:use_ellipsoidal_randomization -docking:spin -docking:dock_pert=3 8
+
+[END_OPTIONS]
+
+[START_BACKTRACE]: RAW_LIBC
+0   surface_docking.static.macosclangre 0x0000000103cae904 backtrace_string(int) + 76
+1   surface_docking.static.macosclangre 0x0000000103cbec44 utility::excn::Exception::Exception(char const*, int, std::__1::basic_string<char, std::__1::char_traits<char>, std::__1::allocator<char>> const&) + 180
+2   surface_docking.static.macosclangre 0x0000000100cc855c protocols::surface_docking::SurfaceVectorLoader::create_surface_params(std::__1::basic_string<char, std::__1::char_traits<char>, std::__1::allocator<char>> const&, std::__1::basic_istream<char, std::__1::char_traits<char>>&) + 1768
+3   surface_docking.static.macosclangre 0x0000000100cc1dec protocols::surface_docking::SurfaceDockingProtocol::set_surface_parameters(core::pose::Pose&) + 300
+4   surface_docking.static.macosclangre 0x0000000100cc13f4 protocols::surface_docking::SurfaceDockingProtocol::apply(core::pose::Pose&) + 192
+5   surface_docking.static.macosclangre 0x000000010239d894 protocols::jd2::JobDistributor::run_one_job(std::__1::shared_ptr<protocols::moves::Mover>&, long, std::__1::basic_string<char, std::__1::char_traits<char>, std::__1::allocator<char>>&, std::__1::basic_string<char, std::__1::char_traits<char>, std::__1::allocator<char>>&, unsigned long&, unsigned long&, bool) + 7052
+6   surface_docking.static.macosclangre 0x000000010239ae7c protocols::jd2::JobDistributor::go_main(std::__1::shared_ptr<protocols::moves::Mover>) + 136
+7   surface_docking.static.macosclangre 0x00000001023961e0 protocols::jd2::FileSystemJobDistributor::go(std::__1::shared_ptr<protocols::moves::Mover>) + 72
+8   surface_docking.static.macosclangre 0x00000001001f0c7c main + 244
+9   dyld                                0x000000018abe2b98 start + 6076
+
+[END_BACKTRACE]
+
+[FILE]: src/protocols/surface_docking/SurfaceVectorLoader.cc
+[LINE]: 105
+[START_MESSAGE]
+SurfaceVectorLoader expected to be given exactly three points to define the periodicity of the surface, but less than three points were provided in /Users/junyoung/Desktop/BioMatAI/BioMAI/input/surface_vectors.txt.
+
+[END_MESSAGE]
+[END_CRASH_REPORT]
+
+##############################################################################################################
+#
+# Rosetta crash log. Please submit the contents of this file to http://crash.rosettacommons.org/
+# or use the script Rosetta/main/source/scripts/python/public/report_crashes.py
+#
+
+[START_CRASH_REPORT]
+[ROSETTA_VERSION]: 2024.09+release.06b3cf8ad0
+[COMMIT_DATE]: 2024-02-28T21:25:09.004217
+[APPLICATION]: /Users/junyoung/Desktop/BioMatAI/rosetta/rosetta.binary.m1.release-371/main/source/bin/surface_docking.static.macosclangrelease
+[MODE]: Release
+[EXTRAS]: default
+[OS]: Apple Mac OS X
+[COMPILER]: Clang version "14.0.0 (clang-1400.0.29.202)"
+[STDLIB]: libc++ version 13000
+[START_OPTIONS]
+ -in:include_surfaces -in:path:database=/Users/junyoung/Desktop/BioMatAI/rosetta/rosetta.binary.m1.release-371/main/database/ -in:file:s=/Users/junyoung/Desktop/BioMatAI/BioMAI/input/merged_A_B.pdb -in:file:surface_vectors=/Users/junyoung/Desktop/BioMatAI/BioMAI/input/surface_vectors.txt -out:nstruct=50 -out:mute=all -out:unmute=protocols.SurfaceDocking -out:file:scorefile=/Users/junyoung/Desktop/BioMatAI/BioMAI/output/surface_dock_250917_204028/score.sc -out:path:all=/Users/junyoung/Desktop/BioMatAI/BioMAI/output/surface_dock_250917_204028/ -packing:resfile=/Users/junyoung/Desktop/BioMatAI/BioMAI/dock.resfile -packing:use_input_sc -packing:ex1 -packing:ex2aro -docking:partners=A_B -docking:randomize1 -docking:randomize2 -docking:use_ellipsoidal_randomization -docking:spin -docking:dock_pert=3 8
+
+[END_OPTIONS]
+
+[START_BACKTRACE]: RAW_LIBC
+0   surface_docking.static.macosclangre 0x0000000103cae904 backtrace_string(int) + 76
+1   surface_docking.static.macosclangre 0x0000000103cbec44 utility::excn::Exception::Exception(char const*, int, std::__1::basic_string<char, std::__1::char_traits<char>, std::__1::allocator<char>> const&) + 180
+2   surface_docking.static.macosclangre 0x0000000100cc855c protocols::surface_docking::SurfaceVectorLoader::create_surface_params(std::__1::basic_string<char, std::__1::char_traits<char>, std::__1::allocator<char>> const&, std::__1::basic_istream<char, std::__1::char_traits<char>>&) + 1768
+3   surface_docking.static.macosclangre 0x0000000100cc1dec protocols::surface_docking::SurfaceDockingProtocol::set_surface_parameters(core::pose::Pose&) + 300
+4   surface_docking.static.macosclangre 0x0000000100cc13f4 protocols::surface_docking::SurfaceDockingProtocol::apply(core::pose::Pose&) + 192
+5   surface_docking.static.macosclangre 0x000000010239d894 protocols::jd2::JobDistributor::run_one_job(std::__1::shared_ptr<protocols::moves::Mover>&, long, std::__1::basic_string<char, std::__1::char_traits<char>, std::__1::allocator<char>>&, std::__1::basic_string<char, std::__1::char_traits<char>, std::__1::allocator<char>>&, unsigned long&, unsigned long&, bool) + 7052
+6   surface_docking.static.macosclangre 0x000000010239ae7c protocols::jd2::JobDistributor::go_main(std::__1::shared_ptr<protocols::moves::Mover>) + 136
+7   surface_docking.static.macosclangre 0x00000001023961e0 protocols::jd2::FileSystemJobDistributor::go(std::__1::shared_ptr<protocols::moves::Mover>) + 72
+8   surface_docking.static.macosclangre 0x00000001001f0c7c main + 244
+9   dyld                                0x000000018abe2b98 start + 6076
+
+[END_BACKTRACE]
+
+[FILE]: src/protocols/surface_docking/SurfaceVectorLoader.cc
+[LINE]: 105
+[START_MESSAGE]
+SurfaceVectorLoader expected to be given exactly three points to define the periodicity of the surface, but less than three points were provided in /Users/junyoung/Desktop/BioMatAI/BioMAI/input/surface_vectors.txt.
+
+[END_MESSAGE]
+[END_CRASH_REPORT]
+
+##############################################################################################################
+#
+# Rosetta crash log. Please submit the contents of this file to http://crash.rosettacommons.org/
+# or use the script Rosetta/main/source/scripts/python/public/report_crashes.py
+#
+
+[START_CRASH_REPORT]
+[ROSETTA_VERSION]: 2024.09+release.06b3cf8ad0
+[COMMIT_DATE]: 2024-02-28T21:25:09.004217
+[APPLICATION]: /Users/junyoung/Desktop/BioMatAI/rosetta/rosetta.binary.m1.release-371/main/source/bin/surface_docking.static.macosclangrelease
+[MODE]: Release
+[EXTRAS]: default
+[OS]: Apple Mac OS X
+[COMPILER]: Clang version "14.0.0 (clang-1400.0.29.202)"
+[STDLIB]: libc++ version 13000
+[START_OPTIONS]
+ -in:include_surfaces -in:path:database=/Users/junyoung/Desktop/BioMatAI/rosetta/rosetta.binary.m1.release-371/main/database/ -in:file:s=/Users/junyoung/Desktop/BioMatAI/BioMAI/input/merged_A_B.pdb -in:file:surface_vectors=/Users/junyoung/Desktop/BioMatAI/BioMAI/input/surface_vectors.txt -out:nstruct=50 -out:mute=all -out:unmute=protocols.SurfaceDocking -out:file:scorefile=/Users/junyoung/Desktop/BioMatAI/BioMAI/output/surface_dock_250917_204028/score.sc -out:path:all=/Users/junyoung/Desktop/BioMatAI/BioMAI/output/surface_dock_250917_204028/ -packing:resfile=/Users/junyoung/Desktop/BioMatAI/BioMAI/dock.resfile -packing:use_input_sc -packing:ex1 -packing:ex2aro -docking:partners=A_B -docking:randomize1 -docking:randomize2 -docking:use_ellipsoidal_randomization -docking:spin -docking:dock_pert=3 8
+
+[END_OPTIONS]
+
+[START_BACKTRACE]: RAW_LIBC
+0   surface_docking.static.macosclangre 0x0000000103cae904 backtrace_string(int) + 76
+1   surface_docking.static.macosclangre 0x0000000103cbec44 utility::excn::Exception::Exception(char const*, int, std::__1::basic_string<char, std::__1::char_traits<char>, std::__1::allocator<char>> const&) + 180
+2   surface_docking.static.macosclangre 0x0000000100cc855c protocols::surface_docking::SurfaceVectorLoader::create_surface_params(std::__1::basic_string<char, std::__1::char_traits<char>, std::__1::allocator<char>> const&, std::__1::basic_istream<char, std::__1::char_traits<char>>&) + 1768
+3   surface_docking.static.macosclangre 0x0000000100cc1dec protocols::surface_docking::SurfaceDockingProtocol::set_surface_parameters(core::pose::Pose&) + 300
+4   surface_docking.static.macosclangre 0x0000000100cc13f4 protocols::surface_docking::SurfaceDockingProtocol::apply(core::pose::Pose&) + 192
+5   surface_docking.static.macosclangre 0x000000010239d894 protocols::jd2::JobDistributor::run_one_job(std::__1::shared_ptr<protocols::moves::Mover>&, long, std::__1::basic_string<char, std::__1::char_traits<char>, std::__1::allocator<char>>&, std::__1::basic_string<char, std::__1::char_traits<char>, std::__1::allocator<char>>&, unsigned long&, unsigned long&, bool) + 7052
+6   surface_docking.static.macosclangre 0x000000010239ae7c protocols::jd2::JobDistributor::go_main(std::__1::shared_ptr<protocols::moves::Mover>) + 136
+7   surface_docking.static.macosclangre 0x00000001023961e0 protocols::jd2::FileSystemJobDistributor::go(std::__1::shared_ptr<protocols::moves::Mover>) + 72
+8   surface_docking.static.macosclangre 0x00000001001f0c7c main + 244
+9   dyld                                0x000000018abe2b98 start + 6076
+
+[END_BACKTRACE]
+
+[FILE]: src/protocols/surface_docking/SurfaceVectorLoader.cc
+[LINE]: 105
+[START_MESSAGE]
+SurfaceVectorLoader expected to be given exactly three points to define the periodicity of the surface, but less than three points were provided in /Users/junyoung/Desktop/BioMatAI/BioMAI/input/surface_vectors.txt.
+
+[END_MESSAGE]
+[END_CRASH_REPORT]
+
+##############################################################################################################
+#
+# Rosetta crash log. Please submit the contents of this file to http://crash.rosettacommons.org/
+# or use the script Rosetta/main/source/scripts/python/public/report_crashes.py
+#
+
+[START_CRASH_REPORT]
+[ROSETTA_VERSION]: 2024.09+release.06b3cf8ad0
+[COMMIT_DATE]: 2024-02-28T21:25:09.004217
+[APPLICATION]: /Users/junyoung/Desktop/BioMatAI/rosetta/rosetta.binary.m1.release-371/main/source/bin/surface_docking.static.macosclangrelease
+[MODE]: Release
+[EXTRAS]: default
+[OS]: Apple Mac OS X
+[COMPILER]: Clang version "14.0.0 (clang-1400.0.29.202)"
+[STDLIB]: libc++ version 13000
+[START_OPTIONS]
+ -in:include_surfaces -in:path:database=/Users/junyoung/Desktop/BioMatAI/rosetta/rosetta.binary.m1.release-371/main/database/ -in:file:s=/Users/junyoung/Desktop/BioMatAI/BioMAI/input/merged_A_B.pdb -in:file:surface_vectors=/Users/junyoung/Desktop/BioMatAI/BioMAI/input/surface_vectors.txt -out:nstruct=50 -out:mute=all -out:unmute=protocols.SurfaceDocking -out:file:scorefile=/Users/junyoung/Desktop/BioMatAI/BioMAI/output/surface_dock_250917_204028/score.sc -out:path:all=/Users/junyoung/Desktop/BioMatAI/BioMAI/output/surface_dock_250917_204028/ -packing:resfile=/Users/junyoung/Desktop/BioMatAI/BioMAI/dock.resfile -packing:use_input_sc -packing:ex1 -packing:ex2aro -docking:partners=A_B -docking:randomize1 -docking:randomize2 -docking:use_ellipsoidal_randomization -docking:spin -docking:dock_pert=3 8
+
+[END_OPTIONS]
+
+[START_BACKTRACE]: RAW_LIBC
+0   surface_docking.static.macosclangre 0x0000000103cae904 backtrace_string(int) + 76
+1   surface_docking.static.macosclangre 0x0000000103cbec44 utility::excn::Exception::Exception(char const*, int, std::__1::basic_string<char, std::__1::char_traits<char>, std::__1::allocator<char>> const&) + 180
+2   surface_docking.static.macosclangre 0x0000000100cc855c protocols::surface_docking::SurfaceVectorLoader::create_surface_params(std::__1::basic_string<char, std::__1::char_traits<char>, std::__1::allocator<char>> const&, std::__1::basic_istream<char, std::__1::char_traits<char>>&) + 1768
+3   surface_docking.static.macosclangre 0x0000000100cc1dec protocols::surface_docking::SurfaceDockingProtocol::set_surface_parameters(core::pose::Pose&) + 300
+4   surface_docking.static.macosclangre 0x0000000100cc13f4 protocols::surface_docking::SurfaceDockingProtocol::apply(core::pose::Pose&) + 192
+5   surface_docking.static.macosclangre 0x000000010239d894 protocols::jd2::JobDistributor::run_one_job(std::__1::shared_ptr<protocols::moves::Mover>&, long, std::__1::basic_string<char, std::__1::char_traits<char>, std::__1::allocator<char>>&, std::__1::basic_string<char, std::__1::char_traits<char>, std::__1::allocator<char>>&, unsigned long&, unsigned long&, bool) + 7052
+6   surface_docking.static.macosclangre 0x000000010239ae7c protocols::jd2::JobDistributor::go_main(std::__1::shared_ptr<protocols::moves::Mover>) + 136
+7   surface_docking.static.macosclangre 0x00000001023961e0 protocols::jd2::FileSystemJobDistributor::go(std::__1::shared_ptr<protocols::moves::Mover>) + 72
+8   surface_docking.static.macosclangre 0x00000001001f0c7c main + 244
+9   dyld                                0x000000018abe2b98 start + 6076
+
+[END_BACKTRACE]
+
+[FILE]: src/protocols/surface_docking/SurfaceVectorLoader.cc
+[LINE]: 105
+[START_MESSAGE]
+SurfaceVectorLoader expected to be given exactly three points to define the periodicity of the surface, but less than three points were provided in /Users/junyoung/Desktop/BioMatAI/BioMAI/input/surface_vectors.txt.
+
+[END_MESSAGE]
+[END_CRASH_REPORT]
+
+##############################################################################################################
+#
+# Rosetta crash log. Please submit the contents of this file to http://crash.rosettacommons.org/
+# or use the script Rosetta/main/source/scripts/python/public/report_crashes.py
+#
+
+[START_CRASH_REPORT]
+[ROSETTA_VERSION]: 2024.09+release.06b3cf8ad0
+[COMMIT_DATE]: 2024-02-28T21:25:09.004217
+[APPLICATION]: /Users/junyoung/Desktop/BioMatAI/rosetta/rosetta.binary.m1.release-371/main/source/bin/surface_docking.static.macosclangrelease
+[MODE]: Release
+[EXTRAS]: default
+[OS]: Apple Mac OS X
+[COMPILER]: Clang version "14.0.0 (clang-1400.0.29.202)"
+[STDLIB]: libc++ version 13000
+[START_OPTIONS]
+ -in:include_surfaces -in:path:database=/Users/junyoung/Desktop/BioMatAI/rosetta/rosetta.binary.m1.release-371/main/database/ -in:file:s=/Users/junyoung/Desktop/BioMatAI/BioMAI/input/merged_A_B.pdb -in:file:surface_vectors=/Users/junyoung/Desktop/BioMatAI/BioMAI/input/surface_vectors.txt -out:nstruct=50 -out:mute=all -out:unmute=protocols.SurfaceDocking -out:file:scorefile=/Users/junyoung/Desktop/BioMatAI/BioMAI/output/surface_dock_250917_204028/score.sc -out:path:all=/Users/junyoung/Desktop/BioMatAI/BioMAI/output/surface_dock_250917_204028/ -packing:resfile=/Users/junyoung/Desktop/BioMatAI/BioMAI/dock.resfile -packing:use_input_sc -packing:ex1 -packing:ex2aro -docking:partners=A_B -docking:randomize1 -docking:randomize2 -docking:use_ellipsoidal_randomization -docking:spin -docking:dock_pert=3 8
+
+[END_OPTIONS]
+
+[START_BACKTRACE]: RAW_LIBC
+0   surface_docking.static.macosclangre 0x0000000103cae904 backtrace_string(int) + 76
+1   surface_docking.static.macosclangre 0x0000000103cbec44 utility::excn::Exception::Exception(char const*, int, std::__1::basic_string<char, std::__1::char_traits<char>, std::__1::allocator<char>> const&) + 180
+2   surface_docking.static.macosclangre 0x0000000100cc855c protocols::surface_docking::SurfaceVectorLoader::create_surface_params(std::__1::basic_string<char, std::__1::char_traits<char>, std::__1::allocator<char>> const&, std::__1::basic_istream<char, std::__1::char_traits<char>>&) + 1768
+3   surface_docking.static.macosclangre 0x0000000100cc1dec protocols::surface_docking::SurfaceDockingProtocol::set_surface_parameters(core::pose::Pose&) + 300
+4   surface_docking.static.macosclangre 0x0000000100cc13f4 protocols::surface_docking::SurfaceDockingProtocol::apply(core::pose::Pose&) + 192
+5   surface_docking.static.macosclangre 0x000000010239d894 protocols::jd2::JobDistributor::run_one_job(std::__1::shared_ptr<protocols::moves::Mover>&, long, std::__1::basic_string<char, std::__1::char_traits<char>, std::__1::allocator<char>>&, std::__1::basic_string<char, std::__1::char_traits<char>, std::__1::allocator<char>>&, unsigned long&, unsigned long&, bool) + 7052
+6   surface_docking.static.macosclangre 0x000000010239ae7c protocols::jd2::JobDistributor::go_main(std::__1::shared_ptr<protocols::moves::Mover>) + 136
+7   surface_docking.static.macosclangre 0x00000001023961e0 protocols::jd2::FileSystemJobDistributor::go(std::__1::shared_ptr<protocols::moves::Mover>) + 72
+8   surface_docking.static.macosclangre 0x00000001001f0c7c main + 244
+9   dyld                                0x000000018abe2b98 start + 6076
+
+[END_BACKTRACE]
+
+[FILE]: src/protocols/surface_docking/SurfaceVectorLoader.cc
+[LINE]: 105
+[START_MESSAGE]
+SurfaceVectorLoader expected to be given exactly three points to define the periodicity of the surface, but less than three points were provided in /Users/junyoung/Desktop/BioMatAI/BioMAI/input/surface_vectors.txt.
+
+[END_MESSAGE]
+[END_CRASH_REPORT]
+
+##############################################################################################################
+#
+# Rosetta crash log. Please submit the contents of this file to http://crash.rosettacommons.org/
+# or use the script Rosetta/main/source/scripts/python/public/report_crashes.py
+#
+
+[START_CRASH_REPORT]
+[ROSETTA_VERSION]: 2024.09+release.06b3cf8ad0
+[COMMIT_DATE]: 2024-02-28T21:25:09.004217
+[APPLICATION]: /Users/junyoung/Desktop/BioMatAI/rosetta/rosetta.binary.m1.release-371/main/source/bin/surface_docking.static.macosclangrelease
+[MODE]: Release
+[EXTRAS]: default
+[OS]: Apple Mac OS X
+[COMPILER]: Clang version "14.0.0 (clang-1400.0.29.202)"
+[STDLIB]: libc++ version 13000
+[START_OPTIONS]
+ -in:include_surfaces -in:path:database=/Users/junyoung/Desktop/BioMatAI/rosetta/rosetta.binary.m1.release-371/main/database/ -in:file:s=/Users/junyoung/Desktop/BioMatAI/BioMAI/input/merged_A_B.pdb -in:file:surface_vectors=/Users/junyoung/Desktop/BioMatAI/BioMAI/input/surface_vectors.txt -out:nstruct=50 -out:mute=all -out:unmute=protocols.SurfaceDocking -out:file:scorefile=/Users/junyoung/Desktop/BioMatAI/BioMAI/output/surface_dock_250917_204028/score.sc -out:path:all=/Users/junyoung/Desktop/BioMatAI/BioMAI/output/surface_dock_250917_204028/ -packing:resfile=/Users/junyoung/Desktop/BioMatAI/BioMAI/dock.resfile -packing:use_input_sc -packing:ex1 -packing:ex2aro -docking:partners=A_B -docking:randomize1 -docking:randomize2 -docking:use_ellipsoidal_randomization -docking:spin -docking:dock_pert=3 8
+
+[END_OPTIONS]
+
+[START_BACKTRACE]: RAW_LIBC
+0   surface_docking.static.macosclangre 0x0000000103cae904 backtrace_string(int) + 76
+1   surface_docking.static.macosclangre 0x0000000103cbec44 utility::excn::Exception::Exception(char const*, int, std::__1::basic_string<char, std::__1::char_traits<char>, std::__1::allocator<char>> const&) + 180
+2   surface_docking.static.macosclangre 0x0000000100cc855c protocols::surface_docking::SurfaceVectorLoader::create_surface_params(std::__1::basic_string<char, std::__1::char_traits<char>, std::__1::allocator<char>> const&, std::__1::basic_istream<char, std::__1::char_traits<char>>&) + 1768
+3   surface_docking.static.macosclangre 0x0000000100cc1dec protocols::surface_docking::SurfaceDockingProtocol::set_surface_parameters(core::pose::Pose&) + 300
+4   surface_docking.static.macosclangre 0x0000000100cc13f4 protocols::surface_docking::SurfaceDockingProtocol::apply(core::pose::Pose&) + 192
+5   surface_docking.static.macosclangre 0x000000010239d894 protocols::jd2::JobDistributor::run_one_job(std::__1::shared_ptr<protocols::moves::Mover>&, long, std::__1::basic_string<char, std::__1::char_traits<char>, std::__1::allocator<char>>&, std::__1::basic_string<char, std::__1::char_traits<char>, std::__1::allocator<char>>&, unsigned long&, unsigned long&, bool) + 7052
+6   surface_docking.static.macosclangre 0x000000010239ae7c protocols::jd2::JobDistributor::go_main(std::__1::shared_ptr<protocols::moves::Mover>) + 136
+7   surface_docking.static.macosclangre 0x00000001023961e0 protocols::jd2::FileSystemJobDistributor::go(std::__1::shared_ptr<protocols::moves::Mover>) + 72
+8   surface_docking.static.macosclangre 0x00000001001f0c7c main + 244
+9   dyld                                0x000000018abe2b98 start + 6076
+
+[END_BACKTRACE]
+
+[FILE]: src/protocols/surface_docking/SurfaceVectorLoader.cc
+[LINE]: 105
+[START_MESSAGE]
+SurfaceVectorLoader expected to be given exactly three points to define the periodicity of the surface, but less than three points were provided in /Users/junyoung/Desktop/BioMatAI/BioMAI/input/surface_vectors.txt.
+
+[END_MESSAGE]
+[END_CRASH_REPORT]
+
+##############################################################################################################
+#
+# Rosetta crash log. Please submit the contents of this file to http://crash.rosettacommons.org/
+# or use the script Rosetta/main/source/scripts/python/public/report_crashes.py
+#
+
+[START_CRASH_REPORT]
+[ROSETTA_VERSION]: 2024.09+release.06b3cf8ad0
+[COMMIT_DATE]: 2024-02-28T21:25:09.004217
+[APPLICATION]: /Users/junyoung/Desktop/BioMatAI/rosetta/rosetta.binary.m1.release-371/main/source/bin/surface_docking.static.macosclangrelease
+[MODE]: Release
+[EXTRAS]: default
+[OS]: Apple Mac OS X
+[COMPILER]: Clang version "14.0.0 (clang-1400.0.29.202)"
+[STDLIB]: libc++ version 13000
+[START_OPTIONS]
+ -in:include_surfaces -in:path:database=/Users/junyoung/Desktop/BioMatAI/rosetta/rosetta.binary.m1.release-371/main/database/ -in:file:s=/Users/junyoung/Desktop/BioMatAI/BioMAI/input/merged_A_B.pdb -in:file:surface_vectors=/Users/junyoung/Desktop/BioMatAI/BioMAI/input/surface_vectors.txt -out:nstruct=50 -out:mute=all -out:unmute=protocols.SurfaceDocking -out:file:scorefile=/Users/junyoung/Desktop/BioMatAI/BioMAI/output/surface_dock_250917_204028/score.sc -out:path:all=/Users/junyoung/Desktop/BioMatAI/BioMAI/output/surface_dock_250917_204028/ -packing:resfile=/Users/junyoung/Desktop/BioMatAI/BioMAI/dock.resfile -packing:use_input_sc -packing:ex1 -packing:ex2aro -docking:partners=A_B -docking:randomize1 -docking:randomize2 -docking:use_ellipsoidal_randomization -docking:spin -docking:dock_pert=3 8
+
+[END_OPTIONS]
+
+[START_BACKTRACE]: RAW_LIBC
+0   surface_docking.static.macosclangre 0x0000000103cae904 backtrace_string(int) + 76
+1   surface_docking.static.macosclangre 0x0000000103cbec44 utility::excn::Exception::Exception(char const*, int, std::__1::basic_string<char, std::__1::char_traits<char>, std::__1::allocator<char>> const&) + 180
+2   surface_docking.static.macosclangre 0x0000000100cc855c protocols::surface_docking::SurfaceVectorLoader::create_surface_params(std::__1::basic_string<char, std::__1::char_traits<char>, std::__1::allocator<char>> const&, std::__1::basic_istream<char, std::__1::char_traits<char>>&) + 1768
+3   surface_docking.static.macosclangre 0x0000000100cc1dec protocols::surface_docking::SurfaceDockingProtocol::set_surface_parameters(core::pose::Pose&) + 300
+4   surface_docking.static.macosclangre 0x0000000100cc13f4 protocols::surface_docking::SurfaceDockingProtocol::apply(core::pose::Pose&) + 192
+5   surface_docking.static.macosclangre 0x000000010239d894 protocols::jd2::JobDistributor::run_one_job(std::__1::shared_ptr<protocols::moves::Mover>&, long, std::__1::basic_string<char, std::__1::char_traits<char>, std::__1::allocator<char>>&, std::__1::basic_string<char, std::__1::char_traits<char>, std::__1::allocator<char>>&, unsigned long&, unsigned long&, bool) + 7052
+6   surface_docking.static.macosclangre 0x000000010239ae7c protocols::jd2::JobDistributor::go_main(std::__1::shared_ptr<protocols::moves::Mover>) + 136
+7   surface_docking.static.macosclangre 0x00000001023961e0 protocols::jd2::FileSystemJobDistributor::go(std::__1::shared_ptr<protocols::moves::Mover>) + 72
+8   surface_docking.static.macosclangre 0x00000001001f0c7c main + 244
+9   dyld                                0x000000018abe2b98 start + 6076
+
+[END_BACKTRACE]
+
+[FILE]: src/protocols/surface_docking/SurfaceVectorLoader.cc
+[LINE]: 105
+[START_MESSAGE]
+SurfaceVectorLoader expected to be given exactly three points to define the periodicity of the surface, but less than three points were provided in /Users/junyoung/Desktop/BioMatAI/BioMAI/input/surface_vectors.txt.
+
+[END_MESSAGE]
+[END_CRASH_REPORT]
+
+##############################################################################################################
+#
+# Rosetta crash log. Please submit the contents of this file to http://crash.rosettacommons.org/
+# or use the script Rosetta/main/source/scripts/python/public/report_crashes.py
+#
+
+[START_CRASH_REPORT]
+[ROSETTA_VERSION]: 2024.09+release.06b3cf8ad0
+[COMMIT_DATE]: 2024-02-28T21:25:09.004217
+[APPLICATION]: /Users/junyoung/Desktop/BioMatAI/rosetta/rosetta.binary.m1.release-371/main/source/bin/surface_docking.static.macosclangrelease
+[MODE]: Release
+[EXTRAS]: default
+[OS]: Apple Mac OS X
+[COMPILER]: Clang version "14.0.0 (clang-1400.0.29.202)"
+[STDLIB]: libc++ version 13000
+[START_OPTIONS]
+ -in:include_surfaces -in:path:database=/Users/junyoung/Desktop/BioMatAI/rosetta/rosetta.binary.m1.release-371/main/database/ -in:file:s=/Users/junyoung/Desktop/BioMatAI/BioMAI/input/merged_A_B.pdb -in:file:surface_vectors=/Users/junyoung/Desktop/BioMatAI/BioMAI/input/surface_vectors.txt -out:nstruct=50 -out:mute=all -out:unmute=protocols.SurfaceDocking -out:file:scorefile=/Users/junyoung/Desktop/BioMatAI/BioMAI/output/surface_dock_250917_204028/score.sc -out:path:all=/Users/junyoung/Desktop/BioMatAI/BioMAI/output/surface_dock_250917_204028/ -packing:resfile=/Users/junyoung/Desktop/BioMatAI/BioMAI/dock.resfile -packing:use_input_sc -packing:ex1 -packing:ex2aro -docking:partners=A_B -docking:randomize1 -docking:randomize2 -docking:use_ellipsoidal_randomization -docking:spin -docking:dock_pert=3 8
+
+[END_OPTIONS]
+
+[START_BACKTRACE]: RAW_LIBC
+0   surface_docking.static.macosclangre 0x0000000103cae904 backtrace_string(int) + 76
+1   surface_docking.static.macosclangre 0x0000000103cbec44 utility::excn::Exception::Exception(char const*, int, std::__1::basic_string<char, std::__1::char_traits<char>, std::__1::allocator<char>> const&) + 180
+2   surface_docking.static.macosclangre 0x0000000100cc855c protocols::surface_docking::SurfaceVectorLoader::create_surface_params(std::__1::basic_string<char, std::__1::char_traits<char>, std::__1::allocator<char>> const&, std::__1::basic_istream<char, std::__1::char_traits<char>>&) + 1768
+3   surface_docking.static.macosclangre 0x0000000100cc1dec protocols::surface_docking::SurfaceDockingProtocol::set_surface_parameters(core::pose::Pose&) + 300
+4   surface_docking.static.macosclangre 0x0000000100cc13f4 protocols::surface_docking::SurfaceDockingProtocol::apply(core::pose::Pose&) + 192
+5   surface_docking.static.macosclangre 0x000000010239d894 protocols::jd2::JobDistributor::run_one_job(std::__1::shared_ptr<protocols::moves::Mover>&, long, std::__1::basic_string<char, std::__1::char_traits<char>, std::__1::allocator<char>>&, std::__1::basic_string<char, std::__1::char_traits<char>, std::__1::allocator<char>>&, unsigned long&, unsigned long&, bool) + 7052
+6   surface_docking.static.macosclangre 0x000000010239ae7c protocols::jd2::JobDistributor::go_main(std::__1::shared_ptr<protocols::moves::Mover>) + 136
+7   surface_docking.static.macosclangre 0x00000001023961e0 protocols::jd2::FileSystemJobDistributor::go(std::__1::shared_ptr<protocols::moves::Mover>) + 72
+8   surface_docking.static.macosclangre 0x00000001001f0c7c main + 244
+9   dyld                                0x000000018abe2b98 start + 6076
+
+[END_BACKTRACE]
+
+[FILE]: src/protocols/surface_docking/SurfaceVectorLoader.cc
+[LINE]: 105
+[START_MESSAGE]
+SurfaceVectorLoader expected to be given exactly three points to define the periodicity of the surface, but less than three points were provided in /Users/junyoung/Desktop/BioMatAI/BioMAI/input/surface_vectors.txt.
+
+[END_MESSAGE]
+[END_CRASH_REPORT]
+
+##############################################################################################################
+#
+# Rosetta crash log. Please submit the contents of this file to http://crash.rosettacommons.org/
+# or use the script Rosetta/main/source/scripts/python/public/report_crashes.py
+#
+
+[START_CRASH_REPORT]
+[ROSETTA_VERSION]: 2024.09+release.06b3cf8ad0
+[COMMIT_DATE]: 2024-02-28T21:25:09.004217
+[APPLICATION]: /Users/junyoung/Desktop/BioMatAI/rosetta/rosetta.binary.m1.release-371/main/source/bin/surface_docking.static.macosclangrelease
+[MODE]: Release
+[EXTRAS]: default
+[OS]: Apple Mac OS X
+[COMPILER]: Clang version "14.0.0 (clang-1400.0.29.202)"
+[STDLIB]: libc++ version 13000
+[START_OPTIONS]
+ -in:include_surfaces -in:path:database=/Users/junyoung/Desktop/BioMatAI/rosetta/rosetta.binary.m1.release-371/main/database/ -in:file:s=/Users/junyoung/Desktop/BioMatAI/BioMAI/input/merged_A_B.pdb -in:file:surface_vectors=/Users/junyoung/Desktop/BioMatAI/BioMAI/input/surface_vectors.txt -out:nstruct=50 -out:mute=all -out:unmute=protocols.SurfaceDocking -out:file:scorefile=/Users/junyoung/Desktop/BioMatAI/BioMAI/output/surface_dock_250917_204028/score.sc -out:path:all=/Users/junyoung/Desktop/BioMatAI/BioMAI/output/surface_dock_250917_204028/ -packing:resfile=/Users/junyoung/Desktop/BioMatAI/BioMAI/dock.resfile -packing:use_input_sc -packing:ex1 -packing:ex2aro -docking:partners=A_B -docking:randomize1 -docking:randomize2 -docking:use_ellipsoidal_randomization -docking:spin -docking:dock_pert=3 8
+
+[END_OPTIONS]
+
+[START_BACKTRACE]: RAW_LIBC
+0   surface_docking.static.macosclangre 0x0000000103cae904 backtrace_string(int) + 76
+1   surface_docking.static.macosclangre 0x0000000103cbec44 utility::excn::Exception::Exception(char const*, int, std::__1::basic_string<char, std::__1::char_traits<char>, std::__1::allocator<char>> const&) + 180
+2   surface_docking.static.macosclangre 0x0000000100cc855c protocols::surface_docking::SurfaceVectorLoader::create_surface_params(std::__1::basic_string<char, std::__1::char_traits<char>, std::__1::allocator<char>> const&, std::__1::basic_istream<char, std::__1::char_traits<char>>&) + 1768
+3   surface_docking.static.macosclangre 0x0000000100cc1dec protocols::surface_docking::SurfaceDockingProtocol::set_surface_parameters(core::pose::Pose&) + 300
+4   surface_docking.static.macosclangre 0x0000000100cc13f4 protocols::surface_docking::SurfaceDockingProtocol::apply(core::pose::Pose&) + 192
+5   surface_docking.static.macosclangre 0x000000010239d894 protocols::jd2::JobDistributor::run_one_job(std::__1::shared_ptr<protocols::moves::Mover>&, long, std::__1::basic_string<char, std::__1::char_traits<char>, std::__1::allocator<char>>&, std::__1::basic_string<char, std::__1::char_traits<char>, std::__1::allocator<char>>&, unsigned long&, unsigned long&, bool) + 7052
+6   surface_docking.static.macosclangre 0x000000010239ae7c protocols::jd2::JobDistributor::go_main(std::__1::shared_ptr<protocols::moves::Mover>) + 136
+7   surface_docking.static.macosclangre 0x00000001023961e0 protocols::jd2::FileSystemJobDistributor::go(std::__1::shared_ptr<protocols::moves::Mover>) + 72
+8   surface_docking.static.macosclangre 0x00000001001f0c7c main + 244
+9   dyld                                0x000000018abe2b98 start + 6076
+
+[END_BACKTRACE]
+
+[FILE]: src/protocols/surface_docking/SurfaceVectorLoader.cc
+[LINE]: 105
+[START_MESSAGE]
+SurfaceVectorLoader expected to be given exactly three points to define the periodicity of the surface, but less than three points were provided in /Users/junyoung/Desktop/BioMatAI/BioMAI/input/surface_vectors.txt.
+
+[END_MESSAGE]
+[END_CRASH_REPORT]
+
+##############################################################################################################
+#
+# Rosetta crash log. Please submit the contents of this file to http://crash.rosettacommons.org/
+# or use the script Rosetta/main/source/scripts/python/public/report_crashes.py
+#
+
+[START_CRASH_REPORT]
+[ROSETTA_VERSION]: 2024.09+release.06b3cf8ad0
+[COMMIT_DATE]: 2024-02-28T21:25:09.004217
+[APPLICATION]: /Users/junyoung/Desktop/BioMatAI/rosetta/rosetta.binary.m1.release-371/main/source/bin/surface_docking.static.macosclangrelease
+[MODE]: Release
+[EXTRAS]: default
+[OS]: Apple Mac OS X
+[COMPILER]: Clang version "14.0.0 (clang-1400.0.29.202)"
+[STDLIB]: libc++ version 13000
+[START_OPTIONS]
+ -in:include_surfaces -in:path:database=/Users/junyoung/Desktop/BioMatAI/rosetta/rosetta.binary.m1.release-371/main/database/ -in:file:s=/Users/junyoung/Desktop/BioMatAI/BioMAI/input/merged_A_B.pdb -in:file:surface_vectors=/Users/junyoung/Desktop/BioMatAI/BioMAI/input/surface_vectors.txt -out:nstruct=50 -out:mute=all -out:unmute=protocols.SurfaceDocking -out:file:scorefile=/Users/junyoung/Desktop/BioMatAI/BioMAI/output/surface_dock_250917_204028/score.sc -out:path:all=/Users/junyoung/Desktop/BioMatAI/BioMAI/output/surface_dock_250917_204028/ -packing:resfile=/Users/junyoung/Desktop/BioMatAI/BioMAI/dock.resfile -packing:use_input_sc -packing:ex1 -packing:ex2aro -docking:partners=A_B -docking:randomize1 -docking:randomize2 -docking:use_ellipsoidal_randomization -docking:spin -docking:dock_pert=3 8
+
+[END_OPTIONS]
+
+[START_BACKTRACE]: RAW_LIBC
+0   surface_docking.static.macosclangre 0x0000000103cae904 backtrace_string(int) + 76
+1   surface_docking.static.macosclangre 0x0000000103cbec44 utility::excn::Exception::Exception(char const*, int, std::__1::basic_string<char, std::__1::char_traits<char>, std::__1::allocator<char>> const&) + 180
+2   surface_docking.static.macosclangre 0x0000000100cc855c protocols::surface_docking::SurfaceVectorLoader::create_surface_params(std::__1::basic_string<char, std::__1::char_traits<char>, std::__1::allocator<char>> const&, std::__1::basic_istream<char, std::__1::char_traits<char>>&) + 1768
+3   surface_docking.static.macosclangre 0x0000000100cc1dec protocols::surface_docking::SurfaceDockingProtocol::set_surface_parameters(core::pose::Pose&) + 300
+4   surface_docking.static.macosclangre 0x0000000100cc13f4 protocols::surface_docking::SurfaceDockingProtocol::apply(core::pose::Pose&) + 192
+5   surface_docking.static.macosclangre 0x000000010239d894 protocols::jd2::JobDistributor::run_one_job(std::__1::shared_ptr<protocols::moves::Mover>&, long, std::__1::basic_string<char, std::__1::char_traits<char>, std::__1::allocator<char>>&, std::__1::basic_string<char, std::__1::char_traits<char>, std::__1::allocator<char>>&, unsigned long&, unsigned long&, bool) + 7052
+6   surface_docking.static.macosclangre 0x000000010239ae7c protocols::jd2::JobDistributor::go_main(std::__1::shared_ptr<protocols::moves::Mover>) + 136
+7   surface_docking.static.macosclangre 0x00000001023961e0 protocols::jd2::FileSystemJobDistributor::go(std::__1::shared_ptr<protocols::moves::Mover>) + 72
+8   surface_docking.static.macosclangre 0x00000001001f0c7c main + 244
+9   dyld                                0x000000018abe2b98 start + 6076
+
+[END_BACKTRACE]
+
+[FILE]: src/protocols/surface_docking/SurfaceVectorLoader.cc
+[LINE]: 105
+[START_MESSAGE]
+SurfaceVectorLoader expected to be given exactly three points to define the periodicity of the surface, but less than three points were provided in /Users/junyoung/Desktop/BioMatAI/BioMAI/input/surface_vectors.txt.
+
+[END_MESSAGE]
+[END_CRASH_REPORT]
+
+##############################################################################################################
+#
+# Rosetta crash log. Please submit the contents of this file to http://crash.rosettacommons.org/
+# or use the script Rosetta/main/source/scripts/python/public/report_crashes.py
+#
+
+[START_CRASH_REPORT]
+[ROSETTA_VERSION]: 2024.09+release.06b3cf8ad0
+[COMMIT_DATE]: 2024-02-28T21:25:09.004217
+[APPLICATION]: /Users/junyoung/Desktop/BioMatAI/rosetta/rosetta.binary.m1.release-371/main/source/bin/surface_docking.static.macosclangrelease
+[MODE]: Release
+[EXTRAS]: default
+[OS]: Apple Mac OS X
+[COMPILER]: Clang version "14.0.0 (clang-1400.0.29.202)"
+[STDLIB]: libc++ version 13000
+[START_OPTIONS]
+ -in:include_surfaces -in:path:database=/Users/junyoung/Desktop/BioMatAI/rosetta/rosetta.binary.m1.release-371/main/database/ -in:file:s=/Users/junyoung/Desktop/BioMatAI/BioMAI/input/merged_A_B.pdb -in:file:surface_vectors=/Users/junyoung/Desktop/BioMatAI/BioMAI/input/surface_vectors.txt -out:nstruct=50 -out:mute=all -out:unmute=protocols.SurfaceDocking -out:file:scorefile=/Users/junyoung/Desktop/BioMatAI/BioMAI/output/surface_dock_250917_204028/score.sc -out:path:all=/Users/junyoung/Desktop/BioMatAI/BioMAI/output/surface_dock_250917_204028/ -packing:resfile=/Users/junyoung/Desktop/BioMatAI/BioMAI/dock.resfile -packing:use_input_sc -packing:ex1 -packing:ex2aro -docking:partners=A_B -docking:randomize1 -docking:randomize2 -docking:use_ellipsoidal_randomization -docking:spin -docking:dock_pert=3 8
+
+[END_OPTIONS]
+
+[START_BACKTRACE]: RAW_LIBC
+0   surface_docking.static.macosclangre 0x0000000103cae904 backtrace_string(int) + 76
+1   surface_docking.static.macosclangre 0x0000000103cbec44 utility::excn::Exception::Exception(char const*, int, std::__1::basic_string<char, std::__1::char_traits<char>, std::__1::allocator<char>> const&) + 180
+2   surface_docking.static.macosclangre 0x0000000100cc855c protocols::surface_docking::SurfaceVectorLoader::create_surface_params(std::__1::basic_string<char, std::__1::char_traits<char>, std::__1::allocator<char>> const&, std::__1::basic_istream<char, std::__1::char_traits<char>>&) + 1768
+3   surface_docking.static.macosclangre 0x0000000100cc1dec protocols::surface_docking::SurfaceDockingProtocol::set_surface_parameters(core::pose::Pose&) + 300
+4   surface_docking.static.macosclangre 0x0000000100cc13f4 protocols::surface_docking::SurfaceDockingProtocol::apply(core::pose::Pose&) + 192
+5   surface_docking.static.macosclangre 0x000000010239d894 protocols::jd2::JobDistributor::run_one_job(std::__1::shared_ptr<protocols::moves::Mover>&, long, std::__1::basic_string<char, std::__1::char_traits<char>, std::__1::allocator<char>>&, std::__1::basic_string<char, std::__1::char_traits<char>, std::__1::allocator<char>>&, unsigned long&, unsigned long&, bool) + 7052
+6   surface_docking.static.macosclangre 0x000000010239ae7c protocols::jd2::JobDistributor::go_main(std::__1::shared_ptr<protocols::moves::Mover>) + 136
+7   surface_docking.static.macosclangre 0x00000001023961e0 protocols::jd2::FileSystemJobDistributor::go(std::__1::shared_ptr<protocols::moves::Mover>) + 72
+8   surface_docking.static.macosclangre 0x00000001001f0c7c main + 244
+9   dyld                                0x000000018abe2b98 start + 6076
+
+[END_BACKTRACE]
+
+[FILE]: src/protocols/surface_docking/SurfaceVectorLoader.cc
+[LINE]: 105
+[START_MESSAGE]
+SurfaceVectorLoader expected to be given exactly three points to define the periodicity of the surface, but less than three points were provided in /Users/junyoung/Desktop/BioMatAI/BioMAI/input/surface_vectors.txt.
+
+[END_MESSAGE]
+[END_CRASH_REPORT]
+
+##############################################################################################################
+#
+# Rosetta crash log. Please submit the contents of this file to http://crash.rosettacommons.org/
+# or use the script Rosetta/main/source/scripts/python/public/report_crashes.py
+#
+
+[START_CRASH_REPORT]
+[ROSETTA_VERSION]: 2024.09+release.06b3cf8ad0
+[COMMIT_DATE]: 2024-02-28T21:25:09.004217
+[APPLICATION]: /Users/junyoung/Desktop/BioMatAI/rosetta/rosetta.binary.m1.release-371/main/source/bin/surface_docking.static.macosclangrelease
+[MODE]: Release
+[EXTRAS]: default
+[OS]: Apple Mac OS X
+[COMPILER]: Clang version "14.0.0 (clang-1400.0.29.202)"
+[STDLIB]: libc++ version 13000
+[START_OPTIONS]
+ -in:include_surfaces -in:path:database=/Users/junyoung/Desktop/BioMatAI/rosetta/rosetta.binary.m1.release-371/main/database/ -in:file:s=/Users/junyoung/Desktop/BioMatAI/BioMAI/input/merged_A_B.pdb -in:file:surface_vectors=/Users/junyoung/Desktop/BioMatAI/BioMAI/input/surface_vectors.txt -out:nstruct=50 -out:mute=all -out:unmute=protocols.SurfaceDocking -out:file:scorefile=/Users/junyoung/Desktop/BioMatAI/BioMAI/output/surface_dock_250917_204028/score.sc -out:path:all=/Users/junyoung/Desktop/BioMatAI/BioMAI/output/surface_dock_250917_204028/ -packing:resfile=/Users/junyoung/Desktop/BioMatAI/BioMAI/dock.resfile -packing:use_input_sc -packing:ex1 -packing:ex2aro -docking:partners=A_B -docking:randomize1 -docking:randomize2 -docking:use_ellipsoidal_randomization -docking:spin -docking:dock_pert=3 8
+
+[END_OPTIONS]
+
+[START_BACKTRACE]: RAW_LIBC
+0   surface_docking.static.macosclangre 0x0000000103cae904 backtrace_string(int) + 76
+1   surface_docking.static.macosclangre 0x0000000103cbec44 utility::excn::Exception::Exception(char const*, int, std::__1::basic_string<char, std::__1::char_traits<char>, std::__1::allocator<char>> const&) + 180
+2   surface_docking.static.macosclangre 0x0000000100cc855c protocols::surface_docking::SurfaceVectorLoader::create_surface_params(std::__1::basic_string<char, std::__1::char_traits<char>, std::__1::allocator<char>> const&, std::__1::basic_istream<char, std::__1::char_traits<char>>&) + 1768
+3   surface_docking.static.macosclangre 0x0000000100cc1dec protocols::surface_docking::SurfaceDockingProtocol::set_surface_parameters(core::pose::Pose&) + 300
+4   surface_docking.static.macosclangre 0x0000000100cc13f4 protocols::surface_docking::SurfaceDockingProtocol::apply(core::pose::Pose&) + 192
+5   surface_docking.static.macosclangre 0x000000010239d894 protocols::jd2::JobDistributor::run_one_job(std::__1::shared_ptr<protocols::moves::Mover>&, long, std::__1::basic_string<char, std::__1::char_traits<char>, std::__1::allocator<char>>&, std::__1::basic_string<char, std::__1::char_traits<char>, std::__1::allocator<char>>&, unsigned long&, unsigned long&, bool) + 7052
+6   surface_docking.static.macosclangre 0x000000010239ae7c protocols::jd2::JobDistributor::go_main(std::__1::shared_ptr<protocols::moves::Mover>) + 136
+7   surface_docking.static.macosclangre 0x00000001023961e0 protocols::jd2::FileSystemJobDistributor::go(std::__1::shared_ptr<protocols::moves::Mover>) + 72
+8   surface_docking.static.macosclangre 0x00000001001f0c7c main + 244
+9   dyld                                0x000000018abe2b98 start + 6076
+
+[END_BACKTRACE]
+
+[FILE]: src/protocols/surface_docking/SurfaceVectorLoader.cc
+[LINE]: 105
+[START_MESSAGE]
+SurfaceVectorLoader expected to be given exactly three points to define the periodicity of the surface, but less than three points were provided in /Users/junyoung/Desktop/BioMatAI/BioMAI/input/surface_vectors.txt.
+
+[END_MESSAGE]
+[END_CRASH_REPORT]
+
+##############################################################################################################
+#
+# Rosetta crash log. Please submit the contents of this file to http://crash.rosettacommons.org/
+# or use the script Rosetta/main/source/scripts/python/public/report_crashes.py
+#
+
+[START_CRASH_REPORT]
+[ROSETTA_VERSION]: 2024.09+release.06b3cf8ad0
+[COMMIT_DATE]: 2024-02-28T21:25:09.004217
+[APPLICATION]: /Users/junyoung/Desktop/BioMatAI/rosetta/rosetta.binary.m1.release-371/main/source/bin/surface_docking.static.macosclangrelease
+[MODE]: Release
+[EXTRAS]: default
+[OS]: Apple Mac OS X
+[COMPILER]: Clang version "14.0.0 (clang-1400.0.29.202)"
+[STDLIB]: libc++ version 13000
+[START_OPTIONS]
+ -in:include_surfaces -in:path:database=/Users/junyoung/Desktop/BioMatAI/rosetta/rosetta.binary.m1.release-371/main/database/ -in:file:s=/Users/junyoung/Desktop/BioMatAI/BioMAI/input/merged_A_B.pdb -in:file:surface_vectors=/Users/junyoung/Desktop/BioMatAI/BioMAI/input/surface_vectors.txt -out:nstruct=50 -out:mute=all -out:unmute=protocols.SurfaceDocking -out:file:scorefile=/Users/junyoung/Desktop/BioMatAI/BioMAI/output/surface_dock_250917_204028/score.sc -out:path:all=/Users/junyoung/Desktop/BioMatAI/BioMAI/output/surface_dock_250917_204028/ -packing:resfile=/Users/junyoung/Desktop/BioMatAI/BioMAI/dock.resfile -packing:use_input_sc -packing:ex1 -packing:ex2aro -docking:partners=A_B -docking:randomize1 -docking:randomize2 -docking:use_ellipsoidal_randomization -docking:spin -docking:dock_pert=3 8
+
+[END_OPTIONS]
+
+[START_BACKTRACE]: RAW_LIBC
+0   surface_docking.static.macosclangre 0x0000000103cae904 backtrace_string(int) + 76
+1   surface_docking.static.macosclangre 0x0000000103cbec44 utility::excn::Exception::Exception(char const*, int, std::__1::basic_string<char, std::__1::char_traits<char>, std::__1::allocator<char>> const&) + 180
+2   surface_docking.static.macosclangre 0x0000000100cc855c protocols::surface_docking::SurfaceVectorLoader::create_surface_params(std::__1::basic_string<char, std::__1::char_traits<char>, std::__1::allocator<char>> const&, std::__1::basic_istream<char, std::__1::char_traits<char>>&) + 1768
+3   surface_docking.static.macosclangre 0x0000000100cc1dec protocols::surface_docking::SurfaceDockingProtocol::set_surface_parameters(core::pose::Pose&) + 300
+4   surface_docking.static.macosclangre 0x0000000100cc13f4 protocols::surface_docking::SurfaceDockingProtocol::apply(core::pose::Pose&) + 192
+5   surface_docking.static.macosclangre 0x000000010239d894 protocols::jd2::JobDistributor::run_one_job(std::__1::shared_ptr<protocols::moves::Mover>&, long, std::__1::basic_string<char, std::__1::char_traits<char>, std::__1::allocator<char>>&, std::__1::basic_string<char, std::__1::char_traits<char>, std::__1::allocator<char>>&, unsigned long&, unsigned long&, bool) + 7052
+6   surface_docking.static.macosclangre 0x000000010239ae7c protocols::jd2::JobDistributor::go_main(std::__1::shared_ptr<protocols::moves::Mover>) + 136
+7   surface_docking.static.macosclangre 0x00000001023961e0 protocols::jd2::FileSystemJobDistributor::go(std::__1::shared_ptr<protocols::moves::Mover>) + 72
+8   surface_docking.static.macosclangre 0x00000001001f0c7c main + 244
+9   dyld                                0x000000018abe2b98 start + 6076
+
+[END_BACKTRACE]
+
+[FILE]: src/protocols/surface_docking/SurfaceVectorLoader.cc
+[LINE]: 105
+[START_MESSAGE]
+SurfaceVectorLoader expected to be given exactly three points to define the periodicity of the surface, but less than three points were provided in /Users/junyoung/Desktop/BioMatAI/BioMAI/input/surface_vectors.txt.
+
+[END_MESSAGE]
+[END_CRASH_REPORT]
+
+##############################################################################################################
+#
+# Rosetta crash log. Please submit the contents of this file to http://crash.rosettacommons.org/
+# or use the script Rosetta/main/source/scripts/python/public/report_crashes.py
+#
+
+[START_CRASH_REPORT]
+[ROSETTA_VERSION]: 2024.09+release.06b3cf8ad0
+[COMMIT_DATE]: 2024-02-28T21:25:09.004217
+[APPLICATION]: /Users/junyoung/Desktop/BioMatAI/rosetta/rosetta.binary.m1.release-371/main/source/bin/surface_docking.static.macosclangrelease
+[MODE]: Release
+[EXTRAS]: default
+[OS]: Apple Mac OS X
+[COMPILER]: Clang version "14.0.0 (clang-1400.0.29.202)"
+[STDLIB]: libc++ version 13000
+[START_OPTIONS]
+ -in:include_surfaces -in:path:database=/Users/junyoung/Desktop/BioMatAI/rosetta/rosetta.binary.m1.release-371/main/database/ -in:file:s=/Users/junyoung/Desktop/BioMatAI/BioMAI/input/merged_A_B.pdb -in:file:surface_vectors=/Users/junyoung/Desktop/BioMatAI/BioMAI/input/surface_vectors.txt -out:nstruct=50 -out:mute=all -out:unmute=protocols.SurfaceDocking -out:file:scorefile=/Users/junyoung/Desktop/BioMatAI/BioMAI/output/surface_dock_250917_204028/score.sc -out:path:all=/Users/junyoung/Desktop/BioMatAI/BioMAI/output/surface_dock_250917_204028/ -packing:resfile=/Users/junyoung/Desktop/BioMatAI/BioMAI/dock.resfile -packing:use_input_sc -packing:ex1 -packing:ex2aro -docking:partners=A_B -docking:randomize1 -docking:randomize2 -docking:use_ellipsoidal_randomization -docking:spin -docking:dock_pert=3 8
+
+[END_OPTIONS]
+
+[START_BACKTRACE]: RAW_LIBC
+0   surface_docking.static.macosclangre 0x0000000103cae904 backtrace_string(int) + 76
+1   surface_docking.static.macosclangre 0x0000000103cbec44 utility::excn::Exception::Exception(char const*, int, std::__1::basic_string<char, std::__1::char_traits<char>, std::__1::allocator<char>> const&) + 180
+2   surface_docking.static.macosclangre 0x0000000100cc855c protocols::surface_docking::SurfaceVectorLoader::create_surface_params(std::__1::basic_string<char, std::__1::char_traits<char>, std::__1::allocator<char>> const&, std::__1::basic_istream<char, std::__1::char_traits<char>>&) + 1768
+3   surface_docking.static.macosclangre 0x0000000100cc1dec protocols::surface_docking::SurfaceDockingProtocol::set_surface_parameters(core::pose::Pose&) + 300
+4   surface_docking.static.macosclangre 0x0000000100cc13f4 protocols::surface_docking::SurfaceDockingProtocol::apply(core::pose::Pose&) + 192
+5   surface_docking.static.macosclangre 0x000000010239d894 protocols::jd2::JobDistributor::run_one_job(std::__1::shared_ptr<protocols::moves::Mover>&, long, std::__1::basic_string<char, std::__1::char_traits<char>, std::__1::allocator<char>>&, std::__1::basic_string<char, std::__1::char_traits<char>, std::__1::allocator<char>>&, unsigned long&, unsigned long&, bool) + 7052
+6   surface_docking.static.macosclangre 0x000000010239ae7c protocols::jd2::JobDistributor::go_main(std::__1::shared_ptr<protocols::moves::Mover>) + 136
+7   surface_docking.static.macosclangre 0x00000001023961e0 protocols::jd2::FileSystemJobDistributor::go(std::__1::shared_ptr<protocols::moves::Mover>) + 72
+8   surface_docking.static.macosclangre 0x00000001001f0c7c main + 244
+9   dyld                                0x000000018abe2b98 start + 6076
+
+[END_BACKTRACE]
+
+[FILE]: src/protocols/surface_docking/SurfaceVectorLoader.cc
+[LINE]: 105
+[START_MESSAGE]
+SurfaceVectorLoader expected to be given exactly three points to define the periodicity of the surface, but less than three points were provided in /Users/junyoung/Desktop/BioMatAI/BioMAI/input/surface_vectors.txt.
+
+[END_MESSAGE]
+[END_CRASH_REPORT]
+
+##############################################################################################################
+#
+# Rosetta crash log. Please submit the contents of this file to http://crash.rosettacommons.org/
+# or use the script Rosetta/main/source/scripts/python/public/report_crashes.py
+#
+
+[START_CRASH_REPORT]
+[ROSETTA_VERSION]: 2024.09+release.06b3cf8ad0
+[COMMIT_DATE]: 2024-02-28T21:25:09.004217
+[APPLICATION]: /Users/junyoung/Desktop/BioMatAI/rosetta/rosetta.binary.m1.release-371/main/source/bin/surface_docking.static.macosclangrelease
+[MODE]: Release
+[EXTRAS]: default
+[OS]: Apple Mac OS X
+[COMPILER]: Clang version "14.0.0 (clang-1400.0.29.202)"
+[STDLIB]: libc++ version 13000
+[START_OPTIONS]
+ -in:include_surfaces -in:path:database=/Users/junyoung/Desktop/BioMatAI/rosetta/rosetta.binary.m1.release-371/main/database/ -in:file:s=/Users/junyoung/Desktop/BioMatAI/BioMAI/input/merged_A_B.pdb -in:file:surface_vectors=/Users/junyoung/Desktop/BioMatAI/BioMAI/input/surface_vectors.txt -out:nstruct=50 -out:mute=all -out:unmute=protocols.SurfaceDocking -out:file:scorefile=/Users/junyoung/Desktop/BioMatAI/BioMAI/output/surface_dock_250917_204028/score.sc -out:path:all=/Users/junyoung/Desktop/BioMatAI/BioMAI/output/surface_dock_250917_204028/ -packing:resfile=/Users/junyoung/Desktop/BioMatAI/BioMAI/dock.resfile -packing:use_input_sc -packing:ex1 -packing:ex2aro -docking:partners=A_B -docking:randomize1 -docking:randomize2 -docking:use_ellipsoidal_randomization -docking:spin -docking:dock_pert=3 8
+
+[END_OPTIONS]
+
+[START_BACKTRACE]: RAW_LIBC
+0   surface_docking.static.macosclangre 0x0000000103cae904 backtrace_string(int) + 76
+1   surface_docking.static.macosclangre 0x0000000103cbec44 utility::excn::Exception::Exception(char const*, int, std::__1::basic_string<char, std::__1::char_traits<char>, std::__1::allocator<char>> const&) + 180
+2   surface_docking.static.macosclangre 0x0000000100cc855c protocols::surface_docking::SurfaceVectorLoader::create_surface_params(std::__1::basic_string<char, std::__1::char_traits<char>, std::__1::allocator<char>> const&, std::__1::basic_istream<char, std::__1::char_traits<char>>&) + 1768
+3   surface_docking.static.macosclangre 0x0000000100cc1dec protocols::surface_docking::SurfaceDockingProtocol::set_surface_parameters(core::pose::Pose&) + 300
+4   surface_docking.static.macosclangre 0x0000000100cc13f4 protocols::surface_docking::SurfaceDockingProtocol::apply(core::pose::Pose&) + 192
+5   surface_docking.static.macosclangre 0x000000010239d894 protocols::jd2::JobDistributor::run_one_job(std::__1::shared_ptr<protocols::moves::Mover>&, long, std::__1::basic_string<char, std::__1::char_traits<char>, std::__1::allocator<char>>&, std::__1::basic_string<char, std::__1::char_traits<char>, std::__1::allocator<char>>&, unsigned long&, unsigned long&, bool) + 7052
+6   surface_docking.static.macosclangre 0x000000010239ae7c protocols::jd2::JobDistributor::go_main(std::__1::shared_ptr<protocols::moves::Mover>) + 136
+7   surface_docking.static.macosclangre 0x00000001023961e0 protocols::jd2::FileSystemJobDistributor::go(std::__1::shared_ptr<protocols::moves::Mover>) + 72
+8   surface_docking.static.macosclangre 0x00000001001f0c7c main + 244
+9   dyld                                0x000000018abe2b98 start + 6076
+
+[END_BACKTRACE]
+
+[FILE]: src/protocols/surface_docking/SurfaceVectorLoader.cc
+[LINE]: 105
+[START_MESSAGE]
+SurfaceVectorLoader expected to be given exactly three points to define the periodicity of the surface, but less than three points were provided in /Users/junyoung/Desktop/BioMatAI/BioMAI/input/surface_vectors.txt.
+
+[END_MESSAGE]
+[END_CRASH_REPORT]
+
+##############################################################################################################
+#
+# Rosetta crash log. Please submit the contents of this file to http://crash.rosettacommons.org/
+# or use the script Rosetta/main/source/scripts/python/public/report_crashes.py
+#
+
+[START_CRASH_REPORT]
+[ROSETTA_VERSION]: 2024.09+release.06b3cf8ad0
+[COMMIT_DATE]: 2024-02-28T21:25:09.004217
+[APPLICATION]: /Users/junyoung/Desktop/BioMatAI/rosetta/rosetta.binary.m1.release-371/main/source/bin/surface_docking.static.macosclangrelease
+[MODE]: Release
+[EXTRAS]: default
+[OS]: Apple Mac OS X
+[COMPILER]: Clang version "14.0.0 (clang-1400.0.29.202)"
+[STDLIB]: libc++ version 13000
+[START_OPTIONS]
+ -in:include_surfaces -in:path:database=/Users/junyoung/Desktop/BioMatAI/rosetta/rosetta.binary.m1.release-371/main/database/ -in:file:s=/Users/junyoung/Desktop/BioMatAI/BioMAI/input/merged_A_B.pdb -in:file:surface_vectors=/Users/junyoung/Desktop/BioMatAI/BioMAI/input/surface_vectors.txt -out:nstruct=50 -out:mute=all -out:unmute=protocols.SurfaceDocking -out:file:scorefile=/Users/junyoung/Desktop/BioMatAI/BioMAI/output/surface_dock_250917_204028/score.sc -out:path:all=/Users/junyoung/Desktop/BioMatAI/BioMAI/output/surface_dock_250917_204028/ -packing:resfile=/Users/junyoung/Desktop/BioMatAI/BioMAI/dock.resfile -packing:use_input_sc -packing:ex1 -packing:ex2aro -docking:partners=A_B -docking:randomize1 -docking:randomize2 -docking:use_ellipsoidal_randomization -docking:spin -docking:dock_pert=3 8
+
+[END_OPTIONS]
+
+[START_BACKTRACE]: RAW_LIBC
+0   surface_docking.static.macosclangre 0x0000000103cae904 backtrace_string(int) + 76
+1   surface_docking.static.macosclangre 0x0000000103cbec44 utility::excn::Exception::Exception(char const*, int, std::__1::basic_string<char, std::__1::char_traits<char>, std::__1::allocator<char>> const&) + 180
+2   surface_docking.static.macosclangre 0x0000000100cc855c protocols::surface_docking::SurfaceVectorLoader::create_surface_params(std::__1::basic_string<char, std::__1::char_traits<char>, std::__1::allocator<char>> const&, std::__1::basic_istream<char, std::__1::char_traits<char>>&) + 1768
+3   surface_docking.static.macosclangre 0x0000000100cc1dec protocols::surface_docking::SurfaceDockingProtocol::set_surface_parameters(core::pose::Pose&) + 300
+4   surface_docking.static.macosclangre 0x0000000100cc13f4 protocols::surface_docking::SurfaceDockingProtocol::apply(core::pose::Pose&) + 192
+5   surface_docking.static.macosclangre 0x000000010239d894 protocols::jd2::JobDistributor::run_one_job(std::__1::shared_ptr<protocols::moves::Mover>&, long, std::__1::basic_string<char, std::__1::char_traits<char>, std::__1::allocator<char>>&, std::__1::basic_string<char, std::__1::char_traits<char>, std::__1::allocator<char>>&, unsigned long&, unsigned long&, bool) + 7052
+6   surface_docking.static.macosclangre 0x000000010239ae7c protocols::jd2::JobDistributor::go_main(std::__1::shared_ptr<protocols::moves::Mover>) + 136
+7   surface_docking.static.macosclangre 0x00000001023961e0 protocols::jd2::FileSystemJobDistributor::go(std::__1::shared_ptr<protocols::moves::Mover>) + 72
+8   surface_docking.static.macosclangre 0x00000001001f0c7c main + 244
+9   dyld                                0x000000018abe2b98 start + 6076
+
+[END_BACKTRACE]
+
+[FILE]: src/protocols/surface_docking/SurfaceVectorLoader.cc
+[LINE]: 105
+[START_MESSAGE]
+SurfaceVectorLoader expected to be given exactly three points to define the periodicity of the surface, but less than three points were provided in /Users/junyoung/Desktop/BioMatAI/BioMAI/input/surface_vectors.txt.
+
+[END_MESSAGE]
+[END_CRASH_REPORT]
+
+##############################################################################################################
+#
+# Rosetta crash log. Please submit the contents of this file to http://crash.rosettacommons.org/
+# or use the script Rosetta/main/source/scripts/python/public/report_crashes.py
+#
+
+[START_CRASH_REPORT]
+[ROSETTA_VERSION]: 2024.09+release.06b3cf8ad0
+[COMMIT_DATE]: 2024-02-28T21:25:09.004217
+[APPLICATION]: /Users/junyoung/Desktop/BioMatAI/rosetta/rosetta.binary.m1.release-371/main/source/bin/surface_docking.static.macosclangrelease
+[MODE]: Release
+[EXTRAS]: default
+[OS]: Apple Mac OS X
+[COMPILER]: Clang version "14.0.0 (clang-1400.0.29.202)"
+[STDLIB]: libc++ version 13000
+[START_OPTIONS]
+ -in:include_surfaces -in:path:database=/Users/junyoung/Desktop/BioMatAI/rosetta/rosetta.binary.m1.release-371/main/database/ -in:file:s=/Users/junyoung/Desktop/BioMatAI/BioMAI/input/merged_A_B.pdb -in:file:surface_vectors=/Users/junyoung/Desktop/BioMatAI/BioMAI/input/surface_vectors.txt -out:nstruct=50 -out:mute=all -out:unmute=protocols.SurfaceDocking -out:file:scorefile=/Users/junyoung/Desktop/BioMatAI/BioMAI/output/surface_dock_250917_204028/score.sc -out:path:all=/Users/junyoung/Desktop/BioMatAI/BioMAI/output/surface_dock_250917_204028/ -packing:resfile=/Users/junyoung/Desktop/BioMatAI/BioMAI/dock.resfile -packing:use_input_sc -packing:ex1 -packing:ex2aro -docking:partners=A_B -docking:randomize1 -docking:randomize2 -docking:use_ellipsoidal_randomization -docking:spin -docking:dock_pert=3 8
+
+[END_OPTIONS]
+
+[START_BACKTRACE]: RAW_LIBC
+0   surface_docking.static.macosclangre 0x0000000103cae904 backtrace_string(int) + 76
+1   surface_docking.static.macosclangre 0x0000000103cbec44 utility::excn::Exception::Exception(char const*, int, std::__1::basic_string<char, std::__1::char_traits<char>, std::__1::allocator<char>> const&) + 180
+2   surface_docking.static.macosclangre 0x0000000100cc855c protocols::surface_docking::SurfaceVectorLoader::create_surface_params(std::__1::basic_string<char, std::__1::char_traits<char>, std::__1::allocator<char>> const&, std::__1::basic_istream<char, std::__1::char_traits<char>>&) + 1768
+3   surface_docking.static.macosclangre 0x0000000100cc1dec protocols::surface_docking::SurfaceDockingProtocol::set_surface_parameters(core::pose::Pose&) + 300
+4   surface_docking.static.macosclangre 0x0000000100cc13f4 protocols::surface_docking::SurfaceDockingProtocol::apply(core::pose::Pose&) + 192
+5   surface_docking.static.macosclangre 0x000000010239d894 protocols::jd2::JobDistributor::run_one_job(std::__1::shared_ptr<protocols::moves::Mover>&, long, std::__1::basic_string<char, std::__1::char_traits<char>, std::__1::allocator<char>>&, std::__1::basic_string<char, std::__1::char_traits<char>, std::__1::allocator<char>>&, unsigned long&, unsigned long&, bool) + 7052
+6   surface_docking.static.macosclangre 0x000000010239ae7c protocols::jd2::JobDistributor::go_main(std::__1::shared_ptr<protocols::moves::Mover>) + 136
+7   surface_docking.static.macosclangre 0x00000001023961e0 protocols::jd2::FileSystemJobDistributor::go(std::__1::shared_ptr<protocols::moves::Mover>) + 72
+8   surface_docking.static.macosclangre 0x00000001001f0c7c main + 244
+9   dyld                                0x000000018abe2b98 start + 6076
+
+[END_BACKTRACE]
+
+[FILE]: src/protocols/surface_docking/SurfaceVectorLoader.cc
+[LINE]: 105
+[START_MESSAGE]
+SurfaceVectorLoader expected to be given exactly three points to define the periodicity of the surface, but less than three points were provided in /Users/junyoung/Desktop/BioMatAI/BioMAI/input/surface_vectors.txt.
+
+[END_MESSAGE]
+[END_CRASH_REPORT]
+
+##############################################################################################################
+#
+# Rosetta crash log. Please submit the contents of this file to http://crash.rosettacommons.org/
+# or use the script Rosetta/main/source/scripts/python/public/report_crashes.py
+#
+
+[START_CRASH_REPORT]
+[ROSETTA_VERSION]: 2024.09+release.06b3cf8ad0
+[COMMIT_DATE]: 2024-02-28T21:25:09.004217
+[APPLICATION]: /Users/junyoung/Desktop/BioMatAI/rosetta/rosetta.binary.m1.release-371/main/source/bin/surface_docking.static.macosclangrelease
+[MODE]: Release
+[EXTRAS]: default
+[OS]: Apple Mac OS X
+[COMPILER]: Clang version "14.0.0 (clang-1400.0.29.202)"
+[STDLIB]: libc++ version 13000
+[START_OPTIONS]
+ -in:include_surfaces -in:path:database=/Users/junyoung/Desktop/BioMatAI/rosetta/rosetta.binary.m1.release-371/main/database/ -in:file:s=/Users/junyoung/Desktop/BioMatAI/BioMAI/input/merged_A_B.pdb -in:file:surface_vectors=/Users/junyoung/Desktop/BioMatAI/BioMAI/input/surface_vectors.txt -out:nstruct=50 -out:mute=all -out:unmute=protocols.SurfaceDocking -out:file:scorefile=/Users/junyoung/Desktop/BioMatAI/BioMAI/output/surface_dock_250917_204028/score.sc -out:path:all=/Users/junyoung/Desktop/BioMatAI/BioMAI/output/surface_dock_250917_204028/ -packing:resfile=/Users/junyoung/Desktop/BioMatAI/BioMAI/dock.resfile -packing:use_input_sc -packing:ex1 -packing:ex2aro -docking:partners=A_B -docking:randomize1 -docking:randomize2 -docking:use_ellipsoidal_randomization -docking:spin -docking:dock_pert=3 8
+
+[END_OPTIONS]
+
+[START_BACKTRACE]: RAW_LIBC
+0   surface_docking.static.macosclangre 0x0000000103cae904 backtrace_string(int) + 76
+1   surface_docking.static.macosclangre 0x0000000103cbec44 utility::excn::Exception::Exception(char const*, int, std::__1::basic_string<char, std::__1::char_traits<char>, std::__1::allocator<char>> const&) + 180
+2   surface_docking.static.macosclangre 0x0000000100cc855c protocols::surface_docking::SurfaceVectorLoader::create_surface_params(std::__1::basic_string<char, std::__1::char_traits<char>, std::__1::allocator<char>> const&, std::__1::basic_istream<char, std::__1::char_traits<char>>&) + 1768
+3   surface_docking.static.macosclangre 0x0000000100cc1dec protocols::surface_docking::SurfaceDockingProtocol::set_surface_parameters(core::pose::Pose&) + 300
+4   surface_docking.static.macosclangre 0x0000000100cc13f4 protocols::surface_docking::SurfaceDockingProtocol::apply(core::pose::Pose&) + 192
+5   surface_docking.static.macosclangre 0x000000010239d894 protocols::jd2::JobDistributor::run_one_job(std::__1::shared_ptr<protocols::moves::Mover>&, long, std::__1::basic_string<char, std::__1::char_traits<char>, std::__1::allocator<char>>&, std::__1::basic_string<char, std::__1::char_traits<char>, std::__1::allocator<char>>&, unsigned long&, unsigned long&, bool) + 7052
+6   surface_docking.static.macosclangre 0x000000010239ae7c protocols::jd2::JobDistributor::go_main(std::__1::shared_ptr<protocols::moves::Mover>) + 136
+7   surface_docking.static.macosclangre 0x00000001023961e0 protocols::jd2::FileSystemJobDistributor::go(std::__1::shared_ptr<protocols::moves::Mover>) + 72
+8   surface_docking.static.macosclangre 0x00000001001f0c7c main + 244
+9   dyld                                0x000000018abe2b98 start + 6076
+
+[END_BACKTRACE]
+
+[FILE]: src/protocols/surface_docking/SurfaceVectorLoader.cc
+[LINE]: 105
+[START_MESSAGE]
+SurfaceVectorLoader expected to be given exactly three points to define the periodicity of the surface, but less than three points were provided in /Users/junyoung/Desktop/BioMatAI/BioMAI/input/surface_vectors.txt.
+
+[END_MESSAGE]
+[END_CRASH_REPORT]
+
+##############################################################################################################
+#
+# Rosetta crash log. Please submit the contents of this file to http://crash.rosettacommons.org/
+# or use the script Rosetta/main/source/scripts/python/public/report_crashes.py
+#
+
+[START_CRASH_REPORT]
+[ROSETTA_VERSION]: 2024.09+release.06b3cf8ad0
+[COMMIT_DATE]: 2024-02-28T21:25:09.004217
+[APPLICATION]: /Users/junyoung/Desktop/BioMatAI/rosetta/rosetta.binary.m1.release-371/main/source/bin/surface_docking.static.macosclangrelease
+[MODE]: Release
+[EXTRAS]: default
+[OS]: Apple Mac OS X
+[COMPILER]: Clang version "14.0.0 (clang-1400.0.29.202)"
+[STDLIB]: libc++ version 13000
+[START_OPTIONS]
+ -in:include_surfaces -in:path:database=/Users/junyoung/Desktop/BioMatAI/rosetta/rosetta.binary.m1.release-371/main/database/ -in:file:s=/Users/junyoung/Desktop/BioMatAI/BioMAI/input/merged_A_B.pdb -in:file:surface_vectors=/Users/junyoung/Desktop/BioMatAI/BioMAI/input/surface_vectors.txt -out:nstruct=50 -out:mute=all -out:unmute=protocols.SurfaceDocking -out:file:scorefile=/Users/junyoung/Desktop/BioMatAI/BioMAI/output/surface_dock_250917_204028/score.sc -out:path:all=/Users/junyoung/Desktop/BioMatAI/BioMAI/output/surface_dock_250917_204028/ -packing:resfile=/Users/junyoung/Desktop/BioMatAI/BioMAI/dock.resfile -packing:use_input_sc -packing:ex1 -packing:ex2aro -docking:partners=A_B -docking:randomize1 -docking:randomize2 -docking:use_ellipsoidal_randomization -docking:spin -docking:dock_pert=3 8
+
+[END_OPTIONS]
+
+[START_BACKTRACE]: RAW_LIBC
+0   surface_docking.static.macosclangre 0x0000000103cae904 backtrace_string(int) + 76
+1   surface_docking.static.macosclangre 0x0000000103cbec44 utility::excn::Exception::Exception(char const*, int, std::__1::basic_string<char, std::__1::char_traits<char>, std::__1::allocator<char>> const&) + 180
+2   surface_docking.static.macosclangre 0x0000000100cc855c protocols::surface_docking::SurfaceVectorLoader::create_surface_params(std::__1::basic_string<char, std::__1::char_traits<char>, std::__1::allocator<char>> const&, std::__1::basic_istream<char, std::__1::char_traits<char>>&) + 1768
+3   surface_docking.static.macosclangre 0x0000000100cc1dec protocols::surface_docking::SurfaceDockingProtocol::set_surface_parameters(core::pose::Pose&) + 300
+4   surface_docking.static.macosclangre 0x0000000100cc13f4 protocols::surface_docking::SurfaceDockingProtocol::apply(core::pose::Pose&) + 192
+5   surface_docking.static.macosclangre 0x000000010239d894 protocols::jd2::JobDistributor::run_one_job(std::__1::shared_ptr<protocols::moves::Mover>&, long, std::__1::basic_string<char, std::__1::char_traits<char>, std::__1::allocator<char>>&, std::__1::basic_string<char, std::__1::char_traits<char>, std::__1::allocator<char>>&, unsigned long&, unsigned long&, bool) + 7052
+6   surface_docking.static.macosclangre 0x000000010239ae7c protocols::jd2::JobDistributor::go_main(std::__1::shared_ptr<protocols::moves::Mover>) + 136
+7   surface_docking.static.macosclangre 0x00000001023961e0 protocols::jd2::FileSystemJobDistributor::go(std::__1::shared_ptr<protocols::moves::Mover>) + 72
+8   surface_docking.static.macosclangre 0x00000001001f0c7c main + 244
+9   dyld                                0x000000018abe2b98 start + 6076
+
+[END_BACKTRACE]
+
+[FILE]: src/protocols/surface_docking/SurfaceVectorLoader.cc
+[LINE]: 105
+[START_MESSAGE]
+SurfaceVectorLoader expected to be given exactly three points to define the periodicity of the surface, but less than three points were provided in /Users/junyoung/Desktop/BioMatAI/BioMAI/input/surface_vectors.txt.
+
+[END_MESSAGE]
+[END_CRASH_REPORT]
+
+##############################################################################################################
+#
+# Rosetta crash log. Please submit the contents of this file to http://crash.rosettacommons.org/
+# or use the script Rosetta/main/source/scripts/python/public/report_crashes.py
+#
+
+[START_CRASH_REPORT]
+[ROSETTA_VERSION]: 2024.09+release.06b3cf8ad0
+[COMMIT_DATE]: 2024-02-28T21:25:09.004217
+[APPLICATION]: /Users/junyoung/Desktop/BioMatAI/rosetta/rosetta.binary.m1.release-371/main/source/bin/surface_docking.static.macosclangrelease
+[MODE]: Release
+[EXTRAS]: default
+[OS]: Apple Mac OS X
+[COMPILER]: Clang version "14.0.0 (clang-1400.0.29.202)"
+[STDLIB]: libc++ version 13000
+[START_OPTIONS]
+ -in:include_surfaces -in:path:database=/Users/junyoung/Desktop/BioMatAI/rosetta/rosetta.binary.m1.release-371/main/database/ -in:file:s=/Users/junyoung/Desktop/BioMatAI/BioMAI/input/merged_A_B.pdb -in:file:surface_vectors=/Users/junyoung/Desktop/BioMatAI/BioMAI/input/surface_vectors.txt -out:nstruct=50 -out:mute=all -out:unmute=protocols.SurfaceDocking -out:file:scorefile=/Users/junyoung/Desktop/BioMatAI/BioMAI/output/surface_dock_250917_204028/score.sc -out:path:all=/Users/junyoung/Desktop/BioMatAI/BioMAI/output/surface_dock_250917_204028/ -packing:resfile=/Users/junyoung/Desktop/BioMatAI/BioMAI/dock.resfile -packing:use_input_sc -packing:ex1 -packing:ex2aro -docking:partners=A_B -docking:randomize1 -docking:randomize2 -docking:use_ellipsoidal_randomization -docking:spin -docking:dock_pert=3 8
+
+[END_OPTIONS]
+
+[START_BACKTRACE]: RAW_LIBC
+0   surface_docking.static.macosclangre 0x0000000103cae904 backtrace_string(int) + 76
+1   surface_docking.static.macosclangre 0x0000000103cbec44 utility::excn::Exception::Exception(char const*, int, std::__1::basic_string<char, std::__1::char_traits<char>, std::__1::allocator<char>> const&) + 180
+2   surface_docking.static.macosclangre 0x0000000100cc855c protocols::surface_docking::SurfaceVectorLoader::create_surface_params(std::__1::basic_string<char, std::__1::char_traits<char>, std::__1::allocator<char>> const&, std::__1::basic_istream<char, std::__1::char_traits<char>>&) + 1768
+3   surface_docking.static.macosclangre 0x0000000100cc1dec protocols::surface_docking::SurfaceDockingProtocol::set_surface_parameters(core::pose::Pose&) + 300
+4   surface_docking.static.macosclangre 0x0000000100cc13f4 protocols::surface_docking::SurfaceDockingProtocol::apply(core::pose::Pose&) + 192
+5   surface_docking.static.macosclangre 0x000000010239d894 protocols::jd2::JobDistributor::run_one_job(std::__1::shared_ptr<protocols::moves::Mover>&, long, std::__1::basic_string<char, std::__1::char_traits<char>, std::__1::allocator<char>>&, std::__1::basic_string<char, std::__1::char_traits<char>, std::__1::allocator<char>>&, unsigned long&, unsigned long&, bool) + 7052
+6   surface_docking.static.macosclangre 0x000000010239ae7c protocols::jd2::JobDistributor::go_main(std::__1::shared_ptr<protocols::moves::Mover>) + 136
+7   surface_docking.static.macosclangre 0x00000001023961e0 protocols::jd2::FileSystemJobDistributor::go(std::__1::shared_ptr<protocols::moves::Mover>) + 72
+8   surface_docking.static.macosclangre 0x00000001001f0c7c main + 244
+9   dyld                                0x000000018abe2b98 start + 6076
+
+[END_BACKTRACE]
+
+[FILE]: src/protocols/surface_docking/SurfaceVectorLoader.cc
+[LINE]: 105
+[START_MESSAGE]
+SurfaceVectorLoader expected to be given exactly three points to define the periodicity of the surface, but less than three points were provided in /Users/junyoung/Desktop/BioMatAI/BioMAI/input/surface_vectors.txt.
+
+[END_MESSAGE]
+[END_CRASH_REPORT]
+
+##############################################################################################################
+#
+# Rosetta crash log. Please submit the contents of this file to http://crash.rosettacommons.org/
+# or use the script Rosetta/main/source/scripts/python/public/report_crashes.py
+#
+
+[START_CRASH_REPORT]
+[ROSETTA_VERSION]: 2024.09+release.06b3cf8ad0
+[COMMIT_DATE]: 2024-02-28T21:25:09.004217
+[APPLICATION]: /Users/junyoung/Desktop/BioMatAI/rosetta/rosetta.binary.m1.release-371/main/source/bin/surface_docking.static.macosclangrelease
+[MODE]: Release
+[EXTRAS]: default
+[OS]: Apple Mac OS X
+[COMPILER]: Clang version "14.0.0 (clang-1400.0.29.202)"
+[STDLIB]: libc++ version 13000
+[START_OPTIONS]
+ -in:include_surfaces -in:path:database=/Users/junyoung/Desktop/BioMatAI/rosetta/rosetta.binary.m1.release-371/main/database/ -in:file:s=/Users/junyoung/Desktop/BioMatAI/BioMAI/input/merged_A_B.pdb -in:file:surface_vectors=/Users/junyoung/Desktop/BioMatAI/BioMAI/input/surface_vectors.txt -out:nstruct=50 -out:mute=all -out:unmute=protocols.SurfaceDocking -out:file:scorefile=/Users/junyoung/Desktop/BioMatAI/BioMAI/output/surface_dock_250917_204028/score.sc -out:path:all=/Users/junyoung/Desktop/BioMatAI/BioMAI/output/surface_dock_250917_204028/ -packing:resfile=/Users/junyoung/Desktop/BioMatAI/BioMAI/dock.resfile -packing:use_input_sc -packing:ex1 -packing:ex2aro -docking:partners=A_B -docking:randomize1 -docking:randomize2 -docking:use_ellipsoidal_randomization -docking:spin -docking:dock_pert=3 8
+
+[END_OPTIONS]
+
+[START_BACKTRACE]: RAW_LIBC
+0   surface_docking.static.macosclangre 0x0000000103cae904 backtrace_string(int) + 76
+1   surface_docking.static.macosclangre 0x0000000103cbec44 utility::excn::Exception::Exception(char const*, int, std::__1::basic_string<char, std::__1::char_traits<char>, std::__1::allocator<char>> const&) + 180
+2   surface_docking.static.macosclangre 0x0000000100cc855c protocols::surface_docking::SurfaceVectorLoader::create_surface_params(std::__1::basic_string<char, std::__1::char_traits<char>, std::__1::allocator<char>> const&, std::__1::basic_istream<char, std::__1::char_traits<char>>&) + 1768
+3   surface_docking.static.macosclangre 0x0000000100cc1dec protocols::surface_docking::SurfaceDockingProtocol::set_surface_parameters(core::pose::Pose&) + 300
+4   surface_docking.static.macosclangre 0x0000000100cc13f4 protocols::surface_docking::SurfaceDockingProtocol::apply(core::pose::Pose&) + 192
+5   surface_docking.static.macosclangre 0x000000010239d894 protocols::jd2::JobDistributor::run_one_job(std::__1::shared_ptr<protocols::moves::Mover>&, long, std::__1::basic_string<char, std::__1::char_traits<char>, std::__1::allocator<char>>&, std::__1::basic_string<char, std::__1::char_traits<char>, std::__1::allocator<char>>&, unsigned long&, unsigned long&, bool) + 7052
+6   surface_docking.static.macosclangre 0x000000010239ae7c protocols::jd2::JobDistributor::go_main(std::__1::shared_ptr<protocols::moves::Mover>) + 136
+7   surface_docking.static.macosclangre 0x00000001023961e0 protocols::jd2::FileSystemJobDistributor::go(std::__1::shared_ptr<protocols::moves::Mover>) + 72
+8   surface_docking.static.macosclangre 0x00000001001f0c7c main + 244
+9   dyld                                0x000000018abe2b98 start + 6076
+
+[END_BACKTRACE]
+
+[FILE]: src/protocols/surface_docking/SurfaceVectorLoader.cc
+[LINE]: 105
+[START_MESSAGE]
+SurfaceVectorLoader expected to be given exactly three points to define the periodicity of the surface, but less than three points were provided in /Users/junyoung/Desktop/BioMatAI/BioMAI/input/surface_vectors.txt.
+
+[END_MESSAGE]
+[END_CRASH_REPORT]
+
+##############################################################################################################
+#
+# Rosetta crash log. Please submit the contents of this file to http://crash.rosettacommons.org/
+# or use the script Rosetta/main/source/scripts/python/public/report_crashes.py
+#
+
+[START_CRASH_REPORT]
+[ROSETTA_VERSION]: 2024.09+release.06b3cf8ad0
+[COMMIT_DATE]: 2024-02-28T21:25:09.004217
+[APPLICATION]: /Users/junyoung/Desktop/BioMatAI/rosetta/rosetta.binary.m1.release-371/main/source/bin/surface_docking.static.macosclangrelease
+[MODE]: Release
+[EXTRAS]: default
+[OS]: Apple Mac OS X
+[COMPILER]: Clang version "14.0.0 (clang-1400.0.29.202)"
+[STDLIB]: libc++ version 13000
+[START_OPTIONS]
+ -in:include_surfaces -in:path:database=/Users/junyoung/Desktop/BioMatAI/rosetta/rosetta.binary.m1.release-371/main/database/ -in:file:s=/Users/junyoung/Desktop/BioMatAI/BioMAI/input/merged_A_B.pdb -in:file:surface_vectors=/Users/junyoung/Desktop/BioMatAI/BioMAI/input/surface_vectors.txt -out:nstruct=50 -out:mute=all -out:unmute=protocols.SurfaceDocking -out:file:scorefile=/Users/junyoung/Desktop/BioMatAI/BioMAI/output/surface_dock_250917_204028/score.sc -out:path:all=/Users/junyoung/Desktop/BioMatAI/BioMAI/output/surface_dock_250917_204028/ -packing:resfile=/Users/junyoung/Desktop/BioMatAI/BioMAI/dock.resfile -packing:use_input_sc -packing:ex1 -packing:ex2aro -docking:partners=A_B -docking:randomize1 -docking:randomize2 -docking:use_ellipsoidal_randomization -docking:spin -docking:dock_pert=3 8
+
+[END_OPTIONS]
+
+[START_BACKTRACE]: RAW_LIBC
+0   surface_docking.static.macosclangre 0x0000000103cae904 backtrace_string(int) + 76
+1   surface_docking.static.macosclangre 0x0000000103cbec44 utility::excn::Exception::Exception(char const*, int, std::__1::basic_string<char, std::__1::char_traits<char>, std::__1::allocator<char>> const&) + 180
+2   surface_docking.static.macosclangre 0x0000000100cc855c protocols::surface_docking::SurfaceVectorLoader::create_surface_params(std::__1::basic_string<char, std::__1::char_traits<char>, std::__1::allocator<char>> const&, std::__1::basic_istream<char, std::__1::char_traits<char>>&) + 1768
+3   surface_docking.static.macosclangre 0x0000000100cc1dec protocols::surface_docking::SurfaceDockingProtocol::set_surface_parameters(core::pose::Pose&) + 300
+4   surface_docking.static.macosclangre 0x0000000100cc13f4 protocols::surface_docking::SurfaceDockingProtocol::apply(core::pose::Pose&) + 192
+5   surface_docking.static.macosclangre 0x000000010239d894 protocols::jd2::JobDistributor::run_one_job(std::__1::shared_ptr<protocols::moves::Mover>&, long, std::__1::basic_string<char, std::__1::char_traits<char>, std::__1::allocator<char>>&, std::__1::basic_string<char, std::__1::char_traits<char>, std::__1::allocator<char>>&, unsigned long&, unsigned long&, bool) + 7052
+6   surface_docking.static.macosclangre 0x000000010239ae7c protocols::jd2::JobDistributor::go_main(std::__1::shared_ptr<protocols::moves::Mover>) + 136
+7   surface_docking.static.macosclangre 0x00000001023961e0 protocols::jd2::FileSystemJobDistributor::go(std::__1::shared_ptr<protocols::moves::Mover>) + 72
+8   surface_docking.static.macosclangre 0x00000001001f0c7c main + 244
+9   dyld                                0x000000018abe2b98 start + 6076
+
+[END_BACKTRACE]
+
+[FILE]: src/protocols/surface_docking/SurfaceVectorLoader.cc
+[LINE]: 105
+[START_MESSAGE]
+SurfaceVectorLoader expected to be given exactly three points to define the periodicity of the surface, but less than three points were provided in /Users/junyoung/Desktop/BioMatAI/BioMAI/input/surface_vectors.txt.
+
+[END_MESSAGE]
+[END_CRASH_REPORT]
+
+##############################################################################################################
+#
+# Rosetta crash log. Please submit the contents of this file to http://crash.rosettacommons.org/
+# or use the script Rosetta/main/source/scripts/python/public/report_crashes.py
+#
+
+[START_CRASH_REPORT]
+[ROSETTA_VERSION]: 2024.09+release.06b3cf8ad0
+[COMMIT_DATE]: 2024-02-28T21:25:09.004217
+[APPLICATION]: /Users/junyoung/Desktop/BioMatAI/rosetta/rosetta.binary.m1.release-371/main/source/bin/surface_docking.static.macosclangrelease
+[MODE]: Release
+[EXTRAS]: default
+[OS]: Apple Mac OS X
+[COMPILER]: Clang version "14.0.0 (clang-1400.0.29.202)"
+[STDLIB]: libc++ version 13000
+[START_OPTIONS]
+ -in:include_surfaces -in:path:database=/Users/junyoung/Desktop/BioMatAI/rosetta/rosetta.binary.m1.release-371/main/database/ -in:file:s=/Users/junyoung/Desktop/BioMatAI/BioMAI/input/merged_A_B.pdb -in:file:surface_vectors=/Users/junyoung/Desktop/BioMatAI/BioMAI/input/surface_vectors.txt -out:nstruct=50 -out:mute=all -out:unmute=protocols.SurfaceDocking -out:file:scorefile=/Users/junyoung/Desktop/BioMatAI/BioMAI/output/surface_dock_250917_204028/score.sc -out:path:all=/Users/junyoung/Desktop/BioMatAI/BioMAI/output/surface_dock_250917_204028/ -packing:resfile=/Users/junyoung/Desktop/BioMatAI/BioMAI/dock.resfile -packing:use_input_sc -packing:ex1 -packing:ex2aro -docking:partners=A_B -docking:randomize1 -docking:randomize2 -docking:use_ellipsoidal_randomization -docking:spin -docking:dock_pert=3 8
+
+[END_OPTIONS]
+
+[START_BACKTRACE]: RAW_LIBC
+0   surface_docking.static.macosclangre 0x0000000103cae904 backtrace_string(int) + 76
+1   surface_docking.static.macosclangre 0x0000000103cbec44 utility::excn::Exception::Exception(char const*, int, std::__1::basic_string<char, std::__1::char_traits<char>, std::__1::allocator<char>> const&) + 180
+2   surface_docking.static.macosclangre 0x0000000100cc855c protocols::surface_docking::SurfaceVectorLoader::create_surface_params(std::__1::basic_string<char, std::__1::char_traits<char>, std::__1::allocator<char>> const&, std::__1::basic_istream<char, std::__1::char_traits<char>>&) + 1768
+3   surface_docking.static.macosclangre 0x0000000100cc1dec protocols::surface_docking::SurfaceDockingProtocol::set_surface_parameters(core::pose::Pose&) + 300
+4   surface_docking.static.macosclangre 0x0000000100cc13f4 protocols::surface_docking::SurfaceDockingProtocol::apply(core::pose::Pose&) + 192
+5   surface_docking.static.macosclangre 0x000000010239d894 protocols::jd2::JobDistributor::run_one_job(std::__1::shared_ptr<protocols::moves::Mover>&, long, std::__1::basic_string<char, std::__1::char_traits<char>, std::__1::allocator<char>>&, std::__1::basic_string<char, std::__1::char_traits<char>, std::__1::allocator<char>>&, unsigned long&, unsigned long&, bool) + 7052
+6   surface_docking.static.macosclangre 0x000000010239ae7c protocols::jd2::JobDistributor::go_main(std::__1::shared_ptr<protocols::moves::Mover>) + 136
+7   surface_docking.static.macosclangre 0x00000001023961e0 protocols::jd2::FileSystemJobDistributor::go(std::__1::shared_ptr<protocols::moves::Mover>) + 72
+8   surface_docking.static.macosclangre 0x00000001001f0c7c main + 244
+9   dyld                                0x000000018abe2b98 start + 6076
+
+[END_BACKTRACE]
+
+[FILE]: src/protocols/surface_docking/SurfaceVectorLoader.cc
+[LINE]: 105
+[START_MESSAGE]
+SurfaceVectorLoader expected to be given exactly three points to define the periodicity of the surface, but less than three points were provided in /Users/junyoung/Desktop/BioMatAI/BioMAI/input/surface_vectors.txt.
+
+[END_MESSAGE]
+[END_CRASH_REPORT]
+
+##############################################################################################################
+#
+# Rosetta crash log. Please submit the contents of this file to http://crash.rosettacommons.org/
+# or use the script Rosetta/main/source/scripts/python/public/report_crashes.py
+#
+
+[START_CRASH_REPORT]
+[ROSETTA_VERSION]: 2024.09+release.06b3cf8ad0
+[COMMIT_DATE]: 2024-02-28T21:25:09.004217
+[APPLICATION]: /Users/junyoung/Desktop/BioMatAI/rosetta/rosetta.binary.m1.release-371/main/source/bin/surface_docking.static.macosclangrelease
+[MODE]: Release
+[EXTRAS]: default
+[OS]: Apple Mac OS X
+[COMPILER]: Clang version "14.0.0 (clang-1400.0.29.202)"
+[STDLIB]: libc++ version 13000
+[START_OPTIONS]
+ -in:include_surfaces -in:path:database=/Users/junyoung/Desktop/BioMatAI/rosetta/rosetta.binary.m1.release-371/main/database/ -in:file:s=/Users/junyoung/Desktop/BioMatAI/BioMAI/input/merged_A_B.pdb -in:file:surface_vectors=/Users/junyoung/Desktop/BioMatAI/BioMAI/input/surface_vectors.txt -out:nstruct=50 -out:mute=all -out:unmute=protocols.SurfaceDocking -out:file:scorefile=/Users/junyoung/Desktop/BioMatAI/BioMAI/output/surface_dock_250917_204028/score.sc -out:path:all=/Users/junyoung/Desktop/BioMatAI/BioMAI/output/surface_dock_250917_204028/ -packing:resfile=/Users/junyoung/Desktop/BioMatAI/BioMAI/dock.resfile -packing:use_input_sc -packing:ex1 -packing:ex2aro -docking:partners=A_B -docking:randomize1 -docking:randomize2 -docking:use_ellipsoidal_randomization -docking:spin -docking:dock_pert=3 8
+
+[END_OPTIONS]
+
+[START_BACKTRACE]: RAW_LIBC
+0   surface_docking.static.macosclangre 0x0000000103cae904 backtrace_string(int) + 76
+1   surface_docking.static.macosclangre 0x0000000103cbec44 utility::excn::Exception::Exception(char const*, int, std::__1::basic_string<char, std::__1::char_traits<char>, std::__1::allocator<char>> const&) + 180
+2   surface_docking.static.macosclangre 0x0000000100cc855c protocols::surface_docking::SurfaceVectorLoader::create_surface_params(std::__1::basic_string<char, std::__1::char_traits<char>, std::__1::allocator<char>> const&, std::__1::basic_istream<char, std::__1::char_traits<char>>&) + 1768
+3   surface_docking.static.macosclangre 0x0000000100cc1dec protocols::surface_docking::SurfaceDockingProtocol::set_surface_parameters(core::pose::Pose&) + 300
+4   surface_docking.static.macosclangre 0x0000000100cc13f4 protocols::surface_docking::SurfaceDockingProtocol::apply(core::pose::Pose&) + 192
+5   surface_docking.static.macosclangre 0x000000010239d894 protocols::jd2::JobDistributor::run_one_job(std::__1::shared_ptr<protocols::moves::Mover>&, long, std::__1::basic_string<char, std::__1::char_traits<char>, std::__1::allocator<char>>&, std::__1::basic_string<char, std::__1::char_traits<char>, std::__1::allocator<char>>&, unsigned long&, unsigned long&, bool) + 7052
+6   surface_docking.static.macosclangre 0x000000010239ae7c protocols::jd2::JobDistributor::go_main(std::__1::shared_ptr<protocols::moves::Mover>) + 136
+7   surface_docking.static.macosclangre 0x00000001023961e0 protocols::jd2::FileSystemJobDistributor::go(std::__1::shared_ptr<protocols::moves::Mover>) + 72
+8   surface_docking.static.macosclangre 0x00000001001f0c7c main + 244
+9   dyld                                0x000000018abe2b98 start + 6076
+
+[END_BACKTRACE]
+
+[FILE]: src/protocols/surface_docking/SurfaceVectorLoader.cc
+[LINE]: 105
+[START_MESSAGE]
+SurfaceVectorLoader expected to be given exactly three points to define the periodicity of the surface, but less than three points were provided in /Users/junyoung/Desktop/BioMatAI/BioMAI/input/surface_vectors.txt.
+
+[END_MESSAGE]
+[END_CRASH_REPORT]
+
+##############################################################################################################
+#
+# Rosetta crash log. Please submit the contents of this file to http://crash.rosettacommons.org/
+# or use the script Rosetta/main/source/scripts/python/public/report_crashes.py
+#
+
+[START_CRASH_REPORT]
+[ROSETTA_VERSION]: 2024.09+release.06b3cf8ad0
+[COMMIT_DATE]: 2024-02-28T21:25:09.004217
+[APPLICATION]: /Users/junyoung/Desktop/BioMatAI/rosetta/rosetta.binary.m1.release-371/main/source/bin/surface_docking.static.macosclangrelease
+[MODE]: Release
+[EXTRAS]: default
+[OS]: Apple Mac OS X
+[COMPILER]: Clang version "14.0.0 (clang-1400.0.29.202)"
+[STDLIB]: libc++ version 13000
+[START_OPTIONS]
+ -in:include_surfaces -in:path:database=/Users/junyoung/Desktop/BioMatAI/rosetta/rosetta.binary.m1.release-371/main/database/ -in:file:s=/Users/junyoung/Desktop/BioMatAI/BioMAI/input/merged_A_B.pdb -in:file:surface_vectors=/Users/junyoung/Desktop/BioMatAI/BioMAI/input/surface_vectors.txt -out:nstruct=50 -out:mute=all -out:unmute=protocols.SurfaceDocking -out:file:scorefile=/Users/junyoung/Desktop/BioMatAI/BioMAI/output/surface_dock_250917_204028/score.sc -out:path:all=/Users/junyoung/Desktop/BioMatAI/BioMAI/output/surface_dock_250917_204028/ -packing:resfile=/Users/junyoung/Desktop/BioMatAI/BioMAI/dock.resfile -packing:use_input_sc -packing:ex1 -packing:ex2aro -docking:partners=A_B -docking:randomize1 -docking:randomize2 -docking:use_ellipsoidal_randomization -docking:spin -docking:dock_pert=3 8
+
+[END_OPTIONS]
+
+[START_BACKTRACE]: RAW_LIBC
+0   surface_docking.static.macosclangre 0x0000000103cae904 backtrace_string(int) + 76
+1   surface_docking.static.macosclangre 0x0000000103cbec44 utility::excn::Exception::Exception(char const*, int, std::__1::basic_string<char, std::__1::char_traits<char>, std::__1::allocator<char>> const&) + 180
+2   surface_docking.static.macosclangre 0x0000000100cc855c protocols::surface_docking::SurfaceVectorLoader::create_surface_params(std::__1::basic_string<char, std::__1::char_traits<char>, std::__1::allocator<char>> const&, std::__1::basic_istream<char, std::__1::char_traits<char>>&) + 1768
+3   surface_docking.static.macosclangre 0x0000000100cc1dec protocols::surface_docking::SurfaceDockingProtocol::set_surface_parameters(core::pose::Pose&) + 300
+4   surface_docking.static.macosclangre 0x0000000100cc13f4 protocols::surface_docking::SurfaceDockingProtocol::apply(core::pose::Pose&) + 192
+5   surface_docking.static.macosclangre 0x000000010239d894 protocols::jd2::JobDistributor::run_one_job(std::__1::shared_ptr<protocols::moves::Mover>&, long, std::__1::basic_string<char, std::__1::char_traits<char>, std::__1::allocator<char>>&, std::__1::basic_string<char, std::__1::char_traits<char>, std::__1::allocator<char>>&, unsigned long&, unsigned long&, bool) + 7052
+6   surface_docking.static.macosclangre 0x000000010239ae7c protocols::jd2::JobDistributor::go_main(std::__1::shared_ptr<protocols::moves::Mover>) + 136
+7   surface_docking.static.macosclangre 0x00000001023961e0 protocols::jd2::FileSystemJobDistributor::go(std::__1::shared_ptr<protocols::moves::Mover>) + 72
+8   surface_docking.static.macosclangre 0x00000001001f0c7c main + 244
+9   dyld                                0x000000018abe2b98 start + 6076
+
+[END_BACKTRACE]
+
+[FILE]: src/protocols/surface_docking/SurfaceVectorLoader.cc
+[LINE]: 105
+[START_MESSAGE]
+SurfaceVectorLoader expected to be given exactly three points to define the periodicity of the surface, but less than three points were provided in /Users/junyoung/Desktop/BioMatAI/BioMAI/input/surface_vectors.txt.
+
+[END_MESSAGE]
+[END_CRASH_REPORT]
+
+##############################################################################################################
+#
+# Rosetta crash log. Please submit the contents of this file to http://crash.rosettacommons.org/
+# or use the script Rosetta/main/source/scripts/python/public/report_crashes.py
+#
+
+[START_CRASH_REPORT]
+[ROSETTA_VERSION]: 2024.09+release.06b3cf8ad0
+[COMMIT_DATE]: 2024-02-28T21:25:09.004217
+[APPLICATION]: /Users/junyoung/Desktop/BioMatAI/rosetta/rosetta.binary.m1.release-371/main/source/bin/surface_docking.static.macosclangrelease
+[MODE]: Release
+[EXTRAS]: default
+[OS]: Apple Mac OS X
+[COMPILER]: Clang version "14.0.0 (clang-1400.0.29.202)"
+[STDLIB]: libc++ version 13000
+[START_OPTIONS]
+ -in:include_surfaces -in:path:database=/Users/junyoung/Desktop/BioMatAI/rosetta/rosetta.binary.m1.release-371/main/database/ -in:file:s=/Users/junyoung/Desktop/BioMatAI/BioMAI/input/merged_A_B.pdb -in:file:surface_vectors=/Users/junyoung/Desktop/BioMatAI/BioMAI/input/surface_vectors.txt -out:nstruct=50 -out:mute=all -out:unmute=protocols.SurfaceDocking -out:file:scorefile=/Users/junyoung/Desktop/BioMatAI/BioMAI/output/surface_dock_250917_204028/score.sc -out:path:all=/Users/junyoung/Desktop/BioMatAI/BioMAI/output/surface_dock_250917_204028/ -packing:resfile=/Users/junyoung/Desktop/BioMatAI/BioMAI/dock.resfile -packing:use_input_sc -packing:ex1 -packing:ex2aro -docking:partners=A_B -docking:randomize1 -docking:randomize2 -docking:use_ellipsoidal_randomization -docking:spin -docking:dock_pert=3 8
+
+[END_OPTIONS]
+
+[START_BACKTRACE]: RAW_LIBC
+0   surface_docking.static.macosclangre 0x0000000103cae904 backtrace_string(int) + 76
+1   surface_docking.static.macosclangre 0x0000000103cbec44 utility::excn::Exception::Exception(char const*, int, std::__1::basic_string<char, std::__1::char_traits<char>, std::__1::allocator<char>> const&) + 180
+2   surface_docking.static.macosclangre 0x0000000100cc855c protocols::surface_docking::SurfaceVectorLoader::create_surface_params(std::__1::basic_string<char, std::__1::char_traits<char>, std::__1::allocator<char>> const&, std::__1::basic_istream<char, std::__1::char_traits<char>>&) + 1768
+3   surface_docking.static.macosclangre 0x0000000100cc1dec protocols::surface_docking::SurfaceDockingProtocol::set_surface_parameters(core::pose::Pose&) + 300
+4   surface_docking.static.macosclangre 0x0000000100cc13f4 protocols::surface_docking::SurfaceDockingProtocol::apply(core::pose::Pose&) + 192
+5   surface_docking.static.macosclangre 0x000000010239d894 protocols::jd2::JobDistributor::run_one_job(std::__1::shared_ptr<protocols::moves::Mover>&, long, std::__1::basic_string<char, std::__1::char_traits<char>, std::__1::allocator<char>>&, std::__1::basic_string<char, std::__1::char_traits<char>, std::__1::allocator<char>>&, unsigned long&, unsigned long&, bool) + 7052
+6   surface_docking.static.macosclangre 0x000000010239ae7c protocols::jd2::JobDistributor::go_main(std::__1::shared_ptr<protocols::moves::Mover>) + 136
+7   surface_docking.static.macosclangre 0x00000001023961e0 protocols::jd2::FileSystemJobDistributor::go(std::__1::shared_ptr<protocols::moves::Mover>) + 72
+8   surface_docking.static.macosclangre 0x00000001001f0c7c main + 244
+9   dyld                                0x000000018abe2b98 start + 6076
+
+[END_BACKTRACE]
+
+[FILE]: src/protocols/surface_docking/SurfaceVectorLoader.cc
+[LINE]: 105
+[START_MESSAGE]
+SurfaceVectorLoader expected to be given exactly three points to define the periodicity of the surface, but less than three points were provided in /Users/junyoung/Desktop/BioMatAI/BioMAI/input/surface_vectors.txt.
+
+[END_MESSAGE]
+[END_CRASH_REPORT]
+
+##############################################################################################################
+#
+# Rosetta crash log. Please submit the contents of this file to http://crash.rosettacommons.org/
+# or use the script Rosetta/main/source/scripts/python/public/report_crashes.py
+#
+
+[START_CRASH_REPORT]
+[ROSETTA_VERSION]: 2024.09+release.06b3cf8ad0
+[COMMIT_DATE]: 2024-02-28T21:25:09.004217
+[APPLICATION]: /Users/junyoung/Desktop/BioMatAI/rosetta/rosetta.binary.m1.release-371/main/source/bin/surface_docking.static.macosclangrelease
+[MODE]: Release
+[EXTRAS]: default
+[OS]: Apple Mac OS X
+[COMPILER]: Clang version "14.0.0 (clang-1400.0.29.202)"
+[STDLIB]: libc++ version 13000
+[START_OPTIONS]
+ -in:include_surfaces -in:path:database=/Users/junyoung/Desktop/BioMatAI/rosetta/rosetta.binary.m1.release-371/main/database/ -in:file:s=/Users/junyoung/Desktop/BioMatAI/BioMAI/input/merged_A_B.pdb -in:file:surface_vectors=/Users/junyoung/Desktop/BioMatAI/BioMAI/input/surface_vectors.txt -out:nstruct=50 -out:mute=all -out:unmute=protocols.SurfaceDocking -out:file:scorefile=/Users/junyoung/Desktop/BioMatAI/BioMAI/output/surface_dock_250917_204028/score.sc -out:path:all=/Users/junyoung/Desktop/BioMatAI/BioMAI/output/surface_dock_250917_204028/ -packing:resfile=/Users/junyoung/Desktop/BioMatAI/BioMAI/dock.resfile -packing:use_input_sc -packing:ex1 -packing:ex2aro -docking:partners=A_B -docking:randomize1 -docking:randomize2 -docking:use_ellipsoidal_randomization -docking:spin -docking:dock_pert=3 8
+
+[END_OPTIONS]
+
+[START_BACKTRACE]: RAW_LIBC
+0   surface_docking.static.macosclangre 0x0000000103cae904 backtrace_string(int) + 76
+1   surface_docking.static.macosclangre 0x0000000103cbec44 utility::excn::Exception::Exception(char const*, int, std::__1::basic_string<char, std::__1::char_traits<char>, std::__1::allocator<char>> const&) + 180
+2   surface_docking.static.macosclangre 0x0000000100cc855c protocols::surface_docking::SurfaceVectorLoader::create_surface_params(std::__1::basic_string<char, std::__1::char_traits<char>, std::__1::allocator<char>> const&, std::__1::basic_istream<char, std::__1::char_traits<char>>&) + 1768
+3   surface_docking.static.macosclangre 0x0000000100cc1dec protocols::surface_docking::SurfaceDockingProtocol::set_surface_parameters(core::pose::Pose&) + 300
+4   surface_docking.static.macosclangre 0x0000000100cc13f4 protocols::surface_docking::SurfaceDockingProtocol::apply(core::pose::Pose&) + 192
+5   surface_docking.static.macosclangre 0x000000010239d894 protocols::jd2::JobDistributor::run_one_job(std::__1::shared_ptr<protocols::moves::Mover>&, long, std::__1::basic_string<char, std::__1::char_traits<char>, std::__1::allocator<char>>&, std::__1::basic_string<char, std::__1::char_traits<char>, std::__1::allocator<char>>&, unsigned long&, unsigned long&, bool) + 7052
+6   surface_docking.static.macosclangre 0x000000010239ae7c protocols::jd2::JobDistributor::go_main(std::__1::shared_ptr<protocols::moves::Mover>) + 136
+7   surface_docking.static.macosclangre 0x00000001023961e0 protocols::jd2::FileSystemJobDistributor::go(std::__1::shared_ptr<protocols::moves::Mover>) + 72
+8   surface_docking.static.macosclangre 0x00000001001f0c7c main + 244
+9   dyld                                0x000000018abe2b98 start + 6076
+
+[END_BACKTRACE]
+
+[FILE]: src/protocols/surface_docking/SurfaceVectorLoader.cc
+[LINE]: 105
+[START_MESSAGE]
+SurfaceVectorLoader expected to be given exactly three points to define the periodicity of the surface, but less than three points were provided in /Users/junyoung/Desktop/BioMatAI/BioMAI/input/surface_vectors.txt.
+
+[END_MESSAGE]
+[END_CRASH_REPORT]
+
+##############################################################################################################
+#
+# Rosetta crash log. Please submit the contents of this file to http://crash.rosettacommons.org/
+# or use the script Rosetta/main/source/scripts/python/public/report_crashes.py
+#
+
+[START_CRASH_REPORT]
+[ROSETTA_VERSION]: 2024.09+release.06b3cf8ad0
+[COMMIT_DATE]: 2024-02-28T21:25:09.004217
+[APPLICATION]: /Users/junyoung/Desktop/BioMatAI/rosetta/rosetta.binary.m1.release-371/main/source/bin/surface_docking.static.macosclangrelease
+[MODE]: Release
+[EXTRAS]: default
+[OS]: Apple Mac OS X
+[COMPILER]: Clang version "14.0.0 (clang-1400.0.29.202)"
+[STDLIB]: libc++ version 13000
+[START_OPTIONS]
+ -in:include_surfaces -in:path:database=/Users/junyoung/Desktop/BioMatAI/rosetta/rosetta.binary.m1.release-371/main/database/ -in:file:s=/Users/junyoung/Desktop/BioMatAI/BioMAI/input/merged_A_B.pdb -in:file:surface_vectors=/Users/junyoung/Desktop/BioMatAI/BioMAI/input/surface_vectors.txt -out:nstruct=50 -out:mute=all -out:unmute=protocols.SurfaceDocking -out:file:scorefile=/Users/junyoung/Desktop/BioMatAI/BioMAI/output/surface_dock_250917_204028/score.sc -out:path:all=/Users/junyoung/Desktop/BioMatAI/BioMAI/output/surface_dock_250917_204028/ -packing:resfile=/Users/junyoung/Desktop/BioMatAI/BioMAI/dock.resfile -packing:use_input_sc -packing:ex1 -packing:ex2aro -docking:partners=A_B -docking:randomize1 -docking:randomize2 -docking:use_ellipsoidal_randomization -docking:spin -docking:dock_pert=3 8
+
+[END_OPTIONS]
+
+[START_BACKTRACE]: RAW_LIBC
+0   surface_docking.static.macosclangre 0x0000000103cae904 backtrace_string(int) + 76
+1   surface_docking.static.macosclangre 0x0000000103cbec44 utility::excn::Exception::Exception(char const*, int, std::__1::basic_string<char, std::__1::char_traits<char>, std::__1::allocator<char>> const&) + 180
+2   surface_docking.static.macosclangre 0x0000000100cc855c protocols::surface_docking::SurfaceVectorLoader::create_surface_params(std::__1::basic_string<char, std::__1::char_traits<char>, std::__1::allocator<char>> const&, std::__1::basic_istream<char, std::__1::char_traits<char>>&) + 1768
+3   surface_docking.static.macosclangre 0x0000000100cc1dec protocols::surface_docking::SurfaceDockingProtocol::set_surface_parameters(core::pose::Pose&) + 300
+4   surface_docking.static.macosclangre 0x0000000100cc13f4 protocols::surface_docking::SurfaceDockingProtocol::apply(core::pose::Pose&) + 192
+5   surface_docking.static.macosclangre 0x000000010239d894 protocols::jd2::JobDistributor::run_one_job(std::__1::shared_ptr<protocols::moves::Mover>&, long, std::__1::basic_string<char, std::__1::char_traits<char>, std::__1::allocator<char>>&, std::__1::basic_string<char, std::__1::char_traits<char>, std::__1::allocator<char>>&, unsigned long&, unsigned long&, bool) + 7052
+6   surface_docking.static.macosclangre 0x000000010239ae7c protocols::jd2::JobDistributor::go_main(std::__1::shared_ptr<protocols::moves::Mover>) + 136
+7   surface_docking.static.macosclangre 0x00000001023961e0 protocols::jd2::FileSystemJobDistributor::go(std::__1::shared_ptr<protocols::moves::Mover>) + 72
+8   surface_docking.static.macosclangre 0x00000001001f0c7c main + 244
+9   dyld                                0x000000018abe2b98 start + 6076
+
+[END_BACKTRACE]
+
+[FILE]: src/protocols/surface_docking/SurfaceVectorLoader.cc
+[LINE]: 105
+[START_MESSAGE]
+SurfaceVectorLoader expected to be given exactly three points to define the periodicity of the surface, but less than three points were provided in /Users/junyoung/Desktop/BioMatAI/BioMAI/input/surface_vectors.txt.
+
+[END_MESSAGE]
+[END_CRASH_REPORT]
+
+##############################################################################################################
+#
+# Rosetta crash log. Please submit the contents of this file to http://crash.rosettacommons.org/
+# or use the script Rosetta/main/source/scripts/python/public/report_crashes.py
+#
+
+[START_CRASH_REPORT]
+[ROSETTA_VERSION]: 2024.09+release.06b3cf8ad0
+[COMMIT_DATE]: 2024-02-28T21:25:09.004217
+[APPLICATION]: /Users/junyoung/Desktop/BioMatAI/rosetta/rosetta.binary.m1.release-371/main/source/bin/surface_docking.static.macosclangrelease
+[MODE]: Release
+[EXTRAS]: default
+[OS]: Apple Mac OS X
+[COMPILER]: Clang version "14.0.0 (clang-1400.0.29.202)"
+[STDLIB]: libc++ version 13000
+[START_OPTIONS]
+ -in:include_surfaces -in:path:database=/Users/junyoung/Desktop/BioMatAI/rosetta/rosetta.binary.m1.release-371/main/database/ -in:file:s=/Users/junyoung/Desktop/BioMatAI/BioMAI/input/merged_A_B.pdb -in:file:surface_vectors=/Users/junyoung/Desktop/BioMatAI/BioMAI/input/surface_vectors.txt -out:nstruct=50 -out:mute=all -out:unmute=protocols.SurfaceDocking -out:file:scorefile=/Users/junyoung/Desktop/BioMatAI/BioMAI/output/surface_dock_250917_204028/score.sc -out:path:all=/Users/junyoung/Desktop/BioMatAI/BioMAI/output/surface_dock_250917_204028/ -packing:resfile=/Users/junyoung/Desktop/BioMatAI/BioMAI/dock.resfile -packing:use_input_sc -packing:ex1 -packing:ex2aro -docking:partners=A_B -docking:randomize1 -docking:randomize2 -docking:use_ellipsoidal_randomization -docking:spin -docking:dock_pert=3 8
+
+[END_OPTIONS]
+
+[START_BACKTRACE]: RAW_LIBC
+0   surface_docking.static.macosclangre 0x0000000103cae904 backtrace_string(int) + 76
+1   surface_docking.static.macosclangre 0x0000000103cbec44 utility::excn::Exception::Exception(char const*, int, std::__1::basic_string<char, std::__1::char_traits<char>, std::__1::allocator<char>> const&) + 180
+2   surface_docking.static.macosclangre 0x0000000100cc855c protocols::surface_docking::SurfaceVectorLoader::create_surface_params(std::__1::basic_string<char, std::__1::char_traits<char>, std::__1::allocator<char>> const&, std::__1::basic_istream<char, std::__1::char_traits<char>>&) + 1768
+3   surface_docking.static.macosclangre 0x0000000100cc1dec protocols::surface_docking::SurfaceDockingProtocol::set_surface_parameters(core::pose::Pose&) + 300
+4   surface_docking.static.macosclangre 0x0000000100cc13f4 protocols::surface_docking::SurfaceDockingProtocol::apply(core::pose::Pose&) + 192
+5   surface_docking.static.macosclangre 0x000000010239d894 protocols::jd2::JobDistributor::run_one_job(std::__1::shared_ptr<protocols::moves::Mover>&, long, std::__1::basic_string<char, std::__1::char_traits<char>, std::__1::allocator<char>>&, std::__1::basic_string<char, std::__1::char_traits<char>, std::__1::allocator<char>>&, unsigned long&, unsigned long&, bool) + 7052
+6   surface_docking.static.macosclangre 0x000000010239ae7c protocols::jd2::JobDistributor::go_main(std::__1::shared_ptr<protocols::moves::Mover>) + 136
+7   surface_docking.static.macosclangre 0x00000001023961e0 protocols::jd2::FileSystemJobDistributor::go(std::__1::shared_ptr<protocols::moves::Mover>) + 72
+8   surface_docking.static.macosclangre 0x00000001001f0c7c main + 244
+9   dyld                                0x000000018abe2b98 start + 6076
+
+[END_BACKTRACE]
+
+[FILE]: src/protocols/surface_docking/SurfaceVectorLoader.cc
+[LINE]: 105
+[START_MESSAGE]
+SurfaceVectorLoader expected to be given exactly three points to define the periodicity of the surface, but less than three points were provided in /Users/junyoung/Desktop/BioMatAI/BioMAI/input/surface_vectors.txt.
+
+[END_MESSAGE]
+[END_CRASH_REPORT]
+
+##############################################################################################################
+#
+# Rosetta crash log. Please submit the contents of this file to http://crash.rosettacommons.org/
+# or use the script Rosetta/main/source/scripts/python/public/report_crashes.py
+#
+
+[START_CRASH_REPORT]
+[ROSETTA_VERSION]: 2024.09+release.06b3cf8ad0
+[COMMIT_DATE]: 2024-02-28T21:25:09.004217
+[APPLICATION]: /Users/junyoung/Desktop/BioMatAI/rosetta/rosetta.binary.m1.release-371/main/source/bin/surface_docking.static.macosclangrelease
+[MODE]: Release
+[EXTRAS]: default
+[OS]: Apple Mac OS X
+[COMPILER]: Clang version "14.0.0 (clang-1400.0.29.202)"
+[STDLIB]: libc++ version 13000
+[START_OPTIONS]
+ -in:include_surfaces -in:path:database=/Users/junyoung/Desktop/BioMatAI/rosetta/rosetta.binary.m1.release-371/main/database/ -in:file:s=/Users/junyoung/Desktop/BioMatAI/BioMAI/input/merged_A_B.pdb -in:file:surface_vectors=/Users/junyoung/Desktop/BioMatAI/BioMAI/input/surface_vectors.txt -out:nstruct=50 -out:mute=all -out:unmute=protocols.SurfaceDocking -out:file:scorefile=/Users/junyoung/Desktop/BioMatAI/BioMAI/output/surface_dock_250917_204028/score.sc -out:path:all=/Users/junyoung/Desktop/BioMatAI/BioMAI/output/surface_dock_250917_204028/ -packing:resfile=/Users/junyoung/Desktop/BioMatAI/BioMAI/dock.resfile -packing:use_input_sc -packing:ex1 -packing:ex2aro -docking:partners=A_B -docking:randomize1 -docking:randomize2 -docking:use_ellipsoidal_randomization -docking:spin -docking:dock_pert=3 8
+
+[END_OPTIONS]
+
+[START_BACKTRACE]: RAW_LIBC
+0   surface_docking.static.macosclangre 0x0000000103cae904 backtrace_string(int) + 76
+1   surface_docking.static.macosclangre 0x0000000103cbec44 utility::excn::Exception::Exception(char const*, int, std::__1::basic_string<char, std::__1::char_traits<char>, std::__1::allocator<char>> const&) + 180
+2   surface_docking.static.macosclangre 0x0000000100cc855c protocols::surface_docking::SurfaceVectorLoader::create_surface_params(std::__1::basic_string<char, std::__1::char_traits<char>, std::__1::allocator<char>> const&, std::__1::basic_istream<char, std::__1::char_traits<char>>&) + 1768
+3   surface_docking.static.macosclangre 0x0000000100cc1dec protocols::surface_docking::SurfaceDockingProtocol::set_surface_parameters(core::pose::Pose&) + 300
+4   surface_docking.static.macosclangre 0x0000000100cc13f4 protocols::surface_docking::SurfaceDockingProtocol::apply(core::pose::Pose&) + 192
+5   surface_docking.static.macosclangre 0x000000010239d894 protocols::jd2::JobDistributor::run_one_job(std::__1::shared_ptr<protocols::moves::Mover>&, long, std::__1::basic_string<char, std::__1::char_traits<char>, std::__1::allocator<char>>&, std::__1::basic_string<char, std::__1::char_traits<char>, std::__1::allocator<char>>&, unsigned long&, unsigned long&, bool) + 7052
+6   surface_docking.static.macosclangre 0x000000010239ae7c protocols::jd2::JobDistributor::go_main(std::__1::shared_ptr<protocols::moves::Mover>) + 136
+7   surface_docking.static.macosclangre 0x00000001023961e0 protocols::jd2::FileSystemJobDistributor::go(std::__1::shared_ptr<protocols::moves::Mover>) + 72
+8   surface_docking.static.macosclangre 0x00000001001f0c7c main + 244
+9   dyld                                0x000000018abe2b98 start + 6076
+
+[END_BACKTRACE]
+
+[FILE]: src/protocols/surface_docking/SurfaceVectorLoader.cc
+[LINE]: 105
+[START_MESSAGE]
+SurfaceVectorLoader expected to be given exactly three points to define the periodicity of the surface, but less than three points were provided in /Users/junyoung/Desktop/BioMatAI/BioMAI/input/surface_vectors.txt.
+
+[END_MESSAGE]
+[END_CRASH_REPORT]
+
+##############################################################################################################
+#
+# Rosetta crash log. Please submit the contents of this file to http://crash.rosettacommons.org/
+# or use the script Rosetta/main/source/scripts/python/public/report_crashes.py
+#
+
+[START_CRASH_REPORT]
+[ROSETTA_VERSION]: 2024.09+release.06b3cf8ad0
+[COMMIT_DATE]: 2024-02-28T21:25:09.004217
+[APPLICATION]: /Users/junyoung/Desktop/BioMatAI/rosetta/rosetta.binary.m1.release-371/main/source/bin/surface_docking.static.macosclangrelease
+[MODE]: Release
+[EXTRAS]: default
+[OS]: Apple Mac OS X
+[COMPILER]: Clang version "14.0.0 (clang-1400.0.29.202)"
+[STDLIB]: libc++ version 13000
+[START_OPTIONS]
+ -in:include_surfaces -in:path:database=/Users/junyoung/Desktop/BioMatAI/rosetta/rosetta.binary.m1.release-371/main/database/ -in:file:s=/Users/junyoung/Desktop/BioMatAI/BioMAI/input/merged_A_B.pdb -in:file:surface_vectors=/Users/junyoung/Desktop/BioMatAI/BioMAI/input/surface_vectors.txt -out:nstruct=50 -out:mute=all -out:unmute=protocols.SurfaceDocking -out:file:scorefile=/Users/junyoung/Desktop/BioMatAI/BioMAI/output/surface_dock_250917_204028/score.sc -out:path:all=/Users/junyoung/Desktop/BioMatAI/BioMAI/output/surface_dock_250917_204028/ -packing:resfile=/Users/junyoung/Desktop/BioMatAI/BioMAI/dock.resfile -packing:use_input_sc -packing:ex1 -packing:ex2aro -docking:partners=A_B -docking:randomize1 -docking:randomize2 -docking:use_ellipsoidal_randomization -docking:spin -docking:dock_pert=3 8
+
+[END_OPTIONS]
+
+[START_BACKTRACE]: RAW_LIBC
+0   surface_docking.static.macosclangre 0x0000000103cae904 backtrace_string(int) + 76
+1   surface_docking.static.macosclangre 0x0000000103cbec44 utility::excn::Exception::Exception(char const*, int, std::__1::basic_string<char, std::__1::char_traits<char>, std::__1::allocator<char>> const&) + 180
+2   surface_docking.static.macosclangre 0x0000000100cc855c protocols::surface_docking::SurfaceVectorLoader::create_surface_params(std::__1::basic_string<char, std::__1::char_traits<char>, std::__1::allocator<char>> const&, std::__1::basic_istream<char, std::__1::char_traits<char>>&) + 1768
+3   surface_docking.static.macosclangre 0x0000000100cc1dec protocols::surface_docking::SurfaceDockingProtocol::set_surface_parameters(core::pose::Pose&) + 300
+4   surface_docking.static.macosclangre 0x0000000100cc13f4 protocols::surface_docking::SurfaceDockingProtocol::apply(core::pose::Pose&) + 192
+5   surface_docking.static.macosclangre 0x000000010239d894 protocols::jd2::JobDistributor::run_one_job(std::__1::shared_ptr<protocols::moves::Mover>&, long, std::__1::basic_string<char, std::__1::char_traits<char>, std::__1::allocator<char>>&, std::__1::basic_string<char, std::__1::char_traits<char>, std::__1::allocator<char>>&, unsigned long&, unsigned long&, bool) + 7052
+6   surface_docking.static.macosclangre 0x000000010239ae7c protocols::jd2::JobDistributor::go_main(std::__1::shared_ptr<protocols::moves::Mover>) + 136
+7   surface_docking.static.macosclangre 0x00000001023961e0 protocols::jd2::FileSystemJobDistributor::go(std::__1::shared_ptr<protocols::moves::Mover>) + 72
+8   surface_docking.static.macosclangre 0x00000001001f0c7c main + 244
+9   dyld                                0x000000018abe2b98 start + 6076
+
+[END_BACKTRACE]
+
+[FILE]: src/protocols/surface_docking/SurfaceVectorLoader.cc
+[LINE]: 105
+[START_MESSAGE]
+SurfaceVectorLoader expected to be given exactly three points to define the periodicity of the surface, but less than three points were provided in /Users/junyoung/Desktop/BioMatAI/BioMAI/input/surface_vectors.txt.
+
+[END_MESSAGE]
+[END_CRASH_REPORT]
+
+##############################################################################################################
+#
+# Rosetta crash log. Please submit the contents of this file to http://crash.rosettacommons.org/
+# or use the script Rosetta/main/source/scripts/python/public/report_crashes.py
+#
+
+[START_CRASH_REPORT]
+[ROSETTA_VERSION]: 2024.09+release.06b3cf8ad0
+[COMMIT_DATE]: 2024-02-28T21:25:09.004217
+[APPLICATION]: /Users/junyoung/Desktop/BioMatAI/rosetta/rosetta.binary.m1.release-371/main/source/bin/surface_docking.static.macosclangrelease
+[MODE]: Release
+[EXTRAS]: default
+[OS]: Apple Mac OS X
+[COMPILER]: Clang version "14.0.0 (clang-1400.0.29.202)"
+[STDLIB]: libc++ version 13000
+[START_OPTIONS]
+ -in:include_surfaces -in:path:database=/Users/junyoung/Desktop/BioMatAI/rosetta/rosetta.binary.m1.release-371/main/database/ -in:file:s=/Users/junyoung/Desktop/BioMatAI/BioMAI/input/merged_A_B.pdb -in:file:surface_vectors=/Users/junyoung/Desktop/BioMatAI/BioMAI/input/surface_vectors.txt -out:nstruct=50 -out:mute=all -out:unmute=protocols.SurfaceDocking -out:file:scorefile=/Users/junyoung/Desktop/BioMatAI/BioMAI/output/surface_dock_250917_204028/score.sc -out:path:all=/Users/junyoung/Desktop/BioMatAI/BioMAI/output/surface_dock_250917_204028/ -packing:resfile=/Users/junyoung/Desktop/BioMatAI/BioMAI/dock.resfile -packing:use_input_sc -packing:ex1 -packing:ex2aro -docking:partners=A_B -docking:randomize1 -docking:randomize2 -docking:use_ellipsoidal_randomization -docking:spin -docking:dock_pert=3 8
+
+[END_OPTIONS]
+
+[START_BACKTRACE]: RAW_LIBC
+0   surface_docking.static.macosclangre 0x0000000103cae904 backtrace_string(int) + 76
+1   surface_docking.static.macosclangre 0x0000000103cbec44 utility::excn::Exception::Exception(char const*, int, std::__1::basic_string<char, std::__1::char_traits<char>, std::__1::allocator<char>> const&) + 180
+2   surface_docking.static.macosclangre 0x0000000100cc855c protocols::surface_docking::SurfaceVectorLoader::create_surface_params(std::__1::basic_string<char, std::__1::char_traits<char>, std::__1::allocator<char>> const&, std::__1::basic_istream<char, std::__1::char_traits<char>>&) + 1768
+3   surface_docking.static.macosclangre 0x0000000100cc1dec protocols::surface_docking::SurfaceDockingProtocol::set_surface_parameters(core::pose::Pose&) + 300
+4   surface_docking.static.macosclangre 0x0000000100cc13f4 protocols::surface_docking::SurfaceDockingProtocol::apply(core::pose::Pose&) + 192
+5   surface_docking.static.macosclangre 0x000000010239d894 protocols::jd2::JobDistributor::run_one_job(std::__1::shared_ptr<protocols::moves::Mover>&, long, std::__1::basic_string<char, std::__1::char_traits<char>, std::__1::allocator<char>>&, std::__1::basic_string<char, std::__1::char_traits<char>, std::__1::allocator<char>>&, unsigned long&, unsigned long&, bool) + 7052
+6   surface_docking.static.macosclangre 0x000000010239ae7c protocols::jd2::JobDistributor::go_main(std::__1::shared_ptr<protocols::moves::Mover>) + 136
+7   surface_docking.static.macosclangre 0x00000001023961e0 protocols::jd2::FileSystemJobDistributor::go(std::__1::shared_ptr<protocols::moves::Mover>) + 72
+8   surface_docking.static.macosclangre 0x00000001001f0c7c main + 244
+9   dyld                                0x000000018abe2b98 start + 6076
+
+[END_BACKTRACE]
+
+[FILE]: src/protocols/surface_docking/SurfaceVectorLoader.cc
+[LINE]: 105
+[START_MESSAGE]
+SurfaceVectorLoader expected to be given exactly three points to define the periodicity of the surface, but less than three points were provided in /Users/junyoung/Desktop/BioMatAI/BioMAI/input/surface_vectors.txt.
+
+[END_MESSAGE]
+[END_CRASH_REPORT]
+
+##############################################################################################################
+#
+# Rosetta crash log. Please submit the contents of this file to http://crash.rosettacommons.org/
+# or use the script Rosetta/main/source/scripts/python/public/report_crashes.py
+#
+
+[START_CRASH_REPORT]
+[ROSETTA_VERSION]: 2024.09+release.06b3cf8ad0
+[COMMIT_DATE]: 2024-02-28T21:25:09.004217
+[APPLICATION]: /Users/junyoung/Desktop/BioMatAI/rosetta/rosetta.binary.m1.release-371/main/source/bin/surface_docking.static.macosclangrelease
+[MODE]: Release
+[EXTRAS]: default
+[OS]: Apple Mac OS X
+[COMPILER]: Clang version "14.0.0 (clang-1400.0.29.202)"
+[STDLIB]: libc++ version 13000
+[START_OPTIONS]
+ -in:include_surfaces -in:path:database=/Users/junyoung/Desktop/BioMatAI/rosetta/rosetta.binary.m1.release-371/main/database/ -in:file:s=/Users/junyoung/Desktop/BioMatAI/BioMAI/input/merged_A_B.pdb -in:file:surface_vectors=/Users/junyoung/Desktop/BioMatAI/BioMAI/input/surface_vectors.txt -out:nstruct=50 -out:mute=all -out:unmute=protocols.SurfaceDocking -out:file:scorefile=/Users/junyoung/Desktop/BioMatAI/BioMAI/output/surface_dock_250917_204028/score.sc -out:path:all=/Users/junyoung/Desktop/BioMatAI/BioMAI/output/surface_dock_250917_204028/ -packing:resfile=/Users/junyoung/Desktop/BioMatAI/BioMAI/dock.resfile -packing:use_input_sc -packing:ex1 -packing:ex2aro -docking:partners=A_B -docking:randomize1 -docking:randomize2 -docking:use_ellipsoidal_randomization -docking:spin -docking:dock_pert=3 8
+
+[END_OPTIONS]
+
+[START_BACKTRACE]: RAW_LIBC
+0   surface_docking.static.macosclangre 0x0000000103cae904 backtrace_string(int) + 76
+1   surface_docking.static.macosclangre 0x0000000103cbec44 utility::excn::Exception::Exception(char const*, int, std::__1::basic_string<char, std::__1::char_traits<char>, std::__1::allocator<char>> const&) + 180
+2   surface_docking.static.macosclangre 0x0000000100cc855c protocols::surface_docking::SurfaceVectorLoader::create_surface_params(std::__1::basic_string<char, std::__1::char_traits<char>, std::__1::allocator<char>> const&, std::__1::basic_istream<char, std::__1::char_traits<char>>&) + 1768
+3   surface_docking.static.macosclangre 0x0000000100cc1dec protocols::surface_docking::SurfaceDockingProtocol::set_surface_parameters(core::pose::Pose&) + 300
+4   surface_docking.static.macosclangre 0x0000000100cc13f4 protocols::surface_docking::SurfaceDockingProtocol::apply(core::pose::Pose&) + 192
+5   surface_docking.static.macosclangre 0x000000010239d894 protocols::jd2::JobDistributor::run_one_job(std::__1::shared_ptr<protocols::moves::Mover>&, long, std::__1::basic_string<char, std::__1::char_traits<char>, std::__1::allocator<char>>&, std::__1::basic_string<char, std::__1::char_traits<char>, std::__1::allocator<char>>&, unsigned long&, unsigned long&, bool) + 7052
+6   surface_docking.static.macosclangre 0x000000010239ae7c protocols::jd2::JobDistributor::go_main(std::__1::shared_ptr<protocols::moves::Mover>) + 136
+7   surface_docking.static.macosclangre 0x00000001023961e0 protocols::jd2::FileSystemJobDistributor::go(std::__1::shared_ptr<protocols::moves::Mover>) + 72
+8   surface_docking.static.macosclangre 0x00000001001f0c7c main + 244
+9   dyld                                0x000000018abe2b98 start + 6076
+
+[END_BACKTRACE]
+
+[FILE]: src/protocols/surface_docking/SurfaceVectorLoader.cc
+[LINE]: 105
+[START_MESSAGE]
+SurfaceVectorLoader expected to be given exactly three points to define the periodicity of the surface, but less than three points were provided in /Users/junyoung/Desktop/BioMatAI/BioMAI/input/surface_vectors.txt.
+
+[END_MESSAGE]
+[END_CRASH_REPORT]
+
+##############################################################################################################
+#
+# Rosetta crash log. Please submit the contents of this file to http://crash.rosettacommons.org/
+# or use the script Rosetta/main/source/scripts/python/public/report_crashes.py
+#
+
+[START_CRASH_REPORT]
+[ROSETTA_VERSION]: 2024.09+release.06b3cf8ad0
+[COMMIT_DATE]: 2024-02-28T21:25:09.004217
+[APPLICATION]: /Users/junyoung/Desktop/BioMatAI/rosetta/rosetta.binary.m1.release-371/main/source/bin/surface_docking.static.macosclangrelease
+[MODE]: Release
+[EXTRAS]: default
+[OS]: Apple Mac OS X
+[COMPILER]: Clang version "14.0.0 (clang-1400.0.29.202)"
+[STDLIB]: libc++ version 13000
+[START_OPTIONS]
+ -in:include_surfaces -in:path:database=/Users/junyoung/Desktop/BioMatAI/rosetta/rosetta.binary.m1.release-371/main/database/ -in:file:s=/Users/junyoung/Desktop/BioMatAI/BioMAI/input/merged_A_B.pdb -in:file:surface_vectors=/Users/junyoung/Desktop/BioMatAI/BioMAI/input/surface_vectors.txt -out:nstruct=50 -out:mute=all -out:unmute=protocols.SurfaceDocking -out:file:scorefile=/Users/junyoung/Desktop/BioMatAI/BioMAI/output/surface_dock_250917_204028/score.sc -out:path:all=/Users/junyoung/Desktop/BioMatAI/BioMAI/output/surface_dock_250917_204028/ -packing:resfile=/Users/junyoung/Desktop/BioMatAI/BioMAI/dock.resfile -packing:use_input_sc -packing:ex1 -packing:ex2aro -docking:partners=A_B -docking:randomize1 -docking:randomize2 -docking:use_ellipsoidal_randomization -docking:spin -docking:dock_pert=3 8
+
+[END_OPTIONS]
+
+[START_BACKTRACE]: RAW_LIBC
+0   surface_docking.static.macosclangre 0x0000000103cae904 backtrace_string(int) + 76
+1   surface_docking.static.macosclangre 0x0000000103cbec44 utility::excn::Exception::Exception(char const*, int, std::__1::basic_string<char, std::__1::char_traits<char>, std::__1::allocator<char>> const&) + 180
+2   surface_docking.static.macosclangre 0x0000000100cc855c protocols::surface_docking::SurfaceVectorLoader::create_surface_params(std::__1::basic_string<char, std::__1::char_traits<char>, std::__1::allocator<char>> const&, std::__1::basic_istream<char, std::__1::char_traits<char>>&) + 1768
+3   surface_docking.static.macosclangre 0x0000000100cc1dec protocols::surface_docking::SurfaceDockingProtocol::set_surface_parameters(core::pose::Pose&) + 300
+4   surface_docking.static.macosclangre 0x0000000100cc13f4 protocols::surface_docking::SurfaceDockingProtocol::apply(core::pose::Pose&) + 192
+5   surface_docking.static.macosclangre 0x000000010239d894 protocols::jd2::JobDistributor::run_one_job(std::__1::shared_ptr<protocols::moves::Mover>&, long, std::__1::basic_string<char, std::__1::char_traits<char>, std::__1::allocator<char>>&, std::__1::basic_string<char, std::__1::char_traits<char>, std::__1::allocator<char>>&, unsigned long&, unsigned long&, bool) + 7052
+6   surface_docking.static.macosclangre 0x000000010239ae7c protocols::jd2::JobDistributor::go_main(std::__1::shared_ptr<protocols::moves::Mover>) + 136
+7   surface_docking.static.macosclangre 0x00000001023961e0 protocols::jd2::FileSystemJobDistributor::go(std::__1::shared_ptr<protocols::moves::Mover>) + 72
+8   surface_docking.static.macosclangre 0x00000001001f0c7c main + 244
+9   dyld                                0x000000018abe2b98 start + 6076
+
+[END_BACKTRACE]
+
+[FILE]: src/protocols/surface_docking/SurfaceVectorLoader.cc
+[LINE]: 105
+[START_MESSAGE]
+SurfaceVectorLoader expected to be given exactly three points to define the periodicity of the surface, but less than three points were provided in /Users/junyoung/Desktop/BioMatAI/BioMAI/input/surface_vectors.txt.
+
+[END_MESSAGE]
+[END_CRASH_REPORT]
+
+##############################################################################################################
+#
+# Rosetta crash log. Please submit the contents of this file to http://crash.rosettacommons.org/
+# or use the script Rosetta/main/source/scripts/python/public/report_crashes.py
+#
+
+[START_CRASH_REPORT]
+[ROSETTA_VERSION]: 2024.09+release.06b3cf8ad0
+[COMMIT_DATE]: 2024-02-28T21:25:09.004217
+[APPLICATION]: /Users/junyoung/Desktop/BioMatAI/rosetta/rosetta.binary.m1.release-371/main/source/bin/surface_docking.static.macosclangrelease
+[MODE]: Release
+[EXTRAS]: default
+[OS]: Apple Mac OS X
+[COMPILER]: Clang version "14.0.0 (clang-1400.0.29.202)"
+[STDLIB]: libc++ version 13000
+[START_OPTIONS]
+ -in:include_surfaces -in:path:database=/Users/junyoung/Desktop/BioMatAI/rosetta/rosetta.binary.m1.release-371/main/database/ -in:file:s=/Users/junyoung/Desktop/BioMatAI/BioMAI/input/merged_A_B.pdb -in:file:surface_vectors=/Users/junyoung/Desktop/BioMatAI/BioMAI/input/surface_vectors.txt -out:nstruct=50 -out:mute=all -out:unmute=protocols.SurfaceDocking -out:file:scorefile=/Users/junyoung/Desktop/BioMatAI/BioMAI/output/surface_dock_250917_204028/score.sc -out:path:all=/Users/junyoung/Desktop/BioMatAI/BioMAI/output/surface_dock_250917_204028/ -packing:resfile=/Users/junyoung/Desktop/BioMatAI/BioMAI/dock.resfile -packing:use_input_sc -packing:ex1 -packing:ex2aro -docking:partners=A_B -docking:randomize1 -docking:randomize2 -docking:use_ellipsoidal_randomization -docking:spin -docking:dock_pert=3 8
+
+[END_OPTIONS]
+
+[START_BACKTRACE]: RAW_LIBC
+0   surface_docking.static.macosclangre 0x0000000103cae904 backtrace_string(int) + 76
+1   surface_docking.static.macosclangre 0x0000000103cbec44 utility::excn::Exception::Exception(char const*, int, std::__1::basic_string<char, std::__1::char_traits<char>, std::__1::allocator<char>> const&) + 180
+2   surface_docking.static.macosclangre 0x0000000100cc855c protocols::surface_docking::SurfaceVectorLoader::create_surface_params(std::__1::basic_string<char, std::__1::char_traits<char>, std::__1::allocator<char>> const&, std::__1::basic_istream<char, std::__1::char_traits<char>>&) + 1768
+3   surface_docking.static.macosclangre 0x0000000100cc1dec protocols::surface_docking::SurfaceDockingProtocol::set_surface_parameters(core::pose::Pose&) + 300
+4   surface_docking.static.macosclangre 0x0000000100cc13f4 protocols::surface_docking::SurfaceDockingProtocol::apply(core::pose::Pose&) + 192
+5   surface_docking.static.macosclangre 0x000000010239d894 protocols::jd2::JobDistributor::run_one_job(std::__1::shared_ptr<protocols::moves::Mover>&, long, std::__1::basic_string<char, std::__1::char_traits<char>, std::__1::allocator<char>>&, std::__1::basic_string<char, std::__1::char_traits<char>, std::__1::allocator<char>>&, unsigned long&, unsigned long&, bool) + 7052
+6   surface_docking.static.macosclangre 0x000000010239ae7c protocols::jd2::JobDistributor::go_main(std::__1::shared_ptr<protocols::moves::Mover>) + 136
+7   surface_docking.static.macosclangre 0x00000001023961e0 protocols::jd2::FileSystemJobDistributor::go(std::__1::shared_ptr<protocols::moves::Mover>) + 72
+8   surface_docking.static.macosclangre 0x00000001001f0c7c main + 244
+9   dyld                                0x000000018abe2b98 start + 6076
+
+[END_BACKTRACE]
+
+[FILE]: src/protocols/surface_docking/SurfaceVectorLoader.cc
+[LINE]: 105
+[START_MESSAGE]
+SurfaceVectorLoader expected to be given exactly three points to define the periodicity of the surface, but less than three points were provided in /Users/junyoung/Desktop/BioMatAI/BioMAI/input/surface_vectors.txt.
+
+[END_MESSAGE]
+[END_CRASH_REPORT]
+
+##############################################################################################################
+#
+# Rosetta crash log. Please submit the contents of this file to http://crash.rosettacommons.org/
+# or use the script Rosetta/main/source/scripts/python/public/report_crashes.py
+#
+
+[START_CRASH_REPORT]
+[ROSETTA_VERSION]: 2024.09+release.06b3cf8ad0
+[COMMIT_DATE]: 2024-02-28T21:25:09.004217
+[APPLICATION]: /Users/junyoung/Desktop/BioMatAI/rosetta/rosetta.binary.m1.release-371/main/source/bin/surface_docking.static.macosclangrelease
+[MODE]: Release
+[EXTRAS]: default
+[OS]: Apple Mac OS X
+[COMPILER]: Clang version "14.0.0 (clang-1400.0.29.202)"
+[STDLIB]: libc++ version 13000
+[START_OPTIONS]
+ -in:include_surfaces -in:path:database=/Users/junyoung/Desktop/BioMatAI/rosetta/rosetta.binary.m1.release-371/main/database/ -in:file:s=/Users/junyoung/Desktop/BioMatAI/BioMAI/input/merged_A_B.pdb -in:file:surface_vectors=/Users/junyoung/Desktop/BioMatAI/BioMAI/input/surface_vectors.txt -out:nstruct=50 -out:mute=all -out:unmute=protocols.SurfaceDocking -out:file:scorefile=/Users/junyoung/Desktop/BioMatAI/BioMAI/output/surface_dock_250917_204028/score.sc -out:path:all=/Users/junyoung/Desktop/BioMatAI/BioMAI/output/surface_dock_250917_204028/ -packing:resfile=/Users/junyoung/Desktop/BioMatAI/BioMAI/dock.resfile -packing:use_input_sc -packing:ex1 -packing:ex2aro -docking:partners=A_B -docking:randomize1 -docking:randomize2 -docking:use_ellipsoidal_randomization -docking:spin -docking:dock_pert=3 8
+
+[END_OPTIONS]
+
+[START_BACKTRACE]: RAW_LIBC
+0   surface_docking.static.macosclangre 0x0000000103cae904 backtrace_string(int) + 76
+1   surface_docking.static.macosclangre 0x0000000103cbec44 utility::excn::Exception::Exception(char const*, int, std::__1::basic_string<char, std::__1::char_traits<char>, std::__1::allocator<char>> const&) + 180
+2   surface_docking.static.macosclangre 0x0000000100cc855c protocols::surface_docking::SurfaceVectorLoader::create_surface_params(std::__1::basic_string<char, std::__1::char_traits<char>, std::__1::allocator<char>> const&, std::__1::basic_istream<char, std::__1::char_traits<char>>&) + 1768
+3   surface_docking.static.macosclangre 0x0000000100cc1dec protocols::surface_docking::SurfaceDockingProtocol::set_surface_parameters(core::pose::Pose&) + 300
+4   surface_docking.static.macosclangre 0x0000000100cc13f4 protocols::surface_docking::SurfaceDockingProtocol::apply(core::pose::Pose&) + 192
+5   surface_docking.static.macosclangre 0x000000010239d894 protocols::jd2::JobDistributor::run_one_job(std::__1::shared_ptr<protocols::moves::Mover>&, long, std::__1::basic_string<char, std::__1::char_traits<char>, std::__1::allocator<char>>&, std::__1::basic_string<char, std::__1::char_traits<char>, std::__1::allocator<char>>&, unsigned long&, unsigned long&, bool) + 7052
+6   surface_docking.static.macosclangre 0x000000010239ae7c protocols::jd2::JobDistributor::go_main(std::__1::shared_ptr<protocols::moves::Mover>) + 136
+7   surface_docking.static.macosclangre 0x00000001023961e0 protocols::jd2::FileSystemJobDistributor::go(std::__1::shared_ptr<protocols::moves::Mover>) + 72
+8   surface_docking.static.macosclangre 0x00000001001f0c7c main + 244
+9   dyld                                0x000000018abe2b98 start + 6076
+
+[END_BACKTRACE]
+
+[FILE]: src/protocols/surface_docking/SurfaceVectorLoader.cc
+[LINE]: 105
+[START_MESSAGE]
+SurfaceVectorLoader expected to be given exactly three points to define the periodicity of the surface, but less than three points were provided in /Users/junyoung/Desktop/BioMatAI/BioMAI/input/surface_vectors.txt.
+
+[END_MESSAGE]
+[END_CRASH_REPORT]
+
+##############################################################################################################
+#
+# Rosetta crash log. Please submit the contents of this file to http://crash.rosettacommons.org/
+# or use the script Rosetta/main/source/scripts/python/public/report_crashes.py
+#
+
+[START_CRASH_REPORT]
+[ROSETTA_VERSION]: 2024.09+release.06b3cf8ad0
+[COMMIT_DATE]: 2024-02-28T21:25:09.004217
+[APPLICATION]: /Users/junyoung/Desktop/BioMatAI/rosetta/rosetta.binary.m1.release-371/main/source/bin/surface_docking.static.macosclangrelease
+[MODE]: Release
+[EXTRAS]: default
+[OS]: Apple Mac OS X
+[COMPILER]: Clang version "14.0.0 (clang-1400.0.29.202)"
+[STDLIB]: libc++ version 13000
+[START_OPTIONS]
+ -in:include_surfaces -in:path:database=/Users/junyoung/Desktop/BioMatAI/rosetta/rosetta.binary.m1.release-371/main/database/ -in:file:s=/Users/junyoung/Desktop/BioMatAI/BioMAI/input/merged_A_B.pdb -in:file:surface_vectors=/Users/junyoung/Desktop/BioMatAI/BioMAI/input/surface_vectors.txt -out:nstruct=50 -out:mute=all -out:unmute=protocols.SurfaceDocking -out:file:scorefile=/Users/junyoung/Desktop/BioMatAI/BioMAI/output/surface_dock_250917_204028/score.sc -out:path:all=/Users/junyoung/Desktop/BioMatAI/BioMAI/output/surface_dock_250917_204028/ -packing:resfile=/Users/junyoung/Desktop/BioMatAI/BioMAI/dock.resfile -packing:use_input_sc -packing:ex1 -packing:ex2aro -docking:partners=A_B -docking:randomize1 -docking:randomize2 -docking:use_ellipsoidal_randomization -docking:spin -docking:dock_pert=3 8
+
+[END_OPTIONS]
+
+[START_BACKTRACE]: RAW_LIBC
+0   surface_docking.static.macosclangre 0x0000000103cae904 backtrace_string(int) + 76
+1   surface_docking.static.macosclangre 0x0000000103cbec44 utility::excn::Exception::Exception(char const*, int, std::__1::basic_string<char, std::__1::char_traits<char>, std::__1::allocator<char>> const&) + 180
+2   surface_docking.static.macosclangre 0x0000000100cc855c protocols::surface_docking::SurfaceVectorLoader::create_surface_params(std::__1::basic_string<char, std::__1::char_traits<char>, std::__1::allocator<char>> const&, std::__1::basic_istream<char, std::__1::char_traits<char>>&) + 1768
+3   surface_docking.static.macosclangre 0x0000000100cc1dec protocols::surface_docking::SurfaceDockingProtocol::set_surface_parameters(core::pose::Pose&) + 300
+4   surface_docking.static.macosclangre 0x0000000100cc13f4 protocols::surface_docking::SurfaceDockingProtocol::apply(core::pose::Pose&) + 192
+5   surface_docking.static.macosclangre 0x000000010239d894 protocols::jd2::JobDistributor::run_one_job(std::__1::shared_ptr<protocols::moves::Mover>&, long, std::__1::basic_string<char, std::__1::char_traits<char>, std::__1::allocator<char>>&, std::__1::basic_string<char, std::__1::char_traits<char>, std::__1::allocator<char>>&, unsigned long&, unsigned long&, bool) + 7052
+6   surface_docking.static.macosclangre 0x000000010239ae7c protocols::jd2::JobDistributor::go_main(std::__1::shared_ptr<protocols::moves::Mover>) + 136
+7   surface_docking.static.macosclangre 0x00000001023961e0 protocols::jd2::FileSystemJobDistributor::go(std::__1::shared_ptr<protocols::moves::Mover>) + 72
+8   surface_docking.static.macosclangre 0x00000001001f0c7c main + 244
+9   dyld                                0x000000018abe2b98 start + 6076
+
+[END_BACKTRACE]
+
+[FILE]: src/protocols/surface_docking/SurfaceVectorLoader.cc
+[LINE]: 105
+[START_MESSAGE]
+SurfaceVectorLoader expected to be given exactly three points to define the periodicity of the surface, but less than three points were provided in /Users/junyoung/Desktop/BioMatAI/BioMAI/input/surface_vectors.txt.
+
+[END_MESSAGE]
+[END_CRASH_REPORT]
+
+##############################################################################################################
+#
+# Rosetta crash log. Please submit the contents of this file to http://crash.rosettacommons.org/
+# or use the script Rosetta/main/source/scripts/python/public/report_crashes.py
+#
+
+[START_CRASH_REPORT]
+[ROSETTA_VERSION]: 2024.09+release.06b3cf8ad0
+[COMMIT_DATE]: 2024-02-28T21:25:09.004217
+[APPLICATION]: /Users/junyoung/Desktop/BioMatAI/rosetta/rosetta.binary.m1.release-371/main/source/bin/surface_docking.static.macosclangrelease
+[MODE]: Release
+[EXTRAS]: default
+[OS]: Apple Mac OS X
+[COMPILER]: Clang version "14.0.0 (clang-1400.0.29.202)"
+[STDLIB]: libc++ version 13000
+[START_OPTIONS]
+ -in:include_surfaces -in:path:database=/Users/junyoung/Desktop/BioMatAI/rosetta/rosetta.binary.m1.release-371/main/database/ -in:file:s=/Users/junyoung/Desktop/BioMatAI/BioMAI/input/merged_A_B.pdb -in:file:surface_vectors=/Users/junyoung/Desktop/BioMatAI/BioMAI/input/surface_vectors.txt -out:nstruct=50 -out:mute=all -out:unmute=protocols.SurfaceDocking -out:file:scorefile=/Users/junyoung/Desktop/BioMatAI/BioMAI/output/surface_dock_250917_204028/score.sc -out:path:all=/Users/junyoung/Desktop/BioMatAI/BioMAI/output/surface_dock_250917_204028/ -packing:resfile=/Users/junyoung/Desktop/BioMatAI/BioMAI/dock.resfile -packing:use_input_sc -packing:ex1 -packing:ex2aro -docking:partners=A_B -docking:randomize1 -docking:randomize2 -docking:use_ellipsoidal_randomization -docking:spin -docking:dock_pert=3 8
+
+[END_OPTIONS]
+
+[START_BACKTRACE]: RAW_LIBC
+0   surface_docking.static.macosclangre 0x0000000103cae904 backtrace_string(int) + 76
+1   surface_docking.static.macosclangre 0x0000000103cbec44 utility::excn::Exception::Exception(char const*, int, std::__1::basic_string<char, std::__1::char_traits<char>, std::__1::allocator<char>> const&) + 180
+2   surface_docking.static.macosclangre 0x0000000100cc855c protocols::surface_docking::SurfaceVectorLoader::create_surface_params(std::__1::basic_string<char, std::__1::char_traits<char>, std::__1::allocator<char>> const&, std::__1::basic_istream<char, std::__1::char_traits<char>>&) + 1768
+3   surface_docking.static.macosclangre 0x0000000100cc1dec protocols::surface_docking::SurfaceDockingProtocol::set_surface_parameters(core::pose::Pose&) + 300
+4   surface_docking.static.macosclangre 0x0000000100cc13f4 protocols::surface_docking::SurfaceDockingProtocol::apply(core::pose::Pose&) + 192
+5   surface_docking.static.macosclangre 0x000000010239d894 protocols::jd2::JobDistributor::run_one_job(std::__1::shared_ptr<protocols::moves::Mover>&, long, std::__1::basic_string<char, std::__1::char_traits<char>, std::__1::allocator<char>>&, std::__1::basic_string<char, std::__1::char_traits<char>, std::__1::allocator<char>>&, unsigned long&, unsigned long&, bool) + 7052
+6   surface_docking.static.macosclangre 0x000000010239ae7c protocols::jd2::JobDistributor::go_main(std::__1::shared_ptr<protocols::moves::Mover>) + 136
+7   surface_docking.static.macosclangre 0x00000001023961e0 protocols::jd2::FileSystemJobDistributor::go(std::__1::shared_ptr<protocols::moves::Mover>) + 72
+8   surface_docking.static.macosclangre 0x00000001001f0c7c main + 244
+9   dyld                                0x000000018abe2b98 start + 6076
+
+[END_BACKTRACE]
+
+[FILE]: src/protocols/surface_docking/SurfaceVectorLoader.cc
+[LINE]: 105
+[START_MESSAGE]
+SurfaceVectorLoader expected to be given exactly three points to define the periodicity of the surface, but less than three points were provided in /Users/junyoung/Desktop/BioMatAI/BioMAI/input/surface_vectors.txt.
+
+[END_MESSAGE]
+[END_CRASH_REPORT]
+
+##############################################################################################################
+#
+# Rosetta crash log. Please submit the contents of this file to http://crash.rosettacommons.org/
+# or use the script Rosetta/main/source/scripts/python/public/report_crashes.py
+#
+
+[START_CRASH_REPORT]
+[ROSETTA_VERSION]: 2024.09+release.06b3cf8ad0
+[COMMIT_DATE]: 2024-02-28T21:25:09.004217
+[APPLICATION]: /Users/junyoung/Desktop/BioMatAI/rosetta/rosetta.binary.m1.release-371/main/source/bin/surface_docking.static.macosclangrelease
+[MODE]: Release
+[EXTRAS]: default
+[OS]: Apple Mac OS X
+[COMPILER]: Clang version "14.0.0 (clang-1400.0.29.202)"
+[STDLIB]: libc++ version 13000
+[START_OPTIONS]
+ -in:include_surfaces -in:path:database=/Users/junyoung/Desktop/BioMatAI/rosetta/rosetta.binary.m1.release-371/main/database/ -in:file:s=/Users/junyoung/Desktop/BioMatAI/BioMAI/input/merged_A_B.pdb -in:file:surface_vectors=/Users/junyoung/Desktop/BioMatAI/BioMAI/input/surface_vectors.txt -out:nstruct=50 -out:mute=all -out:unmute=protocols.SurfaceDocking -out:file:scorefile=/Users/junyoung/Desktop/BioMatAI/BioMAI/output/surface_dock_250917_204028/score.sc -out:path:all=/Users/junyoung/Desktop/BioMatAI/BioMAI/output/surface_dock_250917_204028/ -packing:resfile=/Users/junyoung/Desktop/BioMatAI/BioMAI/dock.resfile -packing:use_input_sc -packing:ex1 -packing:ex2aro -docking:partners=A_B -docking:randomize1 -docking:randomize2 -docking:use_ellipsoidal_randomization -docking:spin -docking:dock_pert=3 8
+
+[END_OPTIONS]
+
+[START_BACKTRACE]: RAW_LIBC
+0   surface_docking.static.macosclangre 0x0000000103cae904 backtrace_string(int) + 76
+1   surface_docking.static.macosclangre 0x0000000103cbec44 utility::excn::Exception::Exception(char const*, int, std::__1::basic_string<char, std::__1::char_traits<char>, std::__1::allocator<char>> const&) + 180
+2   surface_docking.static.macosclangre 0x0000000100cc855c protocols::surface_docking::SurfaceVectorLoader::create_surface_params(std::__1::basic_string<char, std::__1::char_traits<char>, std::__1::allocator<char>> const&, std::__1::basic_istream<char, std::__1::char_traits<char>>&) + 1768
+3   surface_docking.static.macosclangre 0x0000000100cc1dec protocols::surface_docking::SurfaceDockingProtocol::set_surface_parameters(core::pose::Pose&) + 300
+4   surface_docking.static.macosclangre 0x0000000100cc13f4 protocols::surface_docking::SurfaceDockingProtocol::apply(core::pose::Pose&) + 192
+5   surface_docking.static.macosclangre 0x000000010239d894 protocols::jd2::JobDistributor::run_one_job(std::__1::shared_ptr<protocols::moves::Mover>&, long, std::__1::basic_string<char, std::__1::char_traits<char>, std::__1::allocator<char>>&, std::__1::basic_string<char, std::__1::char_traits<char>, std::__1::allocator<char>>&, unsigned long&, unsigned long&, bool) + 7052
+6   surface_docking.static.macosclangre 0x000000010239ae7c protocols::jd2::JobDistributor::go_main(std::__1::shared_ptr<protocols::moves::Mover>) + 136
+7   surface_docking.static.macosclangre 0x00000001023961e0 protocols::jd2::FileSystemJobDistributor::go(std::__1::shared_ptr<protocols::moves::Mover>) + 72
+8   surface_docking.static.macosclangre 0x00000001001f0c7c main + 244
+9   dyld                                0x000000018abe2b98 start + 6076
+
+[END_BACKTRACE]
+
+[FILE]: src/protocols/surface_docking/SurfaceVectorLoader.cc
+[LINE]: 105
+[START_MESSAGE]
+SurfaceVectorLoader expected to be given exactly three points to define the periodicity of the surface, but less than three points were provided in /Users/junyoung/Desktop/BioMatAI/BioMAI/input/surface_vectors.txt.
+
+[END_MESSAGE]
+[END_CRASH_REPORT]
+
