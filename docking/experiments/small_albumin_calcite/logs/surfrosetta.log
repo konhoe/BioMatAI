@@ -1,0 +1,25 @@
+protocols.SurfaceDocking.SurfaceDockingProtocol: Setting Weights for talaris
+
+ERROR: too many tries in fill_missing_atoms!
+ERROR:: Exit from: src/core/conformation/Conformation.cc line: 1933
+
+[ ERROR ]: Caught exception:
+
+
+File: src/core/conformation/Conformation.cc:1933
+[ ERROR ] UtilityExitException
+ERROR: too many tries in fill_missing_atoms!
+
+
+
+
+AN INTERNAL ERROR HAS OCCURED. PLEASE SEE THE CONTENTS OF ROSETTA_CRASH.log FOR DETAILS.
+
+
+
+---------------------------------------------------------------
+[ ERROR ]: Error(s) were encountered when running jobs.
+1 jobs failed;
+Check the output further up for additional error messages.
+---------------------------------------------------------------
+

@@ -1,0 +1,9 @@
+-s albumin_calcite_merged.pdb
+-include_surfaces
+-overwrite
+-nstruct 1
+-out:pdb
+-in:file:frag9 albumin_9mers
+-in:file:frag3 albumin_3mers
+-in:file:surface_vectors calcite.surf
+-ignore_unrecognized_res

@@ -1,0 +1,11 @@
+-s small_albumin_calcite_merged.pdb
+-include_surfaces
+-mute all
+-unmute protocols.SurfaceDocking
+-overwrite
+-nstruct 1
+-in:file:frag9 small_albumin_9mers
+-in:file:frag3 small_albumin_3mers
+-in:file:surface_vectors calcite.surf
+-out:path:pdb output/
+-out:file:scorefile output/small_albumin_calcite_scores.sc

@@ -1,0 +1,53 @@
+##############################################################################################################
+#
+# Rosetta crash log. Please submit the contents of this file to http://crash.rosettacommons.org/
+# or use the script Rosetta/main/source/scripts/python/public/report_crashes.py
+#
+
+[START_CRASH_REPORT]
+[ROSETTA_VERSION]: 2024.09+release.06b3cf8ad0
+[COMMIT_DATE]: 2024-02-28T21:25:09.004217
+[APPLICATION]: /Users/junyoung/Desktop/BioMatAI/rosetta/rosetta.binary.m1.release-371/main/source/bin/surface_docking.static.macosclangrelease
+[MODE]: Release
+[EXTRAS]: default
+[OS]: Apple Mac OS X
+[COMPILER]: Clang version "14.0.0 (clang-1400.0.29.202)"
+[STDLIB]: libc++ version 13000
+[START_OPTIONS]
+ -in:include_surfaces -in:file:s=small_albumin_calcite_merged.pdb -in:file:frag3=small_albumin_3mers -in:file:frag9=small_albumin_9mers -in:file:surface_vectors=calcite.surf -out:overwrite -out:nstruct=1 -out:mute=all -out:unmute=protocols.SurfaceDocking -out:file:scorefile=output/small_albumin_calcite_scores.sc -out:path:pdb=output/
+
+[END_OPTIONS]
+
+[START_BACKTRACE]: RAW_LIBC
+0   surface_docking.static.macosclangre 0x00000001088f2904 backtrace_string(int) + 76
+1   surface_docking.static.macosclangre 0x0000000108902c44 utility::excn::Exception::Exception(char const*, int, std::__1::basic_string<char, std::__1::char_traits<char>, std::__1::allocator<char>> const&) + 180
+2   surface_docking.static.macosclangre 0x00000001088f5d7c utility::UtilityExitException::UtilityExitException(char const*, int, std::__1::basic_string<char, std::__1::char_traits<char>, std::__1::allocator<char>> const&) + 112
+3   surface_docking.static.macosclangre 0x00000001088f5cb8 utility::exit(char const*, int, std::__1::basic_string<char, std::__1::char_traits<char>, std::__1::allocator<char>> const&, int) + 60
+4   surface_docking.static.macosclangre 0x00000001084fda3c core::conformation::Conformation::fill_missing_atoms(core::id::AtomID_Map<bool>) + 5912
+5   surface_docking.static.macosclangre 0x000000010785fc00 core::io::pose_from_sfr::PoseFromSFRBuilder::refine_pose(core::pose::Pose&) + 740
+6   surface_docking.static.macosclangre 0x00000001078548b8 core::io::pose_from_sfr::PoseFromSFRBuilder::build_pose(core::io::StructFileRep const&, core::pose::Pose&) + 296
+7   surface_docking.static.macosclangre 0x000000010715c5b4 core::import_pose::build_pose_as_is(std::__1::shared_ptr<core::io::StructFileRep>, core::pose::Pose&, core::chemical::ResidueTypeSet const&, core::import_pose::ImportPoseOptions const&) + 168
+8   surface_docking.static.macosclangre 0x000000010715a480 core::import_pose::build_pose(std::__1::shared_ptr<core::io::StructFileRep>, core::pose::Pose&, core::chemical::ResidueTypeSet const&, core::import_pose::ImportPoseOptions const&) + 228
+9   surface_docking.static.macosclangre 0x0000000107159c50 core::import_pose::pose_from_file(core::pose::Pose&, core::chemical::ResidueTypeSet const&, std::__1::basic_string<char, std::__1::char_traits<char>, std::__1::allocator<char>> const&, core::import_pose::ImportPoseOptions const&, bool, core::import_pose::FileType) + 2356
+10  surface_docking.static.macosclangre 0x0000000107158738 core::import_pose::pose_from_file(core::pose::Pose&, std::__1::basic_string<char, std::__1::char_traits<char>, std::__1::allocator<char>> const&, core::import_pose::ImportPoseOptions const&, bool, core::import_pose::FileType) + 124
+11  surface_docking.static.macosclangre 0x0000000107157538 core::import_pose::pose_from_file(core::pose::Pose&, std::__1::basic_string<char, std::__1::char_traits<char>, std::__1::allocator<char>> const&, bool, core::import_pose::FileType) + 72
+12  surface_docking.static.macosclangre 0x0000000106ffc774 protocols::jd2::PDBJobInputter::pose_from_job(core::pose::Pose&, std::__1::shared_ptr<protocols::jd2::Job>) + 1900
+13  surface_docking.static.macosclangre 0x0000000106fe027c protocols::jd2::JobDistributor::run_one_job(std::__1::shared_ptr<protocols::moves::Mover>&, long, std::__1::basic_string<char, std::__1::char_traits<char>, std::__1::allocator<char>>&, std::__1::basic_string<char, std::__1::char_traits<char>, std::__1::allocator<char>>&, unsigned long&, unsigned long&, bool) + 1396
+14  surface_docking.static.macosclangre 0x0000000106fdee7c protocols::jd2::JobDistributor::go_main(std::__1::shared_ptr<protocols::moves::Mover>) + 136
+15  surface_docking.static.macosclangre 0x0000000106fda1e0 protocols::jd2::FileSystemJobDistributor::go(std::__1::shared_ptr<protocols::moves::Mover>) + 72
+16  surface_docking.static.macosclangre 0x0000000104e34c7c main + 244
+17  dyld                                0x000000018abe2b98 start + 6076
+
+[END_BACKTRACE]
+
+[FILE]: src/core/conformation/Conformation.cc
+[LINE]: 1933
+[START_MESSAGE]
+[ ERROR ] UtilityExitException
+ERROR: too many tries in fill_missing_atoms!
+
+
+
+[END_MESSAGE]
+[END_CRASH_REPORT]
+

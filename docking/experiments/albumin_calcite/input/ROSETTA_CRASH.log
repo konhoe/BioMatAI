@@ -1,0 +1,306 @@
+##############################################################################################################
+#
+# Rosetta crash log. Please submit the contents of this file to http://crash.rosettacommons.org/
+# or use the script Rosetta/main/source/scripts/python/public/report_crashes.py
+#
+
+[START_CRASH_REPORT]
+[ROSETTA_VERSION]: 2024.09+release.06b3cf8ad0
+[COMMIT_DATE]: 2024-02-28T21:25:09.004217
+[APPLICATION]: /Users/junyoung/Desktop/BioMatAI/rosetta/rosetta.binary.m1.release-371/main/source/bin/surface_docking.static.macosclangrelease
+[MODE]: Release
+[EXTRAS]: default
+[OS]: Apple Mac OS X
+[COMPILER]: Clang version "14.0.0 (clang-1400.0.29.202)"
+[STDLIB]: libc++ version 13000
+[START_OPTIONS]
+ -in:ignore_unrecognized_res -in:include_surfaces -in:file:s=albumin_calcite_merged.pdb -in:file:frag3=albumin_3mers -in:file:frag9=albumin_9mers -in:file:surface_vectors=calcite.surf -out:overwrite -out:nstruct=1 -out:mute=all -out:unmute=protocols.SurfaceDocking -out:path:pdb=output/ -out:path:score=output/ -run:test_cycles
+
+[END_OPTIONS]
+
+[START_BACKTRACE]: RAW_LIBC
+0   surface_docking.static.macosclangre 0x00000001080b6904 backtrace_string(int) + 76
+1   surface_docking.static.macosclangre 0x00000001080c6c44 utility::excn::Exception::Exception(char const*, int, std::__1::basic_string<char, std::__1::char_traits<char>, std::__1::allocator<char>> const&) + 180
+2   surface_docking.static.macosclangre 0x00000001080b9d7c utility::UtilityExitException::UtilityExitException(char const*, int, std::__1::basic_string<char, std::__1::char_traits<char>, std::__1::allocator<char>> const&) + 112
+3   surface_docking.static.macosclangre 0x00000001080b9cb8 utility::exit(char const*, int, std::__1::basic_string<char, std::__1::char_traits<char>, std::__1::allocator<char>> const&, int) + 60
+4   surface_docking.static.macosclangre 0x00000001067d8660 protocols::jd2::wwPDBJobOutputter::other_pose(std::__1::shared_ptr<protocols::jd2::Job>, core::pose::Pose const&, std::__1::basic_string<char, std::__1::char_traits<char>, std::__1::allocator<char>> const&, int, bool) + 1880
+5   surface_docking.static.macosclangre 0x00000001067d4474 protocols::jd2::output_intermediate_pose(core::pose::Pose const&, std::__1::basic_string<char, std::__1::char_traits<char>, std::__1::allocator<char>> const&, int, bool) + 256
+6   surface_docking.static.macosclangre 0x00000001050c64d0 protocols::surface_docking::FullatomRelaxMover::output_solution_state(core::pose::Pose&) + 524
+7   surface_docking.static.macosclangre 0x00000001050c7500 protocols::surface_docking::FullatomRelaxMover::refinement_cycle(core::pose::Pose&) + 548
+8   surface_docking.static.macosclangre 0x00000001050c76a4 protocols::surface_docking::FullatomRelaxMover::apply(core::pose::Pose&) + 292
+9   surface_docking.static.macosclangre 0x00000001050c9810 protocols::surface_docking::SurfaceDockingProtocol::apply(core::pose::Pose&) + 1244
+10  surface_docking.static.macosclangre 0x00000001067a5894 protocols::jd2::JobDistributor::run_one_job(std::__1::shared_ptr<protocols::moves::Mover>&, long, std::__1::basic_string<char, std::__1::char_traits<char>, std::__1::allocator<char>>&, std::__1::basic_string<char, std::__1::char_traits<char>, std::__1::allocator<char>>&, unsigned long&, unsigned long&, bool) + 7052
+11  surface_docking.static.macosclangre 0x00000001067a2e7c protocols::jd2::JobDistributor::go_main(std::__1::shared_ptr<protocols::moves::Mover>) + 136
+12  surface_docking.static.macosclangre 0x000000010679e1e0 protocols::jd2::FileSystemJobDistributor::go(std::__1::shared_ptr<protocols::moves::Mover>) + 72
+13  surface_docking.static.macosclangre 0x00000001045f8c7c main + 244
+14  dyld                                0x000000018abe2b98 start + 6076
+
+[END_BACKTRACE]
+
+[FILE]: src/protocols/jd2/wwPDBJobOutputter.cc
+[LINE]: 100
+[START_MESSAGE]
+[ ERROR ] UtilityExitException
+ERROR: Unable to open file: output/SolState__albumin_calcite_merged_0001.pdb
+
+
+
+
+[END_MESSAGE]
+[END_CRASH_REPORT]
+
+##############################################################################################################
+#
+# Rosetta crash log. Please submit the contents of this file to http://crash.rosettacommons.org/
+# or use the script Rosetta/main/source/scripts/python/public/report_crashes.py
+#
+
+[START_CRASH_REPORT]
+[ROSETTA_VERSION]: 2024.09+release.06b3cf8ad0
+[COMMIT_DATE]: 2024-02-28T21:25:09.004217
+[APPLICATION]: /Users/junyoung/Desktop/BioMatAI/rosetta/rosetta.binary.m1.release-371/main/source/bin/surface_docking.static.macosclangrelease
+[MODE]: Release
+[EXTRAS]: default
+[OS]: Apple Mac OS X
+[COMPILER]: Clang version "14.0.0 (clang-1400.0.29.202)"
+[STDLIB]: libc++ version 13000
+[START_OPTIONS]
+ -in:ignore_unrecognized_res -in:include_surfaces -in:file:s=albumin_calcite_merged.pdb -in:file:frag3=albumin_3mers -in:file:frag9=albumin_9mers -in:file:surface_vectors=calcite.surf -out:overwrite -out:nstruct=1 -out:mute=all -out:unmute=protocols.SurfaceDocking -out:path:pdb=output/ -out:path:score=output/ -run:test_cycles
+
+[END_OPTIONS]
+
+[START_BACKTRACE]: RAW_LIBC
+0   surface_docking.static.macosclangre 0x0000000108a16904 backtrace_string(int) + 76
+1   surface_docking.static.macosclangre 0x0000000108a26c44 utility::excn::Exception::Exception(char const*, int, std::__1::basic_string<char, std::__1::char_traits<char>, std::__1::allocator<char>> const&) + 180
+2   surface_docking.static.macosclangre 0x0000000108a19d7c utility::UtilityExitException::UtilityExitException(char const*, int, std::__1::basic_string<char, std::__1::char_traits<char>, std::__1::allocator<char>> const&) + 112
+3   surface_docking.static.macosclangre 0x0000000108a19cb8 utility::exit(char const*, int, std::__1::basic_string<char, std::__1::char_traits<char>, std::__1::allocator<char>> const&, int) + 60
+4   surface_docking.static.macosclangre 0x0000000107138660 protocols::jd2::wwPDBJobOutputter::other_pose(std::__1::shared_ptr<protocols::jd2::Job>, core::pose::Pose const&, std::__1::basic_string<char, std::__1::char_traits<char>, std::__1::allocator<char>> const&, int, bool) + 1880
+5   surface_docking.static.macosclangre 0x0000000107134474 protocols::jd2::output_intermediate_pose(core::pose::Pose const&, std::__1::basic_string<char, std::__1::char_traits<char>, std::__1::allocator<char>> const&, int, bool) + 256
+6   surface_docking.static.macosclangre 0x0000000105a264d0 protocols::surface_docking::FullatomRelaxMover::output_solution_state(core::pose::Pose&) + 524
+7   surface_docking.static.macosclangre 0x0000000105a27500 protocols::surface_docking::FullatomRelaxMover::refinement_cycle(core::pose::Pose&) + 548
+8   surface_docking.static.macosclangre 0x0000000105a276a4 protocols::surface_docking::FullatomRelaxMover::apply(core::pose::Pose&) + 292
+9   surface_docking.static.macosclangre 0x0000000105a29810 protocols::surface_docking::SurfaceDockingProtocol::apply(core::pose::Pose&) + 1244
+10  surface_docking.static.macosclangre 0x0000000107105894 protocols::jd2::JobDistributor::run_one_job(std::__1::shared_ptr<protocols::moves::Mover>&, long, std::__1::basic_string<char, std::__1::char_traits<char>, std::__1::allocator<char>>&, std::__1::basic_string<char, std::__1::char_traits<char>, std::__1::allocator<char>>&, unsigned long&, unsigned long&, bool) + 7052
+11  surface_docking.static.macosclangre 0x0000000107102e7c protocols::jd2::JobDistributor::go_main(std::__1::shared_ptr<protocols::moves::Mover>) + 136
+12  surface_docking.static.macosclangre 0x00000001070fe1e0 protocols::jd2::FileSystemJobDistributor::go(std::__1::shared_ptr<protocols::moves::Mover>) + 72
+13  surface_docking.static.macosclangre 0x0000000104f58c7c main + 244
+14  dyld                                0x000000018abe2b98 start + 6076
+
+[END_BACKTRACE]
+
+[FILE]: src/protocols/jd2/wwPDBJobOutputter.cc
+[LINE]: 100
+[START_MESSAGE]
+[ ERROR ] UtilityExitException
+ERROR: Unable to open file: output/SolState__albumin_calcite_merged_0001.pdb
+
+
+
+
+[END_MESSAGE]
+[END_CRASH_REPORT]
+
+##############################################################################################################
+#
+# Rosetta crash log. Please submit the contents of this file to http://crash.rosettacommons.org/
+# or use the script Rosetta/main/source/scripts/python/public/report_crashes.py
+#
+
+[START_CRASH_REPORT]
+[ROSETTA_VERSION]: 2024.09+release.06b3cf8ad0
+[COMMIT_DATE]: 2024-02-28T21:25:09.004217
+[APPLICATION]: /Users/junyoung/Desktop/BioMatAI/rosetta/rosetta.binary.m1.release-371/main/source/bin/surface_docking.static.macosclangrelease
+[MODE]: Release
+[EXTRAS]: default
+[OS]: Apple Mac OS X
+[COMPILER]: Clang version "14.0.0 (clang-1400.0.29.202)"
+[STDLIB]: libc++ version 13000
+[START_OPTIONS]
+ -in:ignore_unrecognized_res -in:include_surfaces -in:file:s=albumin_calcite_merged.pdb -in:file:frag3=albumin_3mers -in:file:frag9=albumin_9mers -in:file:surface_vectors=calcite.surf -out:overwrite -out:nstruct=1 -out:mute=all -out:unmute=protocols.SurfaceDocking -out:path:pdb=output/ -out:path:score=output/ -run:test_cycles
+
+[END_OPTIONS]
+
+[START_BACKTRACE]: RAW_LIBC
+0   surface_docking.static.macosclangre 0x0000000103fa6904 backtrace_string(int) + 76
+1   surface_docking.static.macosclangre 0x0000000103fb6c44 utility::excn::Exception::Exception(char const*, int, std::__1::basic_string<char, std::__1::char_traits<char>, std::__1::allocator<char>> const&) + 180
+2   surface_docking.static.macosclangre 0x0000000103fa9d7c utility::UtilityExitException::UtilityExitException(char const*, int, std::__1::basic_string<char, std::__1::char_traits<char>, std::__1::allocator<char>> const&) + 112
+3   surface_docking.static.macosclangre 0x0000000103fa9cb8 utility::exit(char const*, int, std::__1::basic_string<char, std::__1::char_traits<char>, std::__1::allocator<char>> const&, int) + 60
+4   surface_docking.static.macosclangre 0x00000001026c8660 protocols::jd2::wwPDBJobOutputter::other_pose(std::__1::shared_ptr<protocols::jd2::Job>, core::pose::Pose const&, std::__1::basic_string<char, std::__1::char_traits<char>, std::__1::allocator<char>> const&, int, bool) + 1880
+5   surface_docking.static.macosclangre 0x00000001026c4474 protocols::jd2::output_intermediate_pose(core::pose::Pose const&, std::__1::basic_string<char, std::__1::char_traits<char>, std::__1::allocator<char>> const&, int, bool) + 256
+6   surface_docking.static.macosclangre 0x0000000100fb64d0 protocols::surface_docking::FullatomRelaxMover::output_solution_state(core::pose::Pose&) + 524
+7   surface_docking.static.macosclangre 0x0000000100fb7500 protocols::surface_docking::FullatomRelaxMover::refinement_cycle(core::pose::Pose&) + 548
+8   surface_docking.static.macosclangre 0x0000000100fb76a4 protocols::surface_docking::FullatomRelaxMover::apply(core::pose::Pose&) + 292
+9   surface_docking.static.macosclangre 0x0000000100fb9810 protocols::surface_docking::SurfaceDockingProtocol::apply(core::pose::Pose&) + 1244
+10  surface_docking.static.macosclangre 0x0000000102695894 protocols::jd2::JobDistributor::run_one_job(std::__1::shared_ptr<protocols::moves::Mover>&, long, std::__1::basic_string<char, std::__1::char_traits<char>, std::__1::allocator<char>>&, std::__1::basic_string<char, std::__1::char_traits<char>, std::__1::allocator<char>>&, unsigned long&, unsigned long&, bool) + 7052
+11  surface_docking.static.macosclangre 0x0000000102692e7c protocols::jd2::JobDistributor::go_main(std::__1::shared_ptr<protocols::moves::Mover>) + 136
+12  surface_docking.static.macosclangre 0x000000010268e1e0 protocols::jd2::FileSystemJobDistributor::go(std::__1::shared_ptr<protocols::moves::Mover>) + 72
+13  surface_docking.static.macosclangre 0x00000001004e8c7c main + 244
+14  dyld                                0x000000018abe2b98 start + 6076
+
+[END_BACKTRACE]
+
+[FILE]: src/protocols/jd2/wwPDBJobOutputter.cc
+[LINE]: 100
+[START_MESSAGE]
+[ ERROR ] UtilityExitException
+ERROR: Unable to open file: output/SolState__albumin_calcite_merged_0001.pdb
+
+
+
+
+[END_MESSAGE]
+[END_CRASH_REPORT]
+
+##############################################################################################################
+#
+# Rosetta crash log. Please submit the contents of this file to http://crash.rosettacommons.org/
+# or use the script Rosetta/main/source/scripts/python/public/report_crashes.py
+#
+
+[START_CRASH_REPORT]
+[ROSETTA_VERSION]: 2024.09+release.06b3cf8ad0
+[COMMIT_DATE]: 2024-02-28T21:25:09.004217
+[APPLICATION]: /Users/junyoung/Desktop/BioMatAI/rosetta/rosetta.binary.m1.release-371/main/source/bin/surface_docking.static.macosclangrelease
+[MODE]: Release
+[EXTRAS]: default
+[OS]: Apple Mac OS X
+[COMPILER]: Clang version "14.0.0 (clang-1400.0.29.202)"
+[STDLIB]: libc++ version 13000
+[START_OPTIONS]
+ -in:ignore_unrecognized_res -in:include_surfaces -in:file:s=albumin_calcite_merged.pdb -in:file:frag3=albumin_3mers -in:file:frag9=albumin_9mers -in:file:surface_vectors=calcite.surf -out:overwrite -out:nstruct=1 -out:mute=all -out:unmute=protocols.SurfaceDocking -out:path:pdb=output/ -out:path:score=output/ -run:test_cycles
+
+[END_OPTIONS]
+
+[START_BACKTRACE]: RAW_LIBC
+0   surface_docking.static.macosclangre 0x0000000107f86904 backtrace_string(int) + 76
+1   surface_docking.static.macosclangre 0x0000000107f96c44 utility::excn::Exception::Exception(char const*, int, std::__1::basic_string<char, std::__1::char_traits<char>, std::__1::allocator<char>> const&) + 180
+2   surface_docking.static.macosclangre 0x0000000107f89d7c utility::UtilityExitException::UtilityExitException(char const*, int, std::__1::basic_string<char, std::__1::char_traits<char>, std::__1::allocator<char>> const&) + 112
+3   surface_docking.static.macosclangre 0x0000000107f89cb8 utility::exit(char const*, int, std::__1::basic_string<char, std::__1::char_traits<char>, std::__1::allocator<char>> const&, int) + 60
+4   surface_docking.static.macosclangre 0x00000001066a8660 protocols::jd2::wwPDBJobOutputter::other_pose(std::__1::shared_ptr<protocols::jd2::Job>, core::pose::Pose const&, std::__1::basic_string<char, std::__1::char_traits<char>, std::__1::allocator<char>> const&, int, bool) + 1880
+5   surface_docking.static.macosclangre 0x00000001066a4474 protocols::jd2::output_intermediate_pose(core::pose::Pose const&, std::__1::basic_string<char, std::__1::char_traits<char>, std::__1::allocator<char>> const&, int, bool) + 256
+6   surface_docking.static.macosclangre 0x0000000104f964d0 protocols::surface_docking::FullatomRelaxMover::output_solution_state(core::pose::Pose&) + 524
+7   surface_docking.static.macosclangre 0x0000000104f97500 protocols::surface_docking::FullatomRelaxMover::refinement_cycle(core::pose::Pose&) + 548
+8   surface_docking.static.macosclangre 0x0000000104f976a4 protocols::surface_docking::FullatomRelaxMover::apply(core::pose::Pose&) + 292
+9   surface_docking.static.macosclangre 0x0000000104f99810 protocols::surface_docking::SurfaceDockingProtocol::apply(core::pose::Pose&) + 1244
+10  surface_docking.static.macosclangre 0x0000000106675894 protocols::jd2::JobDistributor::run_one_job(std::__1::shared_ptr<protocols::moves::Mover>&, long, std::__1::basic_string<char, std::__1::char_traits<char>, std::__1::allocator<char>>&, std::__1::basic_string<char, std::__1::char_traits<char>, std::__1::allocator<char>>&, unsigned long&, unsigned long&, bool) + 7052
+11  surface_docking.static.macosclangre 0x0000000106672e7c protocols::jd2::JobDistributor::go_main(std::__1::shared_ptr<protocols::moves::Mover>) + 136
+12  surface_docking.static.macosclangre 0x000000010666e1e0 protocols::jd2::FileSystemJobDistributor::go(std::__1::shared_ptr<protocols::moves::Mover>) + 72
+13  surface_docking.static.macosclangre 0x00000001044c8c7c main + 244
+14  dyld                                0x000000018abe2b98 start + 6076
+
+[END_BACKTRACE]
+
+[FILE]: src/protocols/jd2/wwPDBJobOutputter.cc
+[LINE]: 100
+[START_MESSAGE]
+[ ERROR ] UtilityExitException
+ERROR: Unable to open file: output/SolState__albumin_calcite_merged_0001.pdb
+
+
+
+
+[END_MESSAGE]
+[END_CRASH_REPORT]
+
+##############################################################################################################
+#
+# Rosetta crash log. Please submit the contents of this file to http://crash.rosettacommons.org/
+# or use the script Rosetta/main/source/scripts/python/public/report_crashes.py
+#
+
+[START_CRASH_REPORT]
+[ROSETTA_VERSION]: 2024.09+release.06b3cf8ad0
+[COMMIT_DATE]: 2024-02-28T21:25:09.004217
+[APPLICATION]: /Users/junyoung/Desktop/BioMatAI/rosetta/rosetta.binary.m1.release-371/main/source/bin/surface_docking.static.macosclangrelease
+[MODE]: Release
+[EXTRAS]: default
+[OS]: Apple Mac OS X
+[COMPILER]: Clang version "14.0.0 (clang-1400.0.29.202)"
+[STDLIB]: libc++ version 13000
+[START_OPTIONS]
+ -in:ignore_unrecognized_res -in:include_surfaces -in:file:s=albumin_calcite_merged.pdb -in:file:frag3=albumin_3mers -in:file:frag9=albumin_9mers -in:file:surface_vectors=calcite.surf -out:overwrite -out:nstruct=1 -out:mute=all -out:unmute=protocols.SurfaceDocking -out:path:pdb=output/ -out:path:score=output/ -run:test_cycles
+
+[END_OPTIONS]
+
+[START_BACKTRACE]: RAW_LIBC
+0   surface_docking.static.macosclangre 0x000000010651a904 backtrace_string(int) + 76
+1   surface_docking.static.macosclangre 0x000000010652ac44 utility::excn::Exception::Exception(char const*, int, std::__1::basic_string<char, std::__1::char_traits<char>, std::__1::allocator<char>> const&) + 180
+2   surface_docking.static.macosclangre 0x000000010651dd7c utility::UtilityExitException::UtilityExitException(char const*, int, std::__1::basic_string<char, std::__1::char_traits<char>, std::__1::allocator<char>> const&) + 112
+3   surface_docking.static.macosclangre 0x000000010651dcb8 utility::exit(char const*, int, std::__1::basic_string<char, std::__1::char_traits<char>, std::__1::allocator<char>> const&, int) + 60
+4   surface_docking.static.macosclangre 0x0000000104c3c660 protocols::jd2::wwPDBJobOutputter::other_pose(std::__1::shared_ptr<protocols::jd2::Job>, core::pose::Pose const&, std::__1::basic_string<char, std::__1::char_traits<char>, std::__1::allocator<char>> const&, int, bool) + 1880
+5   surface_docking.static.macosclangre 0x0000000104c38474 protocols::jd2::output_intermediate_pose(core::pose::Pose const&, std::__1::basic_string<char, std::__1::char_traits<char>, std::__1::allocator<char>> const&, int, bool) + 256
+6   surface_docking.static.macosclangre 0x000000010352a4d0 protocols::surface_docking::FullatomRelaxMover::output_solution_state(core::pose::Pose&) + 524
+7   surface_docking.static.macosclangre 0x000000010352b500 protocols::surface_docking::FullatomRelaxMover::refinement_cycle(core::pose::Pose&) + 548
+8   surface_docking.static.macosclangre 0x000000010352b6a4 protocols::surface_docking::FullatomRelaxMover::apply(core::pose::Pose&) + 292
+9   surface_docking.static.macosclangre 0x000000010352d810 protocols::surface_docking::SurfaceDockingProtocol::apply(core::pose::Pose&) + 1244
+10  surface_docking.static.macosclangre 0x0000000104c09894 protocols::jd2::JobDistributor::run_one_job(std::__1::shared_ptr<protocols::moves::Mover>&, long, std::__1::basic_string<char, std::__1::char_traits<char>, std::__1::allocator<char>>&, std::__1::basic_string<char, std::__1::char_traits<char>, std::__1::allocator<char>>&, unsigned long&, unsigned long&, bool) + 7052
+11  surface_docking.static.macosclangre 0x0000000104c06e7c protocols::jd2::JobDistributor::go_main(std::__1::shared_ptr<protocols::moves::Mover>) + 136
+12  surface_docking.static.macosclangre 0x0000000104c021e0 protocols::jd2::FileSystemJobDistributor::go(std::__1::shared_ptr<protocols::moves::Mover>) + 72
+13  surface_docking.static.macosclangre 0x0000000102a5cc7c main + 244
+14  dyld                                0x000000018abe2b98 start + 6076
+
+[END_BACKTRACE]
+
+[FILE]: src/protocols/jd2/wwPDBJobOutputter.cc
+[LINE]: 100
+[START_MESSAGE]
+[ ERROR ] UtilityExitException
+ERROR: Unable to open file: output/SolState__albumin_calcite_merged_0001.pdb
+
+
+
+
+[END_MESSAGE]
+[END_CRASH_REPORT]
+
+##############################################################################################################
+#
+# Rosetta crash log. Please submit the contents of this file to http://crash.rosettacommons.org/
+# or use the script Rosetta/main/source/scripts/python/public/report_crashes.py
+#
+
+[START_CRASH_REPORT]
+[ROSETTA_VERSION]: 2024.09+release.06b3cf8ad0
+[COMMIT_DATE]: 2024-02-28T21:25:09.004217
+[APPLICATION]: /Users/junyoung/Desktop/BioMatAI/rosetta/rosetta.binary.m1.release-371/main/source/bin/surface_docking.static.macosclangrelease
+[MODE]: Release
+[EXTRAS]: default
+[OS]: Apple Mac OS X
+[COMPILER]: Clang version "14.0.0 (clang-1400.0.29.202)"
+[STDLIB]: libc++ version 13000
+[START_OPTIONS]
+ -in:ignore_unrecognized_res -in:include_surfaces -in:file:s=albumin_calcite_merged.pdb -in:file:frag3=albumin_3mers -in:file:frag9=albumin_9mers -in:file:surface_vectors=calcite.surf -out:overwrite -out:nstruct=1 -out:mute=all -out:unmute=protocols.SurfaceDocking -out:path:pdb=output/ -out:path:score=output/ -run:test_cycles
+
+[END_OPTIONS]
+
+[START_BACKTRACE]: RAW_LIBC
+0   surface_docking.static.macosclangre 0x0000000103efe904 backtrace_string(int) + 76
+1   surface_docking.static.macosclangre 0x0000000103f0ec44 utility::excn::Exception::Exception(char const*, int, std::__1::basic_string<char, std::__1::char_traits<char>, std::__1::allocator<char>> const&) + 180
+2   surface_docking.static.macosclangre 0x0000000103f01d7c utility::UtilityExitException::UtilityExitException(char const*, int, std::__1::basic_string<char, std::__1::char_traits<char>, std::__1::allocator<char>> const&) + 112
+3   surface_docking.static.macosclangre 0x0000000103f01cb8 utility::exit(char const*, int, std::__1::basic_string<char, std::__1::char_traits<char>, std::__1::allocator<char>> const&, int) + 60
+4   surface_docking.static.macosclangre 0x0000000102620660 protocols::jd2::wwPDBJobOutputter::other_pose(std::__1::shared_ptr<protocols::jd2::Job>, core::pose::Pose const&, std::__1::basic_string<char, std::__1::char_traits<char>, std::__1::allocator<char>> const&, int, bool) + 1880
+5   surface_docking.static.macosclangre 0x000000010261c474 protocols::jd2::output_intermediate_pose(core::pose::Pose const&, std::__1::basic_string<char, std::__1::char_traits<char>, std::__1::allocator<char>> const&, int, bool) + 256
+6   surface_docking.static.macosclangre 0x0000000100f0e4d0 protocols::surface_docking::FullatomRelaxMover::output_solution_state(core::pose::Pose&) + 524
+7   surface_docking.static.macosclangre 0x0000000100f0f500 protocols::surface_docking::FullatomRelaxMover::refinement_cycle(core::pose::Pose&) + 548
+8   surface_docking.static.macosclangre 0x0000000100f0f6a4 protocols::surface_docking::FullatomRelaxMover::apply(core::pose::Pose&) + 292
+9   surface_docking.static.macosclangre 0x0000000100f11810 protocols::surface_docking::SurfaceDockingProtocol::apply(core::pose::Pose&) + 1244
+10  surface_docking.static.macosclangre 0x00000001025ed894 protocols::jd2::JobDistributor::run_one_job(std::__1::shared_ptr<protocols::moves::Mover>&, long, std::__1::basic_string<char, std::__1::char_traits<char>, std::__1::allocator<char>>&, std::__1::basic_string<char, std::__1::char_traits<char>, std::__1::allocator<char>>&, unsigned long&, unsigned long&, bool) + 7052
+11  surface_docking.static.macosclangre 0x00000001025eae7c protocols::jd2::JobDistributor::go_main(std::__1::shared_ptr<protocols::moves::Mover>) + 136
+12  surface_docking.static.macosclangre 0x00000001025e61e0 protocols::jd2::FileSystemJobDistributor::go(std::__1::shared_ptr<protocols::moves::Mover>) + 72
+13  surface_docking.static.macosclangre 0x0000000100440c7c main + 244
+14  dyld                                0x000000018abe2b98 start + 6076
+
+[END_BACKTRACE]
+
+[FILE]: src/protocols/jd2/wwPDBJobOutputter.cc
+[LINE]: 100
+[START_MESSAGE]
+[ ERROR ] UtilityExitException
+ERROR: Unable to open file: output/SolState__albumin_calcite_merged_0001.pdb
+
+
+
+
+[END_MESSAGE]
+[END_CRASH_REPORT]
+
