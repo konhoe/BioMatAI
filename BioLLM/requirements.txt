@@ -1,0 +1,5 @@
+PyMuPDF
+
+selenium
+
+webdriver_manager
