@@ -1,0 +1,63 @@
+##############################################################################################################
+#
+# Rosetta crash log. Please submit the contents of this file to http://crash.rosettacommons.org/
+# or use the script Rosetta/main/source/scripts/python/public/report_crashes.py
+#
+
+[START_CRASH_REPORT]
+[ROSETTA_VERSION]: 2024.09+release.06b3cf8ad0
+[COMMIT_DATE]: 2024-02-28T21:25:09.004217
+[APPLICATION]: /Users/junyoung/Desktop/BioMatAI/rosetta/rosetta.binary.m1.release-371/main/source/bin/surface_docking.static.macosclangrelease
+[MODE]: Release
+[EXTRAS]: default
+[OS]: Apple Mac OS X
+[COMPILER]: Clang version "14.0.0 (clang-1400.0.29.202)"
+[STDLIB]: libc++ version 13000
+[START_OPTIONS]
+ -in:ignore_unrecognized_res -in:path:database=/Users/junyoung/Desktop/BioMatAI/rosetta/rosetta.binary.m1.release-371/main/database/ -in:file:s=input/complex.pdb -in:file:extra_res_fa=input/PSF_centroid.params input/PSF.params input/TI4_centroid.params input/TI4.params -in:file:extra_res_cen=input/TI4_centroid.params input/PSF_centroid.params -in:file:frag3=input/albumin_3mers -in:file:frag9=input/albumin_9mers -in:file:surface_vectors=input/surface_vectors.txt -out:overwrite -out:nstruct=1 -out:pdb -out:file:scorefile=output/score.sc -out:path:all=output/ -run:jran=1759330609 -run:preserve_header -score:weights=ref2015 -packing:ex1 -packing:ex2aro -docking:partners=A_S
+
+[END_OPTIONS]
+
+[START_BACKTRACE]: RAW_LIBC
+0   surface_docking.static.macosclangre 0x00000001061b2904 backtrace_string(int) + 76
+1   surface_docking.static.macosclangre 0x00000001061c2c44 utility::excn::Exception::Exception(char const*, int, std::__1::basic_string<char, std::__1::char_traits<char>, std::__1::allocator<char>> const&) + 180
+2   surface_docking.static.macosclangre 0x00000001061b5d7c utility::UtilityExitException::UtilityExitException(char const*, int, std::__1::basic_string<char, std::__1::char_traits<char>, std::__1::allocator<char>> const&) + 112
+3   surface_docking.static.macosclangre 0x00000001061b5cb8 utility::exit(char const*, int, std::__1::basic_string<char, std::__1::char_traits<char>, std::__1::allocator<char>> const&, int) + 60
+4   surface_docking.static.macosclangre 0x0000000105d0807c core::chemical::ResidueTypeSetCache::add_residue_type(std::__1::shared_ptr<core::chemical::ResidueType const>) + 980
+5   surface_docking.static.macosclangre 0x0000000105d013bc core::chemical::ResidueTypeSet::add_base_residue_type(std::__1::shared_ptr<core::chemical::MutableResidueType>) + 484
+6   surface_docking.static.macosclangre 0x0000000105c5058c core::chemical::GlobalResidueTypeSet::init_restypes_from_commandline() + 868
+7   surface_docking.static.macosclangre 0x0000000105c4d524 core::chemical::GlobalResidueTypeSet::GlobalResidueTypeSet(std::__1::basic_string<char, std::__1::char_traits<char>, std::__1::allocator<char>> const&, std::__1::basic_string<char, std::__1::char_traits<char>, std::__1::allocator<char>> const&) + 376
+8   surface_docking.static.macosclangre 0x0000000105c3e134 core::chemical::ChemicalManager::create_residue_type_set(std::__1::basic_string<char, std::__1::char_traits<char>, std::__1::allocator<char>> const&) const + 1156
+9   surface_docking.static.macosclangre 0x0000000105c3dae0 core::chemical::ChemicalManager::residue_type_set(std::__1::basic_string<char, std::__1::char_traits<char>, std::__1::allocator<char>> const&) + 140
+10  surface_docking.static.macosclangre 0x00000001053c5560 core::scoring::RamaPrePro::read_canonical_rpp_tables() + 152
+11  surface_docking.static.macosclangre 0x00000001053c5d24 core::scoring::RamaPrePro::RamaPrePro() + 84
+12  surface_docking.static.macosclangre 0x000000010543bf84 core::scoring::ScoringManager::create_ramapp_instance() + 52
+13  surface_docking.static.macosclangre 0x000000010543be04 core::scoring::ScoringManager::get_RamaPrePro() const + 140
+14  surface_docking.static.macosclangre 0x000000010500a9fc core::energy_methods::RamaPreProEnergy::RamaPreProEnergy() + 168
+15  surface_docking.static.macosclangre 0x000000010500a8e4 core::energy_methods::RamaPreProEnergyCreator::create_energy_method(core::scoring::methods::EnergyMethodOptions const&) const + 52
+16  surface_docking.static.macosclangre 0x0000000105404810 core::scoring::ScoreFunction::set_weight(core::scoring::ScoreType const&, double) + 664
+17  surface_docking.static.macosclangre 0x0000000105407c50 core::scoring::ScoreFunction::_add_weights_from_stream(std::__1::basic_istream<char, std::__1::char_traits<char>>&, bool, std::__1::basic_string<char, std::__1::char_traits<char>, std::__1::allocator<char>> const&) + 9952
+18  surface_docking.static.macosclangre 0x0000000105404adc core::scoring::ScoreFunction::_add_weights_from_file(std::__1::basic_string<char, std::__1::char_traits<char>, std::__1::allocator<char>> const&, bool) + 324
+19  surface_docking.static.macosclangre 0x0000000105403a10 core::scoring::ScoreFunction::add_weights_from_file(std::__1::basic_string<char, std::__1::char_traits<char>, std::__1::allocator<char>> const&) + 80
+20  surface_docking.static.macosclangre 0x0000000105422330 core::scoring::ScoreFunctionFactory::load_score_function_from_disk(utility::options::OptionCollection const&, std::__1::basic_string<char, std::__1::char_traits<char>, std::__1::allocator<char>> const&, utility::vector1<std::__1::basic_string<char, std::__1::char_traits<char>, std::__1::allocator<char>>, std::__1::allocator<std::__1::basic_string<char, std::__1::char_traits<char>, std::__1::allocator<char>>>> const&) + 1364
+21  surface_docking.static.macosclangre 0x0000000105422ab4 std::__1::shared_ptr<core::scoring::ScoreFunction> utility::thread::safely_check_map_for_key_and_insert_if_absent<core::scoring::ScoreFunction, core::scoring::ScoreFunctionKey>(std::__1::function<std::__1::shared_ptr<core::scoring::ScoreFunction> ()>, bool, core::scoring::ScoreFunctionKey const&, std::__1::map<core::scoring::ScoreFunctionKey, std::__1::shared_ptr<core::scoring::ScoreFunction>, std::__1::less<core::scoring::ScoreFunctionKey>, std::__1::allocator<std::__1::pair<core::scoring::ScoreFunctionKey const, std::__1::shared_ptr<core::scoring::ScoreFunction>>>>&) + 144
+22  surface_docking.static.macosclangre 0x0000000105420580 core::scoring::ScoreFunctionFactory::create_score_function_nonstatic(utility::options::OptionCollection const&, std::__1::basic_string<char, std::__1::char_traits<char>, std::__1::allocator<char>> const&, utility::vector1<std::__1::basic_string<char, std::__1::char_traits<char>, std::__1::allocator<char>>, std::__1::allocator<std::__1::basic_string<char, std::__1::char_traits<char>, std::__1::allocator<char>>>> const&) + 524
+23  surface_docking.static.macosclangre 0x0000000105424918 core::scoring::get_score_function(utility::options::OptionCollection const&, bool) + 1708
+24  surface_docking.static.macosclangre 0x00000001031c410c protocols::surface_docking::SurfaceDockingProtocol::init() + 96
+25  surface_docking.static.macosclangre 0x00000001031c406c protocols::surface_docking::SurfaceDockingProtocol::SurfaceDockingProtocol() + 96
+26  surface_docking.static.macosclangre 0x00000001026f4bb4 main + 44
+27  dyld                                0x0000000184e7ab98 start + 6076
+
+[END_BACKTRACE]
+
+[FILE]: src/core/chemical/ResidueTypeSetCache.cc
+[LINE]: 107
+[START_MESSAGE]
+[ ERROR ] UtilityExitException
+ERROR: Error in core::chemical::ResidueTypeSetCache::add_residue_type(): Attempting to add a new residue type, but residue type 'PSF' already exists in the cache.  (Did you load a .params file with the -extra_res_fa commandline option that was already listed in residue_types.txt, perhaps?)
+
+
+
+[END_MESSAGE]
+[END_CRASH_REPORT]
+

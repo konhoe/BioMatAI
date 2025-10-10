@@ -1,0 +1,54 @@
+##############################################################################################################
+#
+# Rosetta crash log. Please submit the contents of this file to http://crash.rosettacommons.org/
+# or use the script Rosetta/main/source/scripts/python/public/report_crashes.py
+#
+
+[START_CRASH_REPORT]
+[ROSETTA_VERSION]: 2024.09+release.06b3cf8ad0
+[COMMIT_DATE]: 2024-02-28T21:25:09.004217
+[APPLICATION]: /Users/junyoung/Desktop/BioMatAI/rosetta/rosetta.binary.m1.release-371/main/source/bin/docking_protocol.static.macosclangrelease
+[MODE]: Release
+[EXTRAS]: default
+[OS]: Apple Mac OS X
+[COMPILER]: Clang version "14.0.0 (clang-1400.0.29.202)"
+[STDLIB]: libc++ version 13000
+[START_OPTIONS]
+ -docking:docking_local_refine -docking:dock_pert=3 8 -packing:ex1 -packing:ex2aro -in:ignore_unrecognized_res -in:path:database=/Users/junyoung/Desktop/BioMatAI/rosetta/rosetta.binary.m1.release-371/main/database/ -in:file:s=input/complex.pdb -in:file:extra_res_fa=input/PSF.params input/TI4.params -out:overwrite -out:nstruct=10 -out:pdb -out:file:scorefile=output/score.sc -out:path:all=output/ -run:jran=1759216565 -run:preserve_header -score:weights=ref2015 -score:patch=score12_w_corrections
+
+[END_OPTIONS]
+
+[START_BACKTRACE]: RAW_LIBC
+0   docking_protocol.static.macosclangr 0x00000001041c077c backtrace_string(int) + 76
+1   docking_protocol.static.macosclangr 0x00000001041d0bcc utility::excn::Exception::Exception(char const*, int, std::__1::basic_string<char, std::__1::char_traits<char>, std::__1::allocator<char>> const&) + 180
+2   docking_protocol.static.macosclangr 0x0000000103ec2fe0 core::kinematics::Stub::from_four_points(numeric::xyzVector<double> const&, numeric::xyzVector<double> const&, numeric::xyzVector<double> const&, numeric::xyzVector<double> const&) + 1316
+3   docking_protocol.static.macosclangr 0x0000000103ecea38 core::kinematics::tree::Atom_::get_stub() const + 188
+4   docking_protocol.static.macosclangr 0x0000000103dc2d28 core::conformation::Conformation::downstream_jump_stub(int) const + 60
+5   docking_protocol.static.macosclangr 0x0000000102431aac protocols::rigid::RigidBodyPerturbMover::apply(core::pose::Pose&) + 580
+6   docking_protocol.static.macosclangr 0x00000001029419e0 protocols::moves::SequenceMover::apply(core::pose::Pose&) + 520
+7   docking_protocol.static.macosclangr 0x000000010293c7d0 protocols::moves::JumpOutMover::apply(core::pose::Pose&) + 52
+8   docking_protocol.static.macosclangr 0x0000000102963898 protocols::moves::TrialMover::apply(core::pose::Pose&) + 96
+9   docking_protocol.static.macosclangr 0x00000001029442e8 protocols::moves::CycleMover::apply(core::pose::Pose&) + 64
+10  docking_protocol.static.macosclangr 0x000000010167bc88 protocols::docking::DockMCMCycle::apply(core::pose::Pose&) + 208
+11  docking_protocol.static.macosclangr 0x0000000101680e10 protocols::docking::DockMCMProtocol::apply(core::pose::Pose&) + 5576
+12  docking_protocol.static.macosclangr 0x0000000101670f98 protocols::docking::DockingProtocol::apply(core::pose::Pose&) + 4392
+13  docking_protocol.static.macosclangr 0x00000001028ab8cc protocols::jd2::JobDistributor::run_one_job(std::__1::shared_ptr<protocols::moves::Mover>&, long, std::__1::basic_string<char, std::__1::char_traits<char>, std::__1::allocator<char>>&, std::__1::basic_string<char, std::__1::char_traits<char>, std::__1::allocator<char>>&, unsigned long&, unsigned long&, bool) + 7052
+14  docking_protocol.static.macosclangr 0x00000001028a8eb4 protocols::jd2::JobDistributor::go_main(std::__1::shared_ptr<protocols::moves::Mover>) + 136
+15  docking_protocol.static.macosclangr 0x00000001028a4360 protocols::jd2::FileSystemJobDistributor::go(std::__1::shared_ptr<protocols::moves::Mover>) + 72
+16  docking_protocol.static.macosclangr 0x000000010070f910 my_main(void*) + 980
+17  docking_protocol.static.macosclangr 0x000000010070fbec main + 60
+18  dyld                                0x000000018abe2b98 start + 6076
+
+[END_BACKTRACE]
+
+[FILE]: src/core/kinematics/Stub.cc
+[LINE]: 106
+[START_MESSAGE]
+Error in Stub::from_four_points(): 
+
+File: src/numeric/xyzVector.hh:654
+Cannot create normalized xyzVector from vector of length() zero.  Error occurred when trying to normalize the vector between points A and B.  A=[-343646580517934976.000000,-74587882133809024.000000,-2100890600583311360.000000], B=[-343646580517934976.000000,-74587882133809024.000000,-2100890600583311360.000000].
+
+[END_MESSAGE]
+[END_CRASH_REPORT]
+

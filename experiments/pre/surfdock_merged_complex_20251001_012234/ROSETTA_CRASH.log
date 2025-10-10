@@ -1,0 +1,46 @@
+##############################################################################################################
+#
+# Rosetta crash log. Please submit the contents of this file to http://crash.rosettacommons.org/
+# or use the script Rosetta/main/source/scripts/python/public/report_crashes.py
+#
+
+[START_CRASH_REPORT]
+[ROSETTA_VERSION]: 2024.09+release.06b3cf8ad0
+[COMMIT_DATE]: 2024-02-28T21:25:09.004217
+[APPLICATION]: UNKNOWN APPLICATION
+[MODE]: Release
+[EXTRAS]: default
+[OS]: Apple Mac OS X
+[COMPILER]: Clang version "14.0.0 (clang-1400.0.29.202)"
+[STDLIB]: libc++ version 13000
+[START_OPTIONS]
+NO OPTIONS SPECIFIED
+
+[END_OPTIONS]
+
+[START_BACKTRACE]: RAW_LIBC
+0   surface_docking.static.macosclangre 0x0000000103c66904 backtrace_string(int) + 76
+1   surface_docking.static.macosclangre 0x0000000103c76c44 utility::excn::Exception::Exception(char const*, int, std::__1::basic_string<char, std::__1::char_traits<char>, std::__1::allocator<char>> const&) + 180
+2   surface_docking.static.macosclangre 0x0000000103d2bf58 utility::options::OptionCollection::find_key_cl(std::__1::basic_string<char, std::__1::char_traits<char>, std::__1::allocator<char>> const&, std::__1::basic_string<char, std::__1::char_traits<char>, std::__1::allocator<char>> const&, bool) + 3764
+3   surface_docking.static.macosclangre 0x0000000103d228d0 utility::options::OptionCollection::load_option_file(std::__1::basic_string<char, std::__1::char_traits<char>, std::__1::allocator<char>> const&, std::__1::list<std::__1::basic_string<char, std::__1::char_traits<char>, std::__1::allocator<char>>, std::__1::allocator<std::__1::basic_string<char, std::__1::char_traits<char>, std::__1::allocator<char>>>>&, std::__1::basic_string<char, std::__1::char_traits<char>, std::__1::allocator<char>>&, bool) + 756
+4   surface_docking.static.macosclangre 0x0000000103d21894 utility::options::OptionCollection::load_options_from_stream(std::__1::basic_istream<char, std::__1::char_traits<char>>&, std::__1::basic_string<char, std::__1::char_traits<char>, std::__1::allocator<char>> const&, std::__1::basic_string<char, std::__1::char_traits<char>, std::__1::allocator<char>> const&, bool) + 2428
+5   surface_docking.static.macosclangre 0x0000000103d22ef8 utility::options::OptionCollection::load_options_from_file_exception(std::__1::basic_string<char, std::__1::char_traits<char>, std::__1::allocator<char>> const&, std::__1::basic_string<char, std::__1::char_traits<char>, std::__1::allocator<char>> const&) + 268
+6   surface_docking.static.macosclangre 0x0000000103d1d370 utility::options::OptionCollection::load(std::__1::basic_string<char, std::__1::char_traits<char>, std::__1::allocator<char>>, std::__1::list<std::__1::basic_string<char, std::__1::char_traits<char>, std::__1::allocator<char>>, std::__1::allocator<std::__1::basic_string<char, std::__1::char_traits<char>, std::__1::allocator<char>>>>&, bool) + 448
+7   surface_docking.static.macosclangre 0x0000000103d1e210 utility::options::OptionCollection::load(int, char* const*, bool) + 444
+8   surface_docking.static.macosclangre 0x0000000102563d74 core::init::init(int, char**) + 56
+9   surface_docking.static.macosclangre 0x00000001001a8ba4 main + 28
+10  dyld                                0x000000018abe2b98 start + 6076
+
+[END_BACKTRACE]
+
+[FILE]: src/utility/options/OptionCollection.cc
+[LINE]: 1467
+[START_MESSAGE]
+Option matching -surfdock:partners not found in command line top-level context
+Did you mean:
+	 -docking:partners
+
+
+[END_MESSAGE]
+[END_CRASH_REPORT]
+

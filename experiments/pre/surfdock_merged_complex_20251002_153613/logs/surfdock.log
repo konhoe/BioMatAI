@@ -1,0 +1,36 @@
+********  (C) Copyright Rosetta Commons Member Institutions.  ***************
+* Use of Rosetta for commercial purposes may require purchase of a license. *
+********  See LICENSE.md or email license@uw.edu for more details. **********
+core.init: Checking for fconfig files in pwd and ./rosetta/flags 
+core.init: Rosetta version: rosetta.binary.m1.release-371 r371 2024.09+release.06b3cf8ad0 06b3cf8ad0940d628690d0ed6fa2009d72ad2b44 https://www.rosettacommons.org 2024-02-28T21:25:09.004217
+core.init: command: /Users/junyoung/Desktop/BioMatAI/rosetta/rosetta.binary.m1.release-371/main/source/bin/surface_docking.static.macosclangrelease @input/flags
+basic.random.init_random_generator: 'RNG device' seed mode, using '/dev/urandom', seed=-1111529415 seed_offset=0 real_seed=-1111529415
+basic.random.init_random_generator: RandomGenerator:init: Normal mode, seed=-1111529415 RG_type=mt19937
+core.scoring.ScoreFunctionFactory: SCOREFUNCTION: ref2015
+core.scoring.etable: Starting energy table calculation
+core.scoring.etable: smooth_etable: changing atr/rep split to bottom of energy well
+core.scoring.etable: smooth_etable: spline smoothing lj etables (maxdis = 6)
+core.scoring.etable: smooth_etable: spline smoothing solvation etables (max_dis = 6)
+core.scoring.etable: Finished calculating energy tables.
+basic.io.database: Database file opened: scoring/score_functions/hbonds/ref2015_params/HBPoly1D.csv
+basic.io.database: Database file opened: scoring/score_functions/hbonds/ref2015_params/HBFadeIntervals.csv
+basic.io.database: Database file opened: scoring/score_functions/hbonds/ref2015_params/HBEval.csv
+basic.io.database: Database file opened: scoring/score_functions/hbonds/ref2015_params/DonStrength.csv
+basic.io.database: Database file opened: scoring/score_functions/hbonds/ref2015_params/AccStrength.csv
+
+ERROR: unrecognized atom_type_name 'P'
+ERROR:: Exit from: src/core/chemical/AtomTypeSet.cc line: 196
+
+[ ERROR ]: Caught exception:
+
+
+File: src/core/chemical/AtomTypeSet.cc:196
+[ ERROR ] UtilityExitException
+ERROR: unrecognized atom_type_name 'P'
+
+
+
+
+AN INTERNAL ERROR HAS OCCURED. PLEASE SEE THE CONTENTS OF ROSETTA_CRASH.log FOR DETAILS.
+
+

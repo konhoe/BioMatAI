@@ -1,0 +1,64 @@
+##############################################################################################################
+#
+# Rosetta crash log. Please submit the contents of this file to http://crash.rosettacommons.org/
+# or use the script Rosetta/main/source/scripts/python/public/report_crashes.py
+#
+
+[START_CRASH_REPORT]
+[ROSETTA_VERSION]: 2024.09+release.06b3cf8ad0
+[COMMIT_DATE]: 2024-02-28T21:25:09.004217
+[APPLICATION]: /Users/junyoung/Desktop/BioMatAI/rosetta/rosetta.binary.m1.release-371/main/source/bin/surface_docking.static.macosclangrelease
+[MODE]: Release
+[EXTRAS]: default
+[OS]: Apple Mac OS X
+[COMPILER]: Clang version "14.0.0 (clang-1400.0.29.202)"
+[STDLIB]: libc++ version 13000
+[START_OPTIONS]
+ -in:ignore_unrecognized_res -in:auto_setup_metals -in:path:database=/Users/junyoung/Desktop/BioMatAI/rosetta/rosetta.binary.m1.release-371/main/database/ -in:file:s=input/complex.pdb -in:file:extra_res_fa=input/PSF.params input/TI4.params -in:file:frag3=input/albumin_3mers -in:file:frag9=input/albumin_9mers -in:file:surface_vectors=input/surface_vectors.txt -out:overwrite -out:nstruct=1 -out:pdb -out:file:scorefile=output/score.sc -out:path:all=output/ -run:jran=1759375478 -run:preserve_header -score:weights=ref2015 -packing:ex1 -packing:ex2aro -docking:partners=A_S -docking:low_res_protocol_only=false -docking:dock_mcm_first_cycles=0
+
+[END_OPTIONS]
+
+[START_BACKTRACE]: RAW_LIBC
+0   surface_docking.static.macosclangre 0x00000001043de904 backtrace_string(int) + 76
+1   surface_docking.static.macosclangre 0x00000001043eec44 utility::excn::Exception::Exception(char const*, int, std::__1::basic_string<char, std::__1::char_traits<char>, std::__1::allocator<char>> const&) + 180
+2   surface_docking.static.macosclangre 0x00000001043e1d7c utility::UtilityExitException::UtilityExitException(char const*, int, std::__1::basic_string<char, std::__1::char_traits<char>, std::__1::allocator<char>> const&) + 112
+3   surface_docking.static.macosclangre 0x00000001043e1cb8 utility::exit(char const*, int, std::__1::basic_string<char, std::__1::char_traits<char>, std::__1::allocator<char>> const&, int) + 60
+4   surface_docking.static.macosclangre 0x0000000103e93830 core::chemical::MutableResidueType::atom_vertex(std::__1::basic_string<char, std::__1::char_traits<char>, std::__1::allocator<char>> const&) const + 512
+5   surface_docking.static.macosclangre 0x0000000103edc940 core::chemical::read_topology_file(std::__1::basic_istream<char, std::__1::char_traits<char>>&, std::__1::basic_string<char, std::__1::char_traits<char>, std::__1::allocator<char>> const&, std::__1::weak_ptr<core::chemical::AtomTypeSet const>, std::__1::weak_ptr<core::chemical::ElementSet const>, std::__1::weak_ptr<core::chemical::MMAtomTypeSet const>, std::__1::weak_ptr<core::chemical::orbitals::OrbitalTypeSet const>) + 10080
+6   surface_docking.static.macosclangre 0x0000000103ed9ac0 core::chemical::read_topology_file(std::__1::basic_string<char, std::__1::char_traits<char>, std::__1::allocator<char>> const&, std::__1::weak_ptr<core::chemical::AtomTypeSet const>, std::__1::weak_ptr<core::chemical::ElementSet const>, std::__1::weak_ptr<core::chemical::MMAtomTypeSet const>, std::__1::weak_ptr<core::chemical::orbitals::OrbitalTypeSet const>) + 536
+7   surface_docking.static.macosclangre 0x0000000103e7c4f0 core::chemical::GlobalResidueTypeSet::init_restypes_from_commandline() + 712
+8   surface_docking.static.macosclangre 0x0000000103e79524 core::chemical::GlobalResidueTypeSet::GlobalResidueTypeSet(std::__1::basic_string<char, std::__1::char_traits<char>, std::__1::allocator<char>> const&, std::__1::basic_string<char, std::__1::char_traits<char>, std::__1::allocator<char>> const&) + 376
+9   surface_docking.static.macosclangre 0x0000000103e6a134 core::chemical::ChemicalManager::create_residue_type_set(std::__1::basic_string<char, std::__1::char_traits<char>, std::__1::allocator<char>> const&) const + 1156
+10  surface_docking.static.macosclangre 0x0000000103e69ae0 core::chemical::ChemicalManager::residue_type_set(std::__1::basic_string<char, std::__1::char_traits<char>, std::__1::allocator<char>> const&) + 140
+11  surface_docking.static.macosclangre 0x00000001035f1560 core::scoring::RamaPrePro::read_canonical_rpp_tables() + 152
+12  surface_docking.static.macosclangre 0x00000001035f1d24 core::scoring::RamaPrePro::RamaPrePro() + 84
+13  surface_docking.static.macosclangre 0x0000000103667f84 core::scoring::ScoringManager::create_ramapp_instance() + 52
+14  surface_docking.static.macosclangre 0x0000000103667e04 core::scoring::ScoringManager::get_RamaPrePro() const + 140
+15  surface_docking.static.macosclangre 0x00000001032369fc core::energy_methods::RamaPreProEnergy::RamaPreProEnergy() + 168
+16  surface_docking.static.macosclangre 0x00000001032368e4 core::energy_methods::RamaPreProEnergyCreator::create_energy_method(core::scoring::methods::EnergyMethodOptions const&) const + 52
+17  surface_docking.static.macosclangre 0x0000000103630810 core::scoring::ScoreFunction::set_weight(core::scoring::ScoreType const&, double) + 664
+18  surface_docking.static.macosclangre 0x0000000103633c50 core::scoring::ScoreFunction::_add_weights_from_stream(std::__1::basic_istream<char, std::__1::char_traits<char>>&, bool, std::__1::basic_string<char, std::__1::char_traits<char>, std::__1::allocator<char>> const&) + 9952
+19  surface_docking.static.macosclangre 0x0000000103630adc core::scoring::ScoreFunction::_add_weights_from_file(std::__1::basic_string<char, std::__1::char_traits<char>, std::__1::allocator<char>> const&, bool) + 324
+20  surface_docking.static.macosclangre 0x000000010362fa10 core::scoring::ScoreFunction::add_weights_from_file(std::__1::basic_string<char, std::__1::char_traits<char>, std::__1::allocator<char>> const&) + 80
+21  surface_docking.static.macosclangre 0x000000010364e330 core::scoring::ScoreFunctionFactory::load_score_function_from_disk(utility::options::OptionCollection const&, std::__1::basic_string<char, std::__1::char_traits<char>, std::__1::allocator<char>> const&, utility::vector1<std::__1::basic_string<char, std::__1::char_traits<char>, std::__1::allocator<char>>, std::__1::allocator<std::__1::basic_string<char, std::__1::char_traits<char>, std::__1::allocator<char>>>> const&) + 1364
+22  surface_docking.static.macosclangre 0x000000010364eab4 std::__1::shared_ptr<core::scoring::ScoreFunction> utility::thread::safely_check_map_for_key_and_insert_if_absent<core::scoring::ScoreFunction, core::scoring::ScoreFunctionKey>(std::__1::function<std::__1::shared_ptr<core::scoring::ScoreFunction> ()>, bool, core::scoring::ScoreFunctionKey const&, std::__1::map<core::scoring::ScoreFunctionKey, std::__1::shared_ptr<core::scoring::ScoreFunction>, std::__1::less<core::scoring::ScoreFunctionKey>, std::__1::allocator<std::__1::pair<core::scoring::ScoreFunctionKey const, std::__1::shared_ptr<core::scoring::ScoreFunction>>>>&) + 144
+23  surface_docking.static.macosclangre 0x000000010364c580 core::scoring::ScoreFunctionFactory::create_score_function_nonstatic(utility::options::OptionCollection const&, std::__1::basic_string<char, std::__1::char_traits<char>, std::__1::allocator<char>> const&, utility::vector1<std::__1::basic_string<char, std::__1::char_traits<char>, std::__1::allocator<char>>, std::__1::allocator<std::__1::basic_string<char, std::__1::char_traits<char>, std::__1::allocator<char>>>> const&) + 524
+24  surface_docking.static.macosclangre 0x0000000103650918 core::scoring::get_score_function(utility::options::OptionCollection const&, bool) + 1708
+25  surface_docking.static.macosclangre 0x00000001013f010c protocols::surface_docking::SurfaceDockingProtocol::init() + 96
+26  surface_docking.static.macosclangre 0x00000001013f006c protocols::surface_docking::SurfaceDockingProtocol::SurfaceDockingProtocol() + 96
+27  surface_docking.static.macosclangre 0x0000000100920bb4 main + 44
+28  dyld                                0x0000000184e7ab98 start + 6076
+
+[END_BACKTRACE]
+
+[FILE]: src/core/chemical/MutableResidueType.cc
+[LINE]: 313
+[START_MESSAGE]
+[ ERROR ] UtilityExitException
+ERROR: Atom name P not found in MutableResidueType PSF.
+
+
+
+[END_MESSAGE]
+[END_CRASH_REPORT]
+

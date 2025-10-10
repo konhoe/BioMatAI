@@ -1,0 +1,49 @@
+##############################################################################################################
+#
+# Rosetta crash log. Please submit the contents of this file to http://crash.rosettacommons.org/
+# or use the script Rosetta/main/source/scripts/python/public/report_crashes.py
+#
+
+[START_CRASH_REPORT]
+[ROSETTA_VERSION]: 2024.09+release.06b3cf8ad0
+[COMMIT_DATE]: 2024-02-28T21:25:09.004217
+[APPLICATION]: /Users/junyoung/Desktop/BioMatAI/rosetta/rosetta.binary.m1.release-371/main/source/bin/surface_docking.static.macosclangrelease
+[MODE]: Release
+[EXTRAS]: default
+[OS]: Apple Mac OS X
+[COMPILER]: Clang version "14.0.0 (clang-1400.0.29.202)"
+[STDLIB]: libc++ version 13000
+[START_OPTIONS]
+ -in:path:database=/Users/junyoung/Desktop/BioMatAI/rosetta/rosetta.binary.m1.release-371/main/database/ -in:file:s=input/complex.pdb -in:file:extra_res_fa=input/PSF.params input/TI4.params -in:file:frag3=input/albumin_3mers -in:file:frag9=input/albumin_9mers -in:file:surface_vectors=input/surface_vectors.txt -out:overwrite -out:nstruct=1 -out:pdb -out:file:scorefile=output/score.sc -out:path:all=output/ -run:jran=1759377579 -run:preserve_header -score:weights=ref2015 -packing:ex1 -packing:ex2aro -docking:partners=A_S -docking:low_res_protocol_only=false -docking:dock_mcm_first_cycles=0
+
+[END_OPTIONS]
+
+[START_BACKTRACE]: RAW_LIBC
+0   surface_docking.static.macosclangre 0x0000000107c6e904 backtrace_string(int) + 76
+1   surface_docking.static.macosclangre 0x0000000107c7ec44 utility::excn::Exception::Exception(char const*, int, std::__1::basic_string<char, std::__1::char_traits<char>, std::__1::allocator<char>> const&) + 180
+2   surface_docking.static.macosclangre 0x0000000107c71d7c utility::UtilityExitException::UtilityExitException(char const*, int, std::__1::basic_string<char, std::__1::char_traits<char>, std::__1::allocator<char>> const&) + 112
+3   surface_docking.static.macosclangre 0x0000000107c71cb8 utility::exit(char const*, int, std::__1::basic_string<char, std::__1::char_traits<char>, std::__1::allocator<char>> const&, int) + 60
+4   surface_docking.static.macosclangre 0x000000010789a498 core::conformation::Residue::fill_missing_atoms(utility::vector1<bool, std::__1::allocator<bool>>&, core::conformation::Conformation const&, bool) + 3048
+5   surface_docking.static.macosclangre 0x00000001078a4578 core::conformation::copy_residue_coordinates_and_rebuild_missing_atoms(core::conformation::Residue const&, core::conformation::Residue&, core::conformation::Conformation const&) + 744
+6   surface_docking.static.macosclangre 0x00000001069c12b8 core::util::switch_to_residue_type_set(core::pose::Pose&, core::chemical::ResidueTypeSet const&, unsigned long, bool, bool, bool) + 3960
+7   surface_docking.static.macosclangre 0x00000001069c39c4 core::util::switch_to_residue_type_set(core::pose::Pose&, core::chemical::TypeSetMode, unsigned long, bool, bool, bool) + 80
+8   surface_docking.static.macosclangre 0x0000000104c8154c protocols::surface_docking::SurfaceDockingProtocol::apply(core::pose::Pose&) + 536
+9   surface_docking.static.macosclangre 0x000000010635d894 protocols::jd2::JobDistributor::run_one_job(std::__1::shared_ptr<protocols::moves::Mover>&, long, std::__1::basic_string<char, std::__1::char_traits<char>, std::__1::allocator<char>>&, std::__1::basic_string<char, std::__1::char_traits<char>, std::__1::allocator<char>>&, unsigned long&, unsigned long&, bool) + 7052
+10  surface_docking.static.macosclangre 0x000000010635ae7c protocols::jd2::JobDistributor::go_main(std::__1::shared_ptr<protocols::moves::Mover>) + 136
+11  surface_docking.static.macosclangre 0x00000001063561e0 protocols::jd2::FileSystemJobDistributor::go(std::__1::shared_ptr<protocols::moves::Mover>) + 72
+12  surface_docking.static.macosclangre 0x00000001041b0c7c main + 244
+13  dyld                                0x0000000184e7ab98 start + 6076
+
+[END_BACKTRACE]
+
+[FILE]: src/core/conformation/Residue.cc
+[LINE]: 1376
+[START_MESSAGE]
+[ ERROR ] UtilityExitException
+ERROR: Unable to fill in missing atoms.
+
+
+
+[END_MESSAGE]
+[END_CRASH_REPORT]
+

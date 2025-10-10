@@ -1,0 +1,27 @@
+-database /Users/junyoung/Desktop/BioMatAI/rosetta/rosetta.binary.m1.release-371/main/database
+-s input/complex.pdb
+-nstruct 1
+-out:pdb
+-out:file:scorefile output/score.sc
+-out:path:all output/
+-overwrite
+-score:weights ref2015
+
+# docking
+-docking:partners A_S
+-docking:low_res_protocol_only true
+-docking:translate 10.0
+-docking:spin
+
+# packing
+-packing:ex1
+-packing:ex2aro
+
+# ligands/metals
+-extra_res_fa input/TI4.params
+-extra_res_fa input/PSF.params
+
+-in:file:frag3 input/albumin_3mers
+-in:file:frag9 input/albumin_9mers
+-extra_res_fa input/PSF.params
+-extra_res_fa input/TI4.params

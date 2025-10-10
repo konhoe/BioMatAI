@@ -1,0 +1,55 @@
+##############################################################################################################
+#
+# Rosetta crash log. Please submit the contents of this file to http://crash.rosettacommons.org/
+# or use the script Rosetta/main/source/scripts/python/public/report_crashes.py
+#
+
+[START_CRASH_REPORT]
+[ROSETTA_VERSION]: 2024.09+release.06b3cf8ad0
+[COMMIT_DATE]: 2024-02-28T21:25:09.004217
+[APPLICATION]: /Users/junyoung/Desktop/BioMatAI/rosetta/rosetta.binary.m1.release-371/main/source/bin/surface_docking.static.macosclangrelease
+[MODE]: Release
+[EXTRAS]: default
+[OS]: Apple Mac OS X
+[COMPILER]: Clang version "14.0.0 (clang-1400.0.29.202)"
+[STDLIB]: libc++ version 13000
+[START_OPTIONS]
+ -in:ignore_unrecognized_res -in:path:database=/Users/junyoung/Desktop/BioMatAI/rosetta/rosetta.binary.m1.release-371/main/database/ -in:file:s=input/complex.pdb -in:file:extra_res_fa=input/PSF.params input/TI4.params -in:file:extra_res_cen=input/TI4_centroid.params input/PSF_centroid.params -in:file:frag3=input/albumin_3mers -in:file:frag9=input/albumin_9mers -in:file:surface_vectors=input/surface_vectors.txt -out:overwrite -out:nstruct=1 -out:pdb -out:file:scorefile=output/score.sc -out:path:all=output/ -run:jran=1759330924 -run:preserve_header -score:weights=ref2015 -packing:ex1 -packing:ex2aro -docking:partners=A_S
+
+[END_OPTIONS]
+
+[START_BACKTRACE]: RAW_LIBC
+0   surface_docking.static.macosclangre 0x0000000103b82904 backtrace_string(int) + 76
+1   surface_docking.static.macosclangre 0x0000000103b92c44 utility::excn::Exception::Exception(char const*, int, std::__1::basic_string<char, std::__1::char_traits<char>, std::__1::allocator<char>> const&) + 180
+2   surface_docking.static.macosclangre 0x0000000103b85d7c utility::UtilityExitException::UtilityExitException(char const*, int, std::__1::basic_string<char, std::__1::char_traits<char>, std::__1::allocator<char>> const&) + 112
+3   surface_docking.static.macosclangre 0x0000000103b85cb8 utility::exit(char const*, int, std::__1::basic_string<char, std::__1::char_traits<char>, std::__1::allocator<char>> const&, int) + 60
+4   surface_docking.static.macosclangre 0x0000000103637830 core::chemical::MutableResidueType::atom_vertex(std::__1::basic_string<char, std::__1::char_traits<char>, std::__1::allocator<char>> const&) const + 512
+5   surface_docking.static.macosclangre 0x0000000103680940 core::chemical::read_topology_file(std::__1::basic_istream<char, std::__1::char_traits<char>>&, std::__1::basic_string<char, std::__1::char_traits<char>, std::__1::allocator<char>> const&, std::__1::weak_ptr<core::chemical::AtomTypeSet const>, std::__1::weak_ptr<core::chemical::ElementSet const>, std::__1::weak_ptr<core::chemical::MMAtomTypeSet const>, std::__1::weak_ptr<core::chemical::orbitals::OrbitalTypeSet const>) + 10080
+6   surface_docking.static.macosclangre 0x000000010367dac0 core::chemical::read_topology_file(std::__1::basic_string<char, std::__1::char_traits<char>, std::__1::allocator<char>> const&, std::__1::weak_ptr<core::chemical::AtomTypeSet const>, std::__1::weak_ptr<core::chemical::ElementSet const>, std::__1::weak_ptr<core::chemical::MMAtomTypeSet const>, std::__1::weak_ptr<core::chemical::orbitals::OrbitalTypeSet const>) + 536
+7   surface_docking.static.macosclangre 0x00000001036204f0 core::chemical::GlobalResidueTypeSet::init_restypes_from_commandline() + 712
+8   surface_docking.static.macosclangre 0x000000010361d524 core::chemical::GlobalResidueTypeSet::GlobalResidueTypeSet(std::__1::basic_string<char, std::__1::char_traits<char>, std::__1::allocator<char>> const&, std::__1::basic_string<char, std::__1::char_traits<char>, std::__1::allocator<char>> const&) + 376
+9   surface_docking.static.macosclangre 0x000000010360e134 core::chemical::ChemicalManager::create_residue_type_set(std::__1::basic_string<char, std::__1::char_traits<char>, std::__1::allocator<char>> const&) const + 1156
+10  surface_docking.static.macosclangre 0x000000010360dae0 core::chemical::ChemicalManager::residue_type_set(std::__1::basic_string<char, std::__1::char_traits<char>, std::__1::allocator<char>> const&) + 140
+11  surface_docking.static.macosclangre 0x000000010360da08 core::chemical::ChemicalManager::residue_type_set(core::chemical::TypeSetMode) + 52
+12  surface_docking.static.macosclangre 0x0000000103782368 core::conformation::Conformation::residue_type_set_for_conf(core::chemical::TypeSetMode) const + 280
+13  surface_docking.static.macosclangre 0x00000001028d79a8 core::util::switch_to_residue_type_set(core::pose::Pose&, core::chemical::TypeSetMode, unsigned long, bool, bool, bool) + 52
+14  surface_docking.static.macosclangre 0x0000000100b9554c protocols::surface_docking::SurfaceDockingProtocol::apply(core::pose::Pose&) + 536
+15  surface_docking.static.macosclangre 0x0000000102271894 protocols::jd2::JobDistributor::run_one_job(std::__1::shared_ptr<protocols::moves::Mover>&, long, std::__1::basic_string<char, std::__1::char_traits<char>, std::__1::allocator<char>>&, std::__1::basic_string<char, std::__1::char_traits<char>, std::__1::allocator<char>>&, unsigned long&, unsigned long&, bool) + 7052
+16  surface_docking.static.macosclangre 0x000000010226ee7c protocols::jd2::JobDistributor::go_main(std::__1::shared_ptr<protocols::moves::Mover>) + 136
+17  surface_docking.static.macosclangre 0x000000010226a1e0 protocols::jd2::FileSystemJobDistributor::go(std::__1::shared_ptr<protocols::moves::Mover>) + 72
+18  surface_docking.static.macosclangre 0x00000001000c4c7c main + 244
+19  dyld                                0x0000000184e7ab98 start + 6076
+
+[END_BACKTRACE]
+
+[FILE]: src/core/chemical/MutableResidueType.cc
+[LINE]: 313
+[START_MESSAGE]
+[ ERROR ] UtilityExitException
+ERROR: Atom name TI not found in MutableResidueType TI4.
+
+
+
+[END_MESSAGE]
+[END_CRASH_REPORT]
+

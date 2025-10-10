@@ -1,0 +1,11 @@
+
+[ ERROR ]: Caught exception:
+
+
+File: src/utility/options/OptionCollection.cc:1467
+Option matching -docking:local_refine not found in command line top-level context
+
+
+AN INTERNAL ERROR HAS OCCURED. PLEASE SEE THE CONTENTS OF ROSETTA_CRASH.log FOR DETAILS.
+
+

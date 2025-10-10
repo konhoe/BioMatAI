@@ -1,0 +1,36 @@
+<ROSETTASCRIPTS>
+  <SCOREFXNS>
+    <ScoreFunction name="ref15" weights="ref2015"/>
+  </SCOREFXNS>
+  
+  <RESIDUE_SELECTORS>
+    <!-- 단백질 선택 (chain A) -->
+    <Chain name="protein" chains="A"/>
+    
+    <!-- 표면 선택 (chain S) -->
+    <Chain name="surface" chains="S"/>
+  </RESIDUE_SELECTORS>
+  
+  <MOVE_MAP_FACTORIES>
+    <MoveMapFactory name="movemap" bb="false" chi="false">
+      <!-- 단백질만 움직임 허용 -->
+      <Backbone residue_selector="protein" enable="true"/>
+      <Chi residue_selector="protein" enable="true"/>
+      
+      <!-- 표면은 완전히 고정 -->
+      <Backbone residue_selector="surface" enable="false"/>
+      <Chi residue_selector="surface" enable="false"/>
+    </MoveMapFactory>
+  </MOVE_MAP_FACTORIES>
+  
+  <MOVERS>
+    <!-- FastRelax: 표면 고정, 단백질만 최적화 -->
+    <FastRelax name="relax" scorefxn="ref15" repeats="3" movemap_factory="movemap"/>
+  </MOVERS>
+  
+  <PROTOCOLS>
+    <Add mover="relax"/>
+  </PROTOCOLS>
+  
+  <OUTPUT scorefxn="ref15"/>
+</ROSETTASCRIPTS>
