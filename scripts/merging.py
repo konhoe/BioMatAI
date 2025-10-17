@@ -1,4 +1,7 @@
 # merge_pdb.py
+import os
+import sys
+
 def merge_pdb(slab_file, protein_file, output_file):
     with open(slab_file, "r") as f1, open(protein_file, "r") as f2:
         slab_lines = f1.readlines()
@@ -26,8 +29,22 @@ def merge_pdb(slab_file, protein_file, output_file):
 
 
 if __name__ == "__main__":
-    slab_file = "../input/metal/Ti/fix_Ti.pdb"           # 금속 slab 파일
-    protein_file = "../output_relax/albumin_A_0001.pdb"  # relax 끝난 단백질 파일
-    output_file = "../input/merge_pdb/merged_complex.pdb"  # 최종 병합 파일
+    if len(sys.argv) != 3:
+        print("Usage: python merging.py <slab_file> <protein_file>")
+        sys.exit(1)
+
+    slab_file = sys.argv[1]
+    protein_file = sys.argv[2]
+
+    # Extract metal name from slab_file path, e.g. fix_Ti.pdb -> Ti
+    slab_basename = os.path.basename(slab_file)
+    metal_name = slab_basename.split('_')[1].split('.')[0]
+
+    # Extract protein name from protein_file path, e.g. albumin_A_0001.pdb -> albumin
+    protein_basename = os.path.basename(protein_file)
+    protein_name = protein_basename.split('_')[0]
+
+    # Build output file path
+    output_file = f"../input/merge_pdb/merged_{protein_name}_{metal_name}.pdb"
 
     merge_pdb(slab_file, protein_file, output_file)
