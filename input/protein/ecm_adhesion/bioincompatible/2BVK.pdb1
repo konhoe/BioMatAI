@@ -1,0 +1,214 @@
+HEADER    CELL ADHESION                           30-JUN-05   XXXX              
+TITLE     HYALURONAN: THE LOCAL SOLUTION CONFORMATION DETERMINED BY NMR AND     
+TITLE    2 COMPUTER MODELLING IS CLOSE TO A CONTRACTED LEFT-HANDED FOUR-FOLD    
+TITLE    3 HELIX                                                                
+KEYWDS    CELL ADHESION, HYALURONAN, GLYCOSAMINOGLYCAN, CARBOHYDRATE, N-ACETYL- 
+KEYWDS   2 GLUCOSAMINE, GLUCURONIC ACID, EXTRACELLULAR MATRIX, SIMLUATION,      
+KEYWDS   3 AQUEOUS MOLECULAR DYNAMICS, HYALURONIC ACID, SODIUM HYALURONATE      
+EXPDTA    SOLUTION NMR; THEORETICAL MODEL                                       
+MDLTYP    MINIMIZED AVERAGE                                                     
+AUTHOR    A.ALMOND,P.L.DEANGELIS,C.D.BLUNDELL                                   
+JRNL        AUTH   A.ALMOND,P.L.DEANGELIS,C.D.BLUNDELL                          
+JRNL        TITL   HYALURONAN: THE LOCAL SOLUTION CONFORMATION DETERMINED BY    
+JRNL        TITL 2 NMR AND COMPUTER MODELING IS CLOSE TO A CONTRACTED           
+JRNL        TITL 3 LEFT-HANDED 4-FOLD HELIX.                                    
+JRNL        REF    J.MOL.BIOL.                   V. 358  1256 2006              
+JRNL        REFN                   ISSN 0022-2836                               
+JRNL        PMID   16584748                                                     
+JRNL        DOI    10.1016/J.JMB.2006.02.077                                    
+HETNAM     BDP BETA-D-GLUCOPYRANURONIC ACID                                     
+HETNAM     NAG 2-ACETAMIDO-2-DEOXY-BETA-D-GLUCOPYRANOSE                         
+HETSYN     BDP BETA-D-GLUCURONIC ACID; D-GLUCURONIC ACID; GLUCURONIC            
+HETSYN   2 BDP  ACID                                                            
+HETSYN     NAG N-ACETYL-BETA-D-GLUCOSAMINE; 2-ACETAMIDO-2-DEOXY-BETA-           
+HETSYN   2 NAG  D-GLUCOSE; 2-ACETAMIDO-2-DEOXY-D-GLUCOSE; 2-ACETAMIDO-          
+HETSYN   3 NAG  2-DEOXY-GLUCOSE; N-ACETYL-D-GLUCOSAMINE                         
+FORMUL   1  BDP    4(C6 H10 O7)                                                 
+FORMUL   1  NAG    4(C8 H15 N O6)                                               
+LINK         O4  BDP P   1                 C1  NAG P   2     1555   1555  1.40  
+LINK         O3  NAG P   2                 C1  BDP P   3     1555   1555  1.40  
+LINK         O4  BDP P   3                 C1  NAG P   4     1555   1555  1.40  
+LINK         O3  NAG P   4                 C1  BDP P   5     1555   1555  1.40  
+LINK         O4  BDP P   5                 C1  NAG P   6     1555   1555  1.40  
+LINK         O3  NAG P   6                 C1  BDP P   7     1555   1555  1.40  
+LINK         O4  BDP P   7                 C1  NAG P   8     1555   1555  1.40  
+CRYST1    1.000    1.000    1.000  90.00  90.00  90.00 P 1           1          
+ORIGX1      1.000000  0.000000  0.000000        0.00000                         
+ORIGX2      0.000000  1.000000  0.000000        0.00000                         
+ORIGX3      0.000000  0.000000  1.000000        0.00000                         
+SCALE1      1.000000  0.000000  0.000000        0.00000                         
+SCALE2      0.000000  1.000000  0.000000        0.00000                         
+SCALE3      0.000000  0.000000  1.000000        0.00000                         
+MODEL        1                                                                  
+HETATM    1  C1  BDP P   1     -11.194 -27.282  -5.511  1.00  0.00           C  
+HETATM    2  C2  BDP P   1      -9.737 -27.723  -5.479  1.00  0.00           C  
+HETATM    3  C3  BDP P   1      -9.075 -27.252  -4.201  1.00  0.00           C  
+HETATM    4  C4  BDP P   1      -9.251 -25.761  -4.039  1.00  0.00           C  
+HETATM    5  C5  BDP P   1     -10.718 -25.379  -4.130  1.00  0.00           C  
+HETATM    6  C6  BDP P   1     -10.940 -23.856  -4.024  1.00  0.00           C  
+HETATM    7  O2  BDP P   1      -9.661 -29.136  -5.557  1.00  0.00           O  
+HETATM    8  O3  BDP P   1      -7.695 -27.557  -4.222  1.00  0.00           O  
+HETATM    9  O4  BDP P   1      -8.758 -25.390  -2.785  1.00  0.00           O  
+HETATM   10  O5  BDP P   1     -11.264 -25.865  -5.356  1.00  0.00           O  
+HETATM   11  O6A BDP P   1     -11.621 -23.425  -3.094  1.00  0.00           O  
+HETATM   12  O1  BDP P   1     -11.782 -27.674  -6.718  1.00  0.00           O  
+HETATM   13  O6B BDP P   1     -10.430 -23.117  -4.868  1.00  0.00           O  
+HETATM   14  H1  BDP P   1     -11.758 -27.722  -4.667  1.00  0.00           H  
+HETATM   15  H2  BDP P   1      -9.205 -27.291  -6.342  1.00  0.00           H  
+HETATM   16  H3  BDP P   1      -9.540 -27.755  -3.338  1.00  0.00           H  
+HETATM   17  H4  BDP P   1      -8.669 -25.228  -4.809  1.00  0.00           H  
+HETATM   18  H5  BDP P   1     -11.276 -25.880  -3.324  1.00  0.00           H  
+HETATM   19  C1  NAG P   2      -7.801 -24.376  -2.747  1.00  0.00           C  
+HETATM   20  C2  NAG P   2      -7.655 -23.916  -1.314  1.00  0.00           C  
+HETATM   21  C3  NAG P   2      -6.620 -22.820  -1.197  1.00  0.00           C  
+HETATM   22  C4  NAG P   2      -5.331 -23.229  -1.864  1.00  0.00           C  
+HETATM   23  C5  NAG P   2      -5.570 -23.712  -3.277  1.00  0.00           C  
+HETATM   24  C6  NAG P   2      -4.278 -24.202  -3.914  1.00  0.00           C  
+HETATM   25  C7  NAG P   2      -9.605 -24.014   0.195  1.00  0.00           C  
+HETATM   26  C8  NAG P   2     -10.931 -23.318   0.510  1.00  0.00           C  
+HETATM   27  N2  NAG P   2      -8.952 -23.443  -0.842  1.00  0.00           N  
+HETATM   28  O3  NAG P   2      -6.360 -22.579   0.153  1.00  0.00           O  
+HETATM   29  O4  NAG P   2      -4.480 -22.132  -1.898  1.00  0.00           O  
+HETATM   30  O5  NAG P   2      -6.527 -24.769  -3.254  1.00  0.00           O  
+HETATM   31  O6  NAG P   2      -4.529 -24.627  -5.237  1.00  0.00           O  
+HETATM   32  O7  NAG P   2      -9.216 -24.978   0.843  1.00  0.00           O  
+HETATM   33  H1  NAG P   2      -8.165 -23.545  -3.379  1.00  0.00           H  
+HETATM   34  H2  NAG P   2      -7.338 -24.771  -0.696  1.00  0.00           H  
+HETATM   35  H3  NAG P   2      -6.993 -21.890  -1.654  1.00  0.00           H  
+HETATM   36  H4  NAG P   2      -4.828 -24.008  -1.271  1.00  0.00           H  
+HETATM   37  H5  NAG P   2      -6.004 -22.900  -3.881  1.00  0.00           H  
+HETATM   38  H61 NAG P   2      -3.842 -25.028  -3.332  1.00  0.00           H  
+HETATM   39  H62 NAG P   2      -3.527 -23.400  -3.932  1.00  0.00           H  
+HETATM   40  H81 NAG P   2     -11.361 -23.704   1.445  1.00  0.00           H  
+HETATM   41  H82 NAG P   2     -10.786 -22.234   0.623  1.00  0.00           H  
+HETATM   42  H83 NAG P   2     -11.660 -23.485  -0.297  1.00  0.00           H  
+HETATM   43  HN2 NAG P   2      -9.373 -22.662  -1.303  1.00  0.00           H  
+HETATM   44  C1  BDP P   3      -6.804 -21.365   0.683  1.00  0.00           C  
+HETATM   45  C2  BDP P   3      -6.654 -21.410   2.188  1.00  0.00           C  
+HETATM   46  C3  BDP P   3      -7.173 -20.130   2.806  1.00  0.00           C  
+HETATM   47  C4  BDP P   3      -6.490 -18.937   2.182  1.00  0.00           C  
+HETATM   48  C5  BDP P   3      -6.615 -18.975   0.669  1.00  0.00           C  
+HETATM   49  C6  BDP P   3      -5.875 -17.809  -0.017  1.00  0.00           C  
+HETATM   50  O2  BDP P   3      -7.387 -22.512   2.686  1.00  0.00           O  
+HETATM   51  O3  BDP P   3      -6.935 -20.127   4.199  1.00  0.00           O  
+HETATM   52  O4  BDP P   3      -7.100 -17.775   2.662  1.00  0.00           O  
+HETATM   53  O5  BDP P   3      -6.118 -20.219   0.178  1.00  0.00           O  
+HETATM   54  O6A BDP P   3      -6.526 -17.020  -0.701  1.00  0.00           O  
+HETATM   55  O6B BDP P   3      -4.658 -17.697   0.141  1.00  0.00           O  
+HETATM   56  H1  BDP P   3      -7.869 -21.250   0.407  1.00  0.00           H  
+HETATM   57  H2  BDP P   3      -5.591 -21.544   2.443  1.00  0.00           H  
+HETATM   58  H3  BDP P   3      -8.256 -20.047   2.627  1.00  0.00           H  
+HETATM   59  H4  BDP P   3      -5.428 -18.915   2.476  1.00  0.00           H  
+HETATM   60  H5  BDP P   3      -7.680 -18.937   0.390  1.00  0.00           H  
+HETATM   61  C1  NAG P   4      -6.273 -16.806   3.232  1.00  0.00           C  
+HETATM   62  C2  NAG P   4      -7.070 -15.530   3.378  1.00  0.00           C  
+HETATM   63  C3  NAG P   4      -6.234 -14.436   4.003  1.00  0.00           C  
+HETATM   64  C4  NAG P   4      -5.582 -14.921   5.272  1.00  0.00           C  
+HETATM   65  C5  NAG P   4      -4.840 -16.220   5.048  1.00  0.00           C  
+HETATM   66  C6  NAG P   4      -4.256 -16.748   6.350  1.00  0.00           C  
+HETATM   67  C7  NAG P   4      -8.852 -15.016   1.750  1.00  0.00           C  
+HETATM   68  C8  NAG P   4      -9.082 -14.544   0.313  1.00  0.00           C  
+HETATM   69  N2  NAG P   4      -7.540 -15.119   2.058  1.00  0.00           N  
+HETATM   70  O3  NAG P   4      -7.058 -13.354   4.316  1.00  0.00           O  
+HETATM   71  O4  NAG P   4      -4.683 -13.956   5.708  1.00  0.00           O  
+HETATM   72  O5  NAG P   4      -5.737 -17.183   4.498  1.00  0.00           O  
+HETATM   73  O6  NAG P   4      -3.554 -17.948   6.107  1.00  0.00           O  
+HETATM   74  O7  NAG P   4      -9.787 -15.257   2.505  1.00  0.00           O  
+HETATM   75  H1  NAG P   4      -5.420 -16.647   2.547  1.00  0.00           H  
+HETATM   76  H2  NAG P   4      -7.940 -15.725   4.023  1.00  0.00           H  
+HETATM   77  H3  NAG P   4      -5.461 -14.095   3.297  1.00  0.00           H  
+HETATM   78  H4  NAG P   4      -6.336 -15.041   6.065  1.00  0.00           H  
+HETATM   79  H5  NAG P   4      -4.038 -16.070   4.308  1.00  0.00           H  
+HETATM   80  H61 NAG P   4      -5.048 -16.922   7.094  1.00  0.00           H  
+HETATM   81  H62 NAG P   4      -3.566 -16.013   6.791  1.00  0.00           H  
+HETATM   82  H81 NAG P   4     -10.145 -14.318   0.142  1.00  0.00           H  
+HETATM   83  H82 NAG P   4      -8.501 -13.634   0.102  1.00  0.00           H  
+HETATM   84  H83 NAG P   4      -8.778 -15.320  -0.406  1.00  0.00           H  
+HETATM   85  HN2 NAG P   4      -6.862 -14.904   1.356  1.00  0.00           H  
+HETATM   86  C1  BDP P   5      -6.901 -12.190   3.559  1.00  0.00           C  
+HETATM   87  C2  BDP P   5      -8.038 -11.245   3.881  1.00  0.00           C  
+HETATM   88  C3  BDP P   5      -7.929  -9.989   3.044  1.00  0.00           C  
+HETATM   89  C4  BDP P   5      -6.570  -9.357   3.227  1.00  0.00           C  
+HETATM   90  C5  BDP P   5      -5.467 -10.366   2.954  1.00  0.00           C  
+HETATM   91  C6  BDP P   5      -4.059  -9.784   3.192  1.00  0.00           C  
+HETATM   92  O2  BDP P   5      -9.262 -11.897   3.607  1.00  0.00           O  
+HETATM   93  O3  BDP P   5      -8.927  -9.062   3.420  1.00  0.00           O  
+HETATM   94  O4  BDP P   5      -6.450  -8.294   2.329  1.00  0.00           O  
+HETATM   95  O5  BDP P   5      -5.659 -11.519   3.773  1.00  0.00           O  
+HETATM   96  O6A BDP P   5      -3.272  -9.744   2.246  1.00  0.00           O  
+HETATM   97  O6B BDP P   5      -3.762  -9.376   4.316  1.00  0.00           O  
+HETATM   98  H1  BDP P   5      -6.931 -12.480   2.492  1.00  0.00           H  
+HETATM   99  H2  BDP P   5      -8.003 -10.986   4.950  1.00  0.00           H  
+HETATM  100  H3  BDP P   5      -8.058 -10.243   1.980  1.00  0.00           H  
+HETATM  101  H4  BDP P   5      -6.476  -8.957   4.250  1.00  0.00           H  
+HETATM  102  H5  BDP P   5      -5.541 -10.713   1.912  1.00  0.00           H  
+HETATM  103  C1  NAG P   6      -6.094  -7.051   2.853  1.00  0.00           C  
+HETATM  104  C2  NAG P   6      -5.699  -6.147   1.705  1.00  0.00           C  
+HETATM  105  C3  NAG P   6      -5.309  -4.778   2.210  1.00  0.00           C  
+HETATM  106  C4  NAG P   6      -6.396  -4.214   3.091  1.00  0.00           C  
+HETATM  107  C5  NAG P   6      -6.746  -5.184   4.201  1.00  0.00           C  
+HETATM  108  C6  NAG P   6      -7.883  -4.652   5.062  1.00  0.00           C  
+HETATM  109  C7  NAG P   6      -4.659  -7.105  -0.317  1.00  0.00           C  
+HETATM  110  C8  NAG P   6      -3.356  -7.713  -0.838  1.00  0.00           C  
+HETATM  111  N2  NAG P   6      -4.588  -6.764   0.988  1.00  0.00           N  
+HETATM  112  O3  NAG P   6      -5.118  -3.919   1.125  1.00  0.00           O  
+HETATM  113  O4  NAG P   6      -5.943  -3.002   3.651  1.00  0.00           O  
+HETATM  114  O5  NAG P   6      -7.127  -6.432   3.621  1.00  0.00           O  
+HETATM  115  O6  NAG P   6      -8.173  -5.572   6.093  1.00  0.00           O  
+HETATM  116  O7  NAG P   6      -5.635  -6.958  -1.044  1.00  0.00           O  
+HETATM  117  H1  NAG P   6      -5.232  -7.205   3.528  1.00  0.00           H  
+HETATM  118  H2  NAG P   6      -6.555  -6.045   1.020  1.00  0.00           H  
+HETATM  119  H3  NAG P   6      -4.363  -4.844   2.772  1.00  0.00           H  
+HETATM  120  H4  NAG P   6      -7.292  -4.014   2.482  1.00  0.00           H  
+HETATM  121  H5  NAG P   6      -5.861  -5.382   4.826  1.00  0.00           H  
+HETATM  122  H61 NAG P   6      -8.784  -4.472   4.457  1.00  0.00           H  
+HETATM  123  H62 NAG P   6      -7.608  -3.686   5.512  1.00  0.00           H  
+HETATM  124  H81 NAG P   6      -3.391  -7.835  -1.931  1.00  0.00           H  
+HETATM  125  H82 NAG P   6      -2.498  -7.068  -0.594  1.00  0.00           H  
+HETATM  126  H83 NAG P   6      -3.179  -8.702  -0.390  1.00  0.00           H  
+HETATM  127  HN2 NAG P   6      -3.738  -6.940   1.485  1.00  0.00           H  
+HETATM  128  C1  BDP P   7      -3.810  -3.509   0.857  1.00  0.00           C  
+HETATM  129  C2  BDP P   7      -3.787  -2.805  -0.482  1.00  0.00           C  
+HETATM  130  C3  BDP P   7      -2.375  -2.390  -0.833  1.00  0.00           C  
+HETATM  131  C4  BDP P   7      -1.784  -1.558   0.280  1.00  0.00           C  
+HETATM  132  C5  BDP P   7      -1.891  -2.285   1.610  1.00  0.00           C  
+HETATM  133  C6  BDP P   7      -1.356  -1.447   2.789  1.00  0.00           C  
+HETATM  134  O2  BDP P   7      -4.286  -3.686  -1.468  1.00  0.00           O  
+HETATM  135  O3  BDP P   7      -2.369  -1.637  -2.029  1.00  0.00           O  
+HETATM  136  O4  BDP P   7      -0.436  -1.325  -0.005  1.00  0.00           O  
+HETATM  137  O5  BDP P   7      -3.250  -2.648   1.849  1.00  0.00           O  
+HETATM  138  O6A BDP P   7      -0.410  -1.888   3.441  1.00  0.00           O  
+HETATM  139  O6B BDP P   7      -1.886  -0.364   3.042  1.00  0.00           O  
+HETATM  140  H1  BDP P   7      -3.177  -4.416   0.825  1.00  0.00           H  
+HETATM  141  H2  BDP P   7      -4.437  -1.917  -0.436  1.00  0.00           H  
+HETATM  142  H3  BDP P   7      -1.751  -3.287  -0.970  1.00  0.00           H  
+HETATM  143  H4  BDP P   7      -2.298  -0.584   0.336  1.00  0.00           H  
+HETATM  144  H5  BDP P   7      -1.326  -3.229   1.555  1.00  0.00           H  
+HETATM  145  C1  NAG P   8       0.000   0.000   0.000  1.00  0.00           C  
+HETATM  146  C2  NAG P   8       1.512   0.000   0.000  1.00  0.00           C  
+HETATM  147  C3  NAG P   8       2.051   1.414   0.000  1.00  0.00           C  
+HETATM  148  C4  NAG P   8       1.426   2.217  -1.125  1.00  0.00           C  
+HETATM  149  C5  NAG P   8      -0.087   2.140  -1.064  1.00  0.00           C  
+HETATM  150  C6  NAG P   8      -0.726   2.889  -2.225  1.00  0.00           C  
+HETATM  151  C7  NAG P   8       2.927  -1.670   1.137  1.00  0.00           C  
+HETATM  152  C8  NAG P   8       3.215  -2.285   2.508  1.00  0.00           C  
+HETATM  153  N2  NAG P   8       1.968  -0.719   1.187  1.00  0.00           N  
+HETATM  154  O3  NAG P   8       3.453   1.373  -0.172  1.00  0.00           O  
+HETATM  155  O4  NAG P   8       1.825   3.569  -1.018  1.00  0.00           O  
+HETATM  156  O5  NAG P   8      -0.482   0.769  -1.102  1.00  0.00           O  
+HETATM  157  O6  NAG P   8      -2.133   2.808  -2.130  1.00  0.00           O  
+HETATM  158  O7  NAG P   8       3.526  -2.031   0.131  1.00  0.00           O  
+HETATM  159  H1  NAG P   8      -0.381   0.475   0.923  1.00  0.00           H  
+HETATM  160  H2  NAG P   8       1.860  -0.537  -0.897  1.00  0.00           H  
+HETATM  161  H3  NAG P   8       1.816   1.886   0.966  1.00  0.00           H  
+HETATM  162  H4  NAG P   8       1.765   1.822  -2.096  1.00  0.00           H  
+HETATM  163  H5  NAG P   8      -0.450   2.548  -0.107  1.00  0.00           H  
+HETATM  164  H61 NAG P   8      -0.392   2.478  -3.190  1.00  0.00           H  
+HETATM  165  H62 NAG P   8      -0.428   3.948  -2.215  1.00  0.00           H  
+HETATM  166  H81 NAG P   8       4.054  -2.994   2.449  1.00  0.00           H  
+HETATM  167  H82 NAG P   8       3.477  -1.507   3.240  1.00  0.00           H  
+HETATM  168  H83 NAG P   8       2.335  -2.827   2.885  1.00  0.00           H  
+HETATM  169  HN2 NAG P   8       1.547  -0.505   2.068  1.00  0.00           H  
+ENDMDL                                                                          
+MASTER        0    0    0    0    0    0    0    6  105    0    0    0          
+END                                                                             
